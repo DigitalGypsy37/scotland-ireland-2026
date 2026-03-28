@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jokes | Scotland & Ireland Trip Guide</title>
+<style>
+
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap');
+
+  :root {
+    --scotland-blue: #005EB8;
+    --scotland-dark: #1a2744;
+    --ireland-green: #169B62;
+    --ireland-dark: #0d5e3b;
+    --gold: #D4A843;
+    --warm-cream: #FDF6EC;
+    --soft-gray: #f5f5f5;
+    --text: #2d2d2d;
+    --text-light: #555;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    color: var(--text);
+    background: var(--warm-cream);
+    line-height: 1.7;
+  }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, var(--scotland-dark) 0%, var(--scotland-blue) 30%, var(--ireland-green) 70%, var(--ireland-dark) 100%);
+    color: white;
+    text-align: center;
+    padding: 80px 20px 60px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 5 L35 20 L50 20 L38 30 L42 45 L30 36 L18 45 L22 30 L10 20 L25 20 Z' fill='rgba(255,255,255,0.03)'/%3E%3C/svg%3E");
+    opacity: 0.5;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.2em;
+    font-weight: 900;
+    margin-bottom: 10px;
+    position: relative;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  }
+  .hero .dates {
+    font-size: 1.3em;
+    font-weight: 300;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    position: relative;
+  }
+  .hero .tagline {
+    font-size: 1.1em;
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+  }
+  .flag-row {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 25px;
+    font-size: 2.5em;
+    position: relative;
+  }
+
+  /* NAV */
+  .toc {
+    background: white;
+    padding: 30px;
+    max-width: 900px;
+    margin: -30px auto 30px;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    position: relative;
+    z-index: 2;
+  }
+  .toc h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4em;
+    margin-bottom: 15px;
+    text-align: center;
+    color: var(--scotland-dark);
+  }
+  .toc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+  }
+  .toc-grid a {
+    display: block;
+    padding: 12px 16px;
+    background: var(--soft-gray);
+    border-radius: 10px;
+    text-decoration: none;
+    color: var(--text);
+    font-weight: 500;
+    font-size: 0.95em;
+    transition: all 0.2s;
+    text-align: center;
+  }
+  .toc-grid a:hover {
+    background: var(--scotland-blue);
+    color: white;
+    transform: translateY(-2px);
+  }
+
+  /* SECTIONS */
+  .container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+
+  section {
+    background: white;
+    border-radius: 16px;
+    padding: 40px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 3px solid var(--gold);
+  }
+  .section-icon { font-size: 2em; }
+  .section-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8em;
+    color: var(--scotland-dark);
+  }
+
+  h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3em;
+    color: var(--scotland-blue);
+    margin: 25px 0 12px;
+  }
+  h3.ireland { color: var(--ireland-green); }
+
+  h4 {
+    font-weight: 600;
+    font-size: 1.05em;
+    margin: 18px 0 8px;
+    color: var(--text);
+  }
+
+  p { margin-bottom: 12px; color: var(--text-light); }
+
+  /* CARDS */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 16px;
+    margin: 15px 0;
+  }
+  .card {
+    background: var(--soft-gray);
+    border-radius: 12px;
+    padding: 20px;
+    border-left: 4px solid var(--gold);
+  }
+  .card.scotland { border-left-color: var(--scotland-blue); }
+  .card.ireland { border-left-color: var(--ireland-green); }
+  .card h4 { margin-top: 0; font-size: 1em; }
+  .card p { font-size: 0.92em; margin-bottom: 6px; }
+
+  /* PHRASE BOXES */
+  .phrase-box {
+    display: inline-block;
+    background: linear-gradient(135deg, #f8f4ff, #f0f0ff);
+    border-radius: 10px;
+    padding: 14px 20px;
+    margin: 6px 4px;
+    border: 1px solid #e0d8f0;
+  }
+  .phrase-box.gaelic { background: linear-gradient(135deg, #f0fff4, #e8f5e9); border-color: #b2dfdb; }
+  .phrase-word {
+    font-weight: 700;
+    font-size: 1.1em;
+    color: var(--scotland-dark);
+    display: block;
+  }
+  .phrase-pron {
+    font-style: italic;
+    font-size: 0.85em;
+    color: #888;
+  }
+  .phrase-meaning {
+    font-size: 0.9em;
+    color: var(--text-light);
+    margin-top: 2px;
+  }
+
+  /* FUN FACT CALLOUTS */
+  .fun-fact {
+    background: linear-gradient(135deg, #FFF8E7, #FFF3D6);
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin: 12px 0;
+    border-left: 4px solid var(--gold);
+    font-size: 0.95em;
+  }
+  .fun-fact strong { color: var(--scotland-dark); }
+
+  /* FOOD ITEMS */
+  .food-item {
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .food-item:last-child { border-bottom: none; }
+  .food-name {
+    font-weight: 700;
+    font-size: 1.05em;
+    color: var(--text);
+  }
+  .food-desc {
+    font-size: 0.92em;
+    color: var(--text-light);
+    margin-top: 2px;
+  }
+
+  /* CHECKLIST */
+  .checklist { list-style: none; padding: 0; }
+  .checklist li {
+    padding: 8px 0 8px 32px;
+    position: relative;
+    font-size: 0.95em;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  .checklist li::before {
+    content: '\2610';
+    position: absolute;
+    left: 0;
+    font-size: 1.2em;
+    color: var(--scotland-blue);
+  }
+
+  /* ITINERARY */
+  .itinerary-day {
+    display: flex;
+    gap: 16px;
+    padding: 14px 0;
+    border-bottom: 1px solid #eee;
+    align-items: flex-start;
+  }
+  .day-num {
+    background: var(--scotland-blue);
+    color: white;
+    border-radius: 50%;
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.85em;
+    flex-shrink: 0;
+  }
+  .day-num.ireland-day { background: var(--ireland-green); }
+  .day-info { flex: 1; }
+  .day-date { font-weight: 600; font-size: 0.95em; }
+  .day-details { font-size: 0.88em; color: var(--text-light); }
+
+  /* LOCATION BLOCK (new) */
+  .location-block {
+    background: var(--soft-gray);
+    border-radius: 14px;
+    padding: 25px 28px;
+    margin: 20px 0 30px;
+    border-top: 4px solid var(--scotland-blue);
+  }
+  .location-block.ireland-block { border-top-color: var(--ireland-green); }
+  .location-block h3 { margin-top: 0; }
+  .location-block .fun-fact { background: white; }
+  .location-block .card { background: white; }
+  .location-block .tip-box { background: white; border-left-color: var(--gold); }
+
+  /* EASTER EGG */
+  .easter-egg {
+    background: linear-gradient(135deg, #F3E8FF, #EDE4F7);
+    border-radius: 12px;
+    padding: 14px 18px;
+    margin: 8px 0;
+    border-left: 4px solid #9B59B6;
+    font-size: 0.92em;
+  }
+  .easter-egg strong { color: #6C3483; }
+  .easter-egg-header {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1em;
+    color: #6C3483;
+    margin: 22px 0 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .location-block .easter-egg { background: white; border-left-color: #9B59B6; }
+
+  /* TIP BOX */
+  .tip-box {
+    background: linear-gradient(135deg, #E8F4FD, #D6EAF8);
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin: 12px 0;
+    border-left: 4px solid var(--scotland-blue);
+    font-size: 0.95em;
+  }
+  .tip-box.green {
+    background: linear-gradient(135deg, #E8F8F0, #D5F5E3);
+    border-left-color: var(--ireland-green);
+  }
+
+  /* BADGE */
+  .badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 0.75em;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+  .badge.scotland { background: #E8F0FE; color: var(--scotland-blue); }
+  .badge.ireland { background: #E8F8F0; color: var(--ireland-green); }
+  .badge.both { background: #FFF3D6; color: #8B6914; }
+
+  /* CURRENCY TABLE */
+  .currency-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+    font-size: 0.92em;
+  }
+  .currency-table th {
+    background: var(--scotland-dark);
+    color: white;
+    padding: 12px 16px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .currency-table td {
+    padding: 10px 16px;
+    border-bottom: 1px solid #eee;
+  }
+  .currency-table tr:nth-child(even) { background: #fafafa; }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--text-light);
+    font-size: 0.9em;
+  }
+
+  @media (max-width: 600px) {
+    .hero h1 { font-size: 2em; }
+    section { padding: 25px 20px; }
+    .card-grid { grid-template-columns: 1fr; }
+    .location-block { padding: 18px 16px; }
+  }
+
+
+  /* SITE NAV */
+  .site-nav {
+    background: white;
+    padding: 12px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  .site-nav-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .site-nav-brand {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1.1em;
+    color: var(--scotland-dark);
+    text-decoration: none;
+    margin-right: auto;
+    white-space: nowrap;
+  }
+  .site-nav a.nav-link {
+    font-size: 0.85em;
+    font-weight: 500;
+    color: var(--text-light);
+    text-decoration: none;
+    padding: 6px 10px;
+    border-radius: 8px;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .site-nav a.nav-link:hover,
+  .site-nav a.nav-link.active {
+    background: var(--scotland-blue);
+    color: white;
+  }
+  .site-nav a.nav-link.active-ireland {
+    background: var(--ireland-green);
+    color: white;
+  }
+  .nav-toggle {
+    display: none;
+    background: none;
+    border: 2px solid var(--scotland-blue);
+    border-radius: 6px;
+    padding: 6px 10px;
+    font-size: 1.2em;
+    cursor: pointer;
+    color: var(--scotland-blue);
+  }
+  .nav-links { display: flex; gap: 4px; flex-wrap: wrap; align-items: center; }
+  @media (max-width: 768px) {
+    .nav-toggle { display: block; }
+    .nav-links { display: none; width: 100%; flex-direction: column; gap: 2px; }
+    .nav-links.open { display: flex; }
+    .site-nav a.nav-link { width: 100%; text-align: left; }
+  }
+  .hero { padding: 50px 20px 40px; }
+  .hero h1 { font-size: 2.4em; }
+
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="site-nav-inner">
+    <a href="index.html" class="site-nav-brand">Scotland &amp; Ireland 2026</a>
+    <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">&#9776;</button>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="itinerary.html" class="nav-link">Your Journey</a>
+      <a href="packing.html" class="nav-link">Packing List</a>
+      <a href="food.html" class="nav-link">Food & Drink</a>
+      <a href="funfacts.html" class="nav-link">Fun Facts</a>
+      <a href="phrases.html" class="nav-link">Phrases & Slang</a>
+      <a href="souvenirs.html" class="nav-link">Souvenirs</a>
+      <a href="etiquette.html" class="nav-link">Etiquette</a>
+      <a href="practical.html" class="nav-link">Practical Tips</a>
+      <a href="jokes.html" class="nav-link active">Jokes</a>
+      <a href="movies.html" class="nav-link">Movies & TV</a>
+    </div>
+  </div>
+</nav>
+
+
+<div class="container" style="padding-top: 20px;">
+<section id="jokes">
+  <div class="section-header">
+    <span class="section-icon">😂</span>
+    <h2>Jokes by Location</h2>
+  </div>
+
+  <h3>General Scotland</h3>
+  <div class="fun-fact">
+    <strong>Why did the Highlander go to the kilt shop?</strong> He heard they were having a hem-demic sale!
+  </div>
+  <div class="fun-fact">
+    <strong>Have you heard about the new Scottish dating app?</strong> It&rsquo;s called "Whisky Me Away."
+  </div>
+  <div class="fun-fact">
+    <strong>What&rsquo;s Scottish sunshine?</strong> A rumour!
+  </div>
+  <div class="fun-fact">
+    <strong>I came, I saw, I kilt.</strong>
+  </div>
+  <div class="fun-fact">
+    <strong>Why did the haggis get promoted?</strong> It had guts!
+  </div>
+  <div class="fun-fact">
+    <strong>What do you call a Scot who&rsquo;s run out of whisky?</strong> A tragedy!
+  </div>
+  <div class="fun-fact">
+    <strong>40 degrees &mdash; Californians shiver uncontrollably.</strong> People in Scotland sunbathe.
+  </div>
+  <div class="fun-fact">
+    <strong>What is the difference between a Scottish sheep farmer and a Rolling Stones song?</strong> One says "Hey you, get off of my cloud!" and the other says "Hey McCloud, get off of my ewe!"
+  </div>
+  <div class="fun-fact">
+    <strong>Rain is just sky whisky!</strong>
+  </div>
+
+  <h3>Edinburgh</h3>
+  <div class="fun-fact">
+    <strong>Enjoying a reign-y day here at Edinburgh Castle.</strong> Joust do it.
+  </div>
+  <div class="fun-fact">
+    <strong>Why don&rsquo;t secrets stay hidden in Edinburgh Castle?</strong> Too many tour guides!
+  </div>
+  <div class="fun-fact">
+    <strong>What did the ghost of Greyfriars Bobby say?</strong> "This graveyard is ruff around the edges, but I love it!"
+  </div>
+  <div class="fun-fact">
+    <strong>How many spirits haunt Greyfriars?</strong> Just the ones who checked in and never checked out!
+  </div>
+  <div class="fun-fact">
+    <strong>I couldn&rsquo;t have afforded to live in a castle,</strong> but it would have been peasant.
+  </div>
+
+  <h3>Stirling</h3>
+  <div class="fun-fact">
+    <strong>Why did William Wallace bring a ladder to battle?</strong> He wanted to reach new heights!
+  </div>
+  <div class="fun-fact">
+    <strong>What&rsquo;s the difference between Stirling Castle and Mel Gibson?</strong> One actually looks like a legend!
+  </div>
+  <div class="fun-fact">
+    <strong>Did you hear about the Wallace Monument&rsquo;s fan club?</strong> Membership keeps growing &mdash; it&rsquo;s monumental!
+  </div>
+
+  <h3>Highlands &amp; Loch Ness</h3>
+  <div class="fun-fact">
+    <strong>What does Nessie eat for breakfast?</strong> Scotch eggs!
+  </div>
+  <div class="fun-fact">
+    <strong>Which mythical creature never cleans its room?</strong> The Loch Mess Monster!
+  </div>
+  <div class="fun-fact">
+    <strong>What did the Loch Ness Monster say to his long-lost friend?</strong> Long time no sea!
+  </div>
+  <div class="fun-fact">
+    <strong>How can you communicate with the Loch Ness Monster?</strong> Drop him a line!
+  </div>
+  <div class="fun-fact">
+    <strong>Why do Highlanders make great philosophers?</strong> They&rsquo;re always contemplating the moor!
+  </div>
+
+  <h3>Glasgow &amp; Loch Lomond</h3>
+  <div class="fun-fact">
+    <strong>A Glasgow woman goes to the dentist</strong> and settles down in the chair. "Comfy?" asks the dentist. "Govan," she replies. <em>(Wordplay on Glasgow neighbourhood names &mdash; Comfy/Govan)</em>
+  </div>
+  <div class="fun-fact">
+    <strong>A tourist fishing for two weeks on Loch Lomond</strong> without getting a bite finally hooked a salmon on the last day. "This fish has cost me six hundred dollars," he said. His guide replied, "Well, Sir, it&rsquo;s a good thing you only caught the one."
+  </div>
+  <div class="fun-fact">
+    <strong>In Glasgow, "how" means "why."</strong> You don&rsquo;t ponder why. You demand HOW?
+  </div>
+
+  <h3>Giant&rsquo;s Causeway</h3>
+  <div class="fun-fact">
+    <strong>Having a rock-solid time at the Giant&rsquo;s Causeway &mdash;</strong> no pun intended!
+  </div>
+  <div class="fun-fact">
+    <strong>Why did the giant use the causeway instead of flying?</strong> Because he wanted to keep his feet on the ground!
+  </div>
+  <div class="fun-fact">
+    <strong>What&rsquo;s the giant&rsquo;s favourite type of music?</strong> Stone rock!
+  </div>
+
+  <h3 class="ireland">Belfast</h3>
+  <div class="fun-fact">
+    <strong>What did the Titanic captain say when he saw a pile of cereal in the ocean?</strong> "Oh no, we&rsquo;re going to hit an Ice-berg!"
+  </div>
+  <div class="fun-fact">
+    <strong>Built in Belfast, buried in memes.</strong> (Belfast&rsquo;s dark joke: "She was fine when she left here.")
+  </div>
+
+  <h3 class="ireland">Dublin</h3>
+  <div class="fun-fact">
+    <strong>Why did the student bring a ladder to Trinity College?</strong> To reach higher learning!
+  </div>
+  <div class="fun-fact">
+    <strong>I tried taking a quiet walk in Temple Bar &mdash;</strong> now I&rsquo;m part of a street performance!
+  </div>
+  <div class="fun-fact">
+    <strong>What did Molly Malone say to the statue?</strong> "You&rsquo;re living my life &mdash; literally!"
+  </div>
+  <div class="fun-fact">
+    <strong>The Spire is Dublin&rsquo;s way of pointing out to visitors:</strong> "And that&rsquo;s your way back to the hotel!"
+  </div>
+  <div class="fun-fact">
+    <strong>Phoenix Park is so big,</strong> it takes longer to cross it than it takes to read the Book of Kells!
+  </div>
+  <div class="fun-fact">
+    <strong>What do you call a deer in Phoenix Park that speaks Irish?</strong> A Gaelic stag!
+  </div>
+  <div class="fun-fact">
+    <strong>How can you tell an Irishman is having a good time?</strong> He&rsquo;s Dublin over with laughter!
+  </div>
+
+  <h3 class="ireland">Galway</h3>
+  <div class="fun-fact">
+    <strong>Why do people love Galway so much?</strong> Because it&rsquo;s the craic of the west!
+  </div>
+  <div class="fun-fact">
+    <strong>The Spanish Arch in Galway isn&rsquo;t Spanish &mdash;</strong> kind of like how Irish coffee isn&rsquo;t coffee!
+  </div>
+  <div class="fun-fact">
+    <strong>Galway is so charming,</strong> even the cobblestones have a sense of humour.
+  </div>
+
+  <h3 class="ireland">Inishmore &amp; Aran Islands</h3>
+  <div class="fun-fact">
+    <strong>Why did the tourist bring a boat to Inishmore?</strong> Because the WiFi doesn&rsquo;t reach there either!
+  </div>
+  <div class="fun-fact">
+    <strong>The Aran Islands: where time moves slower</strong> and the pints are stronger.
+  </div>
+  <div class="fun-fact">
+    <strong>What do Aran Islanders call a quick trip?</strong> "Just a ferry away!"
+  </div>
+
+  <h3 class="ireland">Cliffs of Moher</h3>
+  <div class="fun-fact">
+    <strong>"Moher" power to ya!</strong>
+  </div>
+  <div class="fun-fact">
+    <strong>Leaving you with this cliff hanger!</strong>
+  </div>
+  <div class="fun-fact">
+    <strong>The best place on Earth &mdash;</strong> Moher or less!
+  </div>
+  <div class="fun-fact">
+    <strong>Can someone please take me back to the Cliffs of Insanity?</strong> I mean... Moher! <em>(Princess Bride reference!)</em>
+  </div>
+
+  <h3 class="ireland">Ring of Kerry &amp; Killarney</h3>
+  <div class="fun-fact">
+    <strong>Why is the Ring of Kerry called a "ring"?</strong> Because it keeps tourists going in circles!
+  </div>
+  <div class="fun-fact">
+    <strong>What do you call the funny sound a tour bus makes on the Ring of Kerry?</strong> Sneem-thing amusing! <em>(Sneem is a village on the route!)</em>
+  </div>
+
+  <h3 class="ireland">Blarney Castle</h3>
+  <div class="fun-fact">
+    <strong>A group of tourists visited Blarney Castle,</strong> and one asked, "Will kissing the stone make me Irish?" The guide said, "No, but the whiskey will!"
+  </div>
+  <div class="fun-fact">
+    <strong>What did the tourist say after kissing the Blarney Stone?</strong> "Well, I haven&rsquo;t gained the gift of the gab &mdash; I&rsquo;m still just as quiet as ever!"
+  </div>
+
+  <h3 class="ireland">Irish Dance &amp; Gaelic Games</h3>
+  <div class="fun-fact">
+    <strong>I wasn&rsquo;t kicking him.</strong> I was Riverdancing and he got in the way!
+  </div>
+  <div class="fun-fact">
+    <strong>I saw an Irish dancing show called "Streamdance" &mdash;</strong> it&rsquo;s like Riverdance, but it&rsquo;s only a tributary act!
+  </div>
+  <div class="fun-fact">
+    <strong>You know you&rsquo;re an Irish dancer</strong> when your wedding dress costs less than your solo dress!
+  </div>
+  <div class="fun-fact">
+    <strong>Hurling: where the ball gets hurt</strong> and the players are tougher!
+  </div>
+
+  <h3 class="ireland">General Ireland</h3>
+  <div class="fun-fact">
+    <strong>It only rains twice a week in Ireland &mdash;</strong> once for three days, once for four!
+  </div>
+  <div class="fun-fact">
+    <strong>What&rsquo;s Irish and sits outside all day?</strong> Patty O&rsquo;Furniture!
+  </div>
+  <div class="fun-fact">
+    <strong>What do you call an Irishman who bounces off walls?</strong> Rick O&rsquo;Shea!
+  </div>
+  <div class="fun-fact">
+    <strong>An Irishman walks into a bar</strong> with a roll of asphalt under his arm and says, "Pint of Guinness please &mdash; and one for the road!"
+  </div>
+  <div class="fun-fact">
+    <strong>Why should you never iron a four-leaf clover?</strong> You don&rsquo;t want to press your luck!
+  </div>
+  <div class="fun-fact">
+    <strong>An Irishman walks into a bar and orders three pints of Guinness.</strong> He takes a sip from each one in turn. When asked why, he explains: "I have two brothers &mdash; one in Australia, one in America. Every Saturday night, we drink together. So I&rsquo;m having their drinks too!"
+  </div>
+  <div class="fun-fact">
+    <strong>An English lawyer asks an Irishman why Irishmen reply to questions with another question.</strong> The Irishman says, "Who told you that?"
+  </div>
+</section>
+</div>
+
+<footer>
+  <p>Scotland &amp; Ireland Trip Guide &mdash; July 7&ndash;23, 2026</p>
+  <p style="margin-top: 8px; font-size: 0.85em;">Made with love for the pod</p>
+</footer>
+
+</body>
+</html>
