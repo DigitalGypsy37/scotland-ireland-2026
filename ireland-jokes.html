@@ -4,632 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Irish Jokes | Scotland & Ireland Trip Guide</title>
-  <style>
-
-
-  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap');
-
-  :root {
-    --scotland-blue: #005EB8;
-    --scotland-dark: #1a2744;
-    --ireland-green: #169B62;
-    --ireland-dark: #0d5e3b;
-    --gold: #D4A843;
-    --warm-cream: #FDF6EC;
-    --soft-gray: #f5f5f5;
-    --text: #2d2d2d;
-    --text-light: #555;
-  }
-
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-
-  body {
-    font-family: 'Inter', sans-serif;
-    color: var(--text);
-    background: var(--warm-cream);
-    line-height: 1.7;
-  }
-
-  /* HERO */
-  .hero {
-    background: linear-gradient(135deg, var(--scotland-dark) 0%, var(--scotland-blue) 30%, var(--ireland-green) 70%, var(--ireland-dark) 100%);
-    color: white;
-    text-align: center;
-    padding: 80px 20px 60px;
-    position: relative;
-    overflow: hidden;
-  }
-  .hero::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 5 L35 20 L50 20 L38 30 L42 45 L30 36 L18 45 L22 30 L10 20 L25 20 Z' fill='rgba(255,255,255,0.03)'/%3E%3C/svg%3E");
-    opacity: 0.5;
-  }
-  .hero h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 3.2em;
-    font-weight: 900;
-    margin-bottom: 10px;
-    position: relative;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-  }
-  .hero .dates {
-    font-size: 1.3em;
-    font-weight: 300;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    margin-bottom: 20px;
-    position: relative;
-  }
-  .hero .tagline {
-    font-size: 1.1em;
-    opacity: 0.9;
-    max-width: 600px;
-    margin: 0 auto;
-    position: relative;
-  }
-  .flag-row {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-top: 25px;
-    font-size: 2.5em;
-    position: relative;
-  }
-
-  /* NAV */
-  .toc {
-    background: white;
-    padding: 30px;
-    max-width: 900px;
-    margin: -30px auto 30px;
-    border-radius: 16px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-    position: relative;
-    z-index: 2;
-  }
-  .toc h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.4em;
-    margin-bottom: 15px;
-    text-align: center;
-    color: var(--scotland-dark);
-  }
-  .toc-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 10px;
-  }
-  .toc-grid a {
-    display: block;
-    padding: 12px 16px;
-    background: var(--soft-gray);
-    border-radius: 10px;
-    text-decoration: none;
-    color: var(--text);
-    font-weight: 500;
-    font-size: 0.95em;
-    transition: all 0.2s;
-    text-align: center;
-  }
-  .toc-grid a:hover {
-    background: var(--scotland-blue);
-    color: white;
-    transform: translateY(-2px);
-  }
-
-  /* SECTIONS */
-  .container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
-
-  section {
-    background: white;
-    border-radius: 16px;
-    padding: 40px;
-    margin-bottom: 30px;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
-  }
-
-  .section-header {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 25px;
-    padding-bottom: 15px;
-    border-bottom: 3px solid var(--gold);
-  }
-  .section-icon { font-size: 2em; }
-  .section-header h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.8em;
-    color: var(--scotland-dark);
-  }
-
-  h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.3em;
-    color: var(--scotland-blue);
-    margin: 25px 0 12px;
-  }
-  h3.ireland { color: var(--ireland-green); }
-
-  h4 {
-    font-weight: 600;
-    font-size: 1.05em;
-    margin: 18px 0 8px;
-    color: var(--text);
-  }
-
-  p { margin-bottom: 12px; color: var(--text-light); }
-
-  /* CARDS */
-  .card-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 16px;
-    margin: 15px 0;
-  }
-  .card {
-    background: var(--soft-gray);
-    border-radius: 12px;
-    padding: 20px;
-    border-left: 4px solid var(--gold);
-  }
-  .card.scotland { border-left-color: var(--scotland-blue); }
-  .card.ireland { border-left-color: var(--ireland-green); }
-  .card h4 { margin-top: 0; font-size: 1em; }
-  .card p { font-size: 0.92em; margin-bottom: 6px; }
-
-  /* PHRASE BOXES */
-  .phrase-box {
-    display: inline-block;
-    background: linear-gradient(135deg, #f8f4ff, #f0f0ff);
-    border-radius: 10px;
-    padding: 14px 20px;
-    margin: 6px 4px;
-    border: 1px solid #e0d8f0;
-  }
-  .phrase-box.gaelic { background: linear-gradient(135deg, #f0fff4, #e8f5e9); border-color: #b2dfdb; }
-  .phrase-word {
-    font-weight: 700;
-    font-size: 1.1em;
-    color: var(--scotland-dark);
-    display: block;
-  }
-  .phrase-pron {
-    font-style: italic;
-    font-size: 0.85em;
-    color: #888;
-  }
-  .phrase-meaning {
-    font-size: 0.9em;
-    color: var(--text-light);
-    margin-top: 2px;
-  }
-
-  /* FUN FACT CALLOUTS */
-  .fun-fact {
-    background: linear-gradient(135deg, #FFF8E7, #FFF3D6);
-    border-radius: 12px;
-    padding: 18px 22px;
-    margin: 12px 0;
-    border-left: 4px solid var(--gold);
-    font-size: 0.95em;
-  }
-  .fun-fact strong { color: var(--scotland-dark); }
-
-  /* FOOD ITEMS */
-  .food-item {
-    padding: 12px 0;
-    border-bottom: 1px solid #eee;
-  }
-  .food-item:last-child { border-bottom: none; }
-  .food-name {
-    font-weight: 700;
-    font-size: 1.05em;
-    color: var(--text);
-  }
-  .food-desc {
-    font-size: 0.92em;
-    color: var(--text-light);
-    margin-top: 2px;
-  }
-
-  /* CHECKLIST */
-  .checklist { list-style: none; padding: 0; }
-  .checklist li {
-    padding: 8px 0 8px 32px;
-    position: relative;
-    font-size: 0.95em;
-    border-bottom: 1px solid #f0f0f0;
-  }
-  .checklist li::before {
-    content: '\2610';
-    position: absolute;
-    left: 0;
-    font-size: 1.2em;
-    color: var(--scotland-blue);
-  }
-
-  /* ITINERARY */
-  .itinerary-day {
-    display: flex;
-    gap: 16px;
-    padding: 14px 0;
-    border-bottom: 1px solid #eee;
-    align-items: flex-start;
-  }
-  .day-num {
-    background: var(--scotland-blue);
-    color: white;
-    border-radius: 50%;
-    width: 38px;
-    height: 38px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    font-size: 0.85em;
-    flex-shrink: 0;
-  }
-  .day-num.ireland-day { background: var(--ireland-green); }
-  .day-info { flex: 1; }
-  .day-date { font-weight: 600; font-size: 0.95em; }
-  .day-details { font-size: 0.88em; color: var(--text-light); }
-
-  /* LOCATION BLOCK (new) */
-  .location-block {
-    background: var(--soft-gray);
-    border-radius: 14px;
-    padding: 25px 28px;
-    margin: 20px 0 30px;
-    border-top: 4px solid var(--scotland-blue);
-  }
-  .location-block.ireland-block { border-top-color: var(--ireland-green); }
-  .location-block h3 { margin-top: 0; }
-  .location-block .fun-fact { background: white; }
-  .location-block .card { background: white; }
-  .location-block .tip-box { background: white; border-left-color: var(--gold); }
-
-  /* EASTER EGG */
-  .easter-egg {
-    background: linear-gradient(135deg, #F3E8FF, #EDE4F7);
-    border-radius: 12px;
-    padding: 14px 18px;
-    margin: 8px 0;
-    border-left: 4px solid #9B59B6;
-    font-size: 0.92em;
-  }
-  .easter-egg strong { color: #6C3483; }
-  .easter-egg-header {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.1em;
-    color: #6C3483;
-    margin: 22px 0 10px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .location-block .easter-egg { background: white; border-left-color: #9B59B6; }
-
-  /* TIP BOX */
-  .tip-box {
-    background: linear-gradient(135deg, #E8F4FD, #D6EAF8);
-    border-radius: 12px;
-    padding: 18px 22px;
-    margin: 12px 0;
-    border-left: 4px solid var(--scotland-blue);
-    font-size: 0.95em;
-  }
-  .tip-box.green {
-    background: linear-gradient(135deg, #E8F8F0, #D5F5E3);
-    border-left-color: var(--ireland-green);
-  }
-
-  /* BADGE */
-  .badge {
-    display: inline-block;
-    padding: 3px 10px;
-    border-radius: 20px;
-    font-size: 0.75em;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-left: 8px;
-    vertical-align: middle;
-  }
-  .badge.scotland { background: #E8F0FE; color: var(--scotland-blue); }
-  .badge.ireland { background: #E8F8F0; color: var(--ireland-green); }
-  .badge.both { background: #FFF3D6; color: #8B6914; }
-
-  /* CURRENCY TABLE */
-  .currency-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 15px 0;
-    font-size: 0.92em;
-  }
-  .currency-table th {
-    background: var(--scotland-dark);
-    color: white;
-    padding: 12px 16px;
-    text-align: left;
-    font-weight: 600;
-  }
-  .currency-table td {
-    padding: 10px 16px;
-    border-bottom: 1px solid #eee;
-  }
-  .currency-table tr:nth-child(even) { background: #fafafa; }
-
-  /* FOOTER */
-  footer {
-    text-align: center;
-    padding: 40px 20px;
-    color: var(--text-light);
-    font-size: 0.9em;
-  }
-
-  @media (max-width: 600px) {
-    .hero h1 { font-size: 2em; }
-    section { padding: 25px 20px; }
-    .card-grid { grid-template-columns: 1fr; }
-    .location-block { padding: 18px 16px; }
-  }
-
-
-  /* SITE NAV */
-  .site-nav {
-    background: white;
-    padding: 12px 20px;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  }
-  .site-nav-inner {
-    max-width: 900px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    flex-wrap: wrap;
-  }
-  .site-nav-brand {
-    font-family: 'Playfair Display', serif;
-    font-weight: 700;
-    font-size: 1.1em;
-    color: var(--scotland-dark);
-    text-decoration: none;
-    margin-right: auto;
-    white-space: nowrap;
-  }
-  .site-nav a.nav-link {
-    font-size: 0.85em;
-    font-weight: 500;
-    color: var(--text-light);
-    text-decoration: none;
-    padding: 6px 10px;
-    border-radius: 8px;
-    transition: all 0.2s;
-    white-space: nowrap;
-  }
-  .site-nav a.nav-link:hover,
-  .site-nav a.nav-link.active {
-    background: var(--scotland-blue);
-    color: white;
-  }
-  .site-nav a.nav-link.active-ireland {
-    background: var(--ireland-green);
-    color: white;
-  }
-  .nav-toggle {
-    display: none;
-    background: none;
-    border: 2px solid var(--scotland-blue);
-    border-radius: 6px;
-    padding: 6px 10px;
-    font-size: 1.2em;
-    cursor: pointer;
-    color: var(--scotland-blue);
-  }
-  .nav-links { display: flex; gap: 4px; flex-wrap: wrap; align-items: center; }
-  @media (max-width: 768px) {
-    .nav-toggle { display: block; }
-    .nav-links { display: none; width: 100%; flex-direction: column; gap: 2px; }
-    .nav-links.open { display: flex; }
-    .site-nav a.nav-link { width: 100%; text-align: left; }
-  }
-  .hero { padding: 50px 20px 40px; }
-  .hero h1 { font-size: 2.4em; }
-
-
-
-  /* NAVIGATION STRUCTURE */
-  .trip-nav {
-    background: white;
-    padding: 12px 20px;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  }
-  .trip-nav-inner {
-    max-width: 100%;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    flex-wrap: wrap;
-  }
-  .trip-brand {
-    font-family: 'Playfair Display', serif;
-    font-weight: 700;
-    font-size: 1.1em;
-    color: var(--scotland-dark);
-    text-decoration: none;
-    margin-right: auto;
-    white-space: nowrap;
-  }
-  .nav-toggle {
-    display: none;
-    background: none;
-    border: 2px solid var(--scotland-blue);
-    border-radius: 6px;
-    padding: 6px 10px;
-    font-size: 1.2em;
-    cursor: pointer;
-    color: var(--scotland-blue);
-  }
-
-  /* HORIZONTAL TABS */
-  .horizontal-tabs {
-    display: flex;
-    gap: 8px;
-    padding: 12px 20px;
-    background: white;
-    border-bottom: 1px solid #e0e0e0;
-    flex-wrap: wrap;
-  }
-  .h-tab {
-    padding: 10px 18px;
-    font-size: 0.95em;
-    font-weight: 500;
-    color: var(--text);
-    text-decoration: none;
-    border-bottom: 3px solid transparent;
-    border-radius: 6px 6px 0 0;
-    transition: all 0.2s;
-    display: inline-block;
-  }
-  .h-tab:hover {
-    background: var(--soft-gray);
-  }
-  .h-tab.active {
-    color: white;
-    border-bottom-color: currentColor;
-  }
-  .h-tab.general.active {
-    background: var(--gold);
-    border-bottom-color: var(--gold);
-  }
-  .h-tab.scotland.active {
-    background: var(--scotland-blue);
-    border-bottom-color: var(--scotland-blue);
-  }
-  .h-tab.ireland.active {
-    background: var(--ireland-green);
-    border-bottom-color: var(--ireland-green);
-  }
-
-  /* PAGE LAYOUT */
-  .page-layout {
-    display: flex;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  .sidebar {
-    width: 220px;
-    background: white;
-    border-right: 2px solid var(--soft-gray);
-    padding: 16px 0;
-    flex-shrink: 0;
-    max-height: calc(100vh - 200px);
-    overflow-y: auto;
-  }
-  .v-tab {
-    display: block;
-    padding: 12px 16px;
-    font-size: 0.95em;
-    color: var(--text);
-    text-decoration: none;
-    border-left: 4px solid transparent;
-    transition: all 0.2s;
-  }
-  .v-tab:hover {
-    background: var(--soft-gray);
-  }
-  .v-tab.active {
-    color: white;
-    font-weight: 600;
-  }
-  .general .v-tab.active {
-    background: var(--gold);
-    border-left-color: var(--gold);
-  }
-  .scotland .v-tab.active {
-    background: var(--scotland-blue);
-    border-left-color: var(--scotland-blue);
-  }
-  .ireland .v-tab.active {
-    background: var(--ireland-green);
-    border-left-color: var(--ireland-green);
-  }
-
-  .main-content {
-    flex: 1;
-    padding: 30px;
-    background: var(--warm-cream);
-    overflow-y: auto;
-  }
-
-  /* MOBILE RESPONSIVE */
-  @media (max-width: 768px) {
-    .nav-toggle {
-      display: block;
-    }
-    .trip-nav-inner {
-      flex-direction: row;
-    }
-    .horizontal-tabs {
-      gap: 4px;
-      padding: 8px 12px;
-      overflow-x: auto;
-    }
-    .h-tab {
-      padding: 8px 12px;
-      font-size: 0.9em;
-    }
-    .page-layout {
-      flex-direction: column;
-    }
-    .sidebar {
-      width: 100%;
-      border-right: none;
-      border-bottom: 2px solid var(--soft-gray);
-      display: flex;
-      overflow-x: auto;
-      overflow-y: visible;
-      padding: 8px 0;
-      max-height: none;
-    }
-    .v-tab {
-      white-space: nowrap;
-      border-left: none;
-      border-bottom: 4px solid transparent;
-      padding: 10px 12px;
-    }
-    .general .v-tab.active {
-      background: transparent;
-      border-left: none;
-      border-bottom-color: var(--gold);
-    }
-    .scotland .v-tab.active {
-      background: transparent;
-      border-left: none;
-      border-bottom-color: var(--scotland-blue);
-    }
-    .ireland .v-tab.active {
-      background: transparent;
-      border-left: none;
-      border-bottom-color: var(--ireland-green);
-    }
-    .main-content {
-      padding: 20px;
-    }
-  }
-
-  </style>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
@@ -658,11 +33,257 @@
 </div>
 <div class="main-content">
 <section id="ireland-jokes">
+<div class="section-header">
+<span class="section-icon">&#128514;</span>
+<h2>Irish Jokes</h2>
+</div>
+
+<h3 class="ireland">General Ireland</h3>
+
 <div class="fun-fact">
-<strong>What did the Titanic captain say when he saw a pile of cereal in the ocean?</strong> "Oh no, we’re going to hit an Ice-berg!"
-  </div><div class="fun-fact">
-<strong>Built in Belfast, buried in memes.</strong> (Belfast’s dark joke: "She was fine when she left here.")
-  </div>
+<strong>It only rains twice a week in Ireland &mdash;</strong> once for three days, once for four!
+</div>
+
+<div class="fun-fact">
+<strong>I love summer here in Ireland.</strong> It’s my favourite day of the year.
+</div>
+
+<div class="fun-fact">
+<strong>Did you hear Ireland is the fastest-growing country in Europe?</strong> Its population is always Dublin.
+</div>
+
+<div class="fun-fact">
+<strong>What’s Irish and stays outside all day and night?</strong> Paddy O’Furniture!
+</div>
+
+<div class="fun-fact">
+<strong>Paddy and Murphy are working on a building site.</strong> Paddy says: "I’m gonna get the day off &mdash; I’m gonna pretend I’ve gone mad!" He climbs up the rafters, hangs upside down, and shouts: "I’m a light bulb! I’m a light bulb!" The foreman yells: "Paddy, go home, you’ve gone mad." As Paddy leaves, Murphy starts packing up too. "Where do you think you’re going?" asks the foreman. "Well, I can’t work in the dark!" says Murphy.
+</div>
+
+<div class="fun-fact">
+<strong>The barman says to Paddy:</strong> "Your glass is empty, fancy another one?" Looking puzzled, Paddy says: "Why would I be needing two empty glasses?"
+</div>
+
+<div class="fun-fact">
+<strong>An Irish grandmother on her deathbed</strong> was given a glass of warm milk by the nuns. She pushed it away. They added a drop of Irish whiskey. She drank the whole thing. The nuns asked if she had any final wisdom. She whispered: "Don’t sell that cow."
+</div>
+
+<div class="fun-fact">
+<strong>Why did St. Patrick drive the snakes out of Ireland?</strong> He couldn’t afford their plane fare.
+</div>
+
+<div class="fun-fact">
+<strong>Why should you never iron a four-leaf clover?</strong> You don’t want to press your luck.
+</div>
+
+<div class="fun-fact">
+<strong>An Irish pilot was asked about his toughest landing.</strong> "Shannon Airport, in a storm," he said. "The wind was so bad, we landed twice."
+</div>
+
+<h3 class="ireland">Giant’s Causeway</h3>
+
+<div class="fun-fact">
+<strong>Finn McCool built the Giant’s Causeway to fight a Scottish giant.</strong> Then his wife disguised Finn as a baby. When the Scottish giant saw the size of the "baby," he figured the father must be enormous and ran home, ripping up the causeway behind him. The original "fake it till you make it."
+</div>
+
+<div class="fun-fact">
+<strong>Why did the giant use the causeway instead of flying?</strong> Because he wanted to keep his feet on the ground!
+</div>
+
+<div class="fun-fact">
+<strong>There are exactly 40,000 basalt columns at the Giant’s Causeway.</strong> Scientists say it’s volcanic cooling. The Irish say it’s a giant’s stepping stones. Both sides agree: it’s class.
+</div>
+
+<div class="fun-fact">
+<strong>Having a rock-solid time at the Giant’s Causeway &mdash;</strong> no pun intended! (Actually, all pun intended.)
+</div>
+
+<h3 class="ireland">Belfast</h3>
+
+<div class="fun-fact">
+<strong>Belfast’s favourite Titanic defence:</strong> "She was fine when she left here."
+</div>
+
+<div class="fun-fact">
+<strong>What do you get when you cross the Atlantic with the Titanic?</strong> About halfway.
+</div>
+
+<div class="fun-fact">
+<strong>A tourist asks a Belfast taxi driver:</strong> "What’s the best thing about living in Belfast?" The driver thinks and says: "Well, it’s not as far from Dublin as you’d like."
+</div>
+
+<div class="fun-fact">
+<strong>Belfast’s peace walls are covered in murals from both sides.</strong> A tourist asked a local: "When do you think they’ll take the walls down?" The local said: "When they run out of space for murals."
+</div>
+
+<div class="fun-fact">
+<strong>The Titanic Museum in Belfast cost &pound;97 million to build.</strong> Still cheaper than the original. And this one floats.
+</div>
+
+<h3 class="ireland">Dublin</h3>
+
+<div class="fun-fact">
+<strong>Did you hear about the Irishman who drank 100 litres of stout in 30 minutes?</strong> They’re calling it a Guinness World Record.
+</div>
+
+<div class="fun-fact">
+<strong>Paddy walks into a Dublin pub and asks for three pints of Guinness.</strong> He sips each one in turn until all three are empty, then orders three more. The bartender says: "They’d be fresher one at a time." Paddy explains: "My two brothers moved away &mdash; one to Australia, one to America &mdash; and we agreed to always drink as if we’re together." This goes on for months, until one week Paddy orders only two. The bartender says solemnly: "I’m sorry for your loss." Paddy laughs: "Oh, my brothers are fine &mdash; I just quit drinking!"
+</div>
+
+<div class="fun-fact">
+<strong>A tourist in Temple Bar asks a local:</strong> "Do you know the quickest way to the Guinness Storehouse?" The local replies: "Are you walking or driving?" "Walking." "That’s the quickest way."
+</div>
+
+<div class="fun-fact">
+<strong>The Book of Kells at Trinity College is over 1,200 years old</strong> and people still queue for an hour to see it. It’s the original bestseller with a one-star wait time.
+</div>
+
+<div class="fun-fact">
+<strong>Molly Malone’s statue on Grafton Street</strong> has become Dublin’s most-rubbed bronze. The official name is "The Tart with the Cart." Dubliners have also named the Spire on O’Connell Street "The Stiletto in the Ghetto" and the Ha’Penny Bridge... well, it’s just the Ha’Penny Bridge. Some things you can’t improve.
+</div>
+
+<div class="fun-fact">
+<strong>Glasnevin Cemetery is nicknamed "Croak Park"</strong> by Dubliners &mdash; a play on Croke Park, the sports stadium next door. People have been dying to get in for nearly 200 years.
+</div>
+
+<div class="fun-fact">
+<strong>The Spire on O’Connell Street is 120 metres tall.</strong> A tourist asked what it was for. A Dubliner replied: "It’s so we can find O’Connell Street after a night in Temple Bar."
+</div>
+
+<div class="fun-fact">
+<strong>Temple Bar is Dublin’s cultural quarter.</strong> It’s also where a pint costs enough to fund that culture. Locals call it "the tourist trap with good craic." They’re not wrong on either count.
+</div>
+
+<h3 class="ireland">Galway</h3>
+
+<div class="fun-fact">
+<strong>A tourist in Galway asks a local for directions.</strong> The local thinks for a long while and says: "Well, if I were going there, I wouldn’t start from here."
+</div>
+
+<div class="fun-fact">
+<strong>Why do Galway musicians never get lost?</strong> Because they always follow the trad session!
+</div>
+
+<div class="fun-fact">
+<strong>Galway’s Eyre Square was named after a medieval mayor.</strong> Tourists keep asking where Eyre Square 2 is. There isn’t one. That’s just how Galway works.
+</div>
+
+<div class="fun-fact">
+<strong>The Spanish Arch in Galway is where Spanish traders once docked.</strong> Now it’s where students sit eating chips and pretending to be in Barcelona.
+</div>
+
+<h3 class="ireland">Inishmore &amp; Aran Islands</h3>
+
+<div class="fun-fact">
+<strong>The only traffic jam on Inishmore</strong> is when a donkey disagrees with a bicycle about right of way.
+</div>
+
+<div class="fun-fact">
+<strong>An Aran Islands fisherman was asked if the fish were biting.</strong> He said: "If they are, they’re biting each other."
+</div>
+
+<div class="fun-fact">
+<strong>D&uacute;n Aonghasa, the ancient fort on Inishmore, is perched right on a 100-metre cliff.</strong> The builders had no health and safety office. They also had no walls on the cliff side. Either the builders were very confident or the other half of the fort is at the bottom of the Atlantic.
+</div>
+
+<div class="fun-fact">
+<strong>The Aran Islands are famous for their hand-knit sweaters.</strong> Each family has a unique pattern, historically so they could identify drowned fishermen. The tourism board leaves that part out of the brochure.
+</div>
+
+<h3 class="ireland">Cliffs of Moher</h3>
+
+<div class="fun-fact">
+<strong>The Cliffs of Moher appeared in "The Princess Bride" as the Cliffs of Insanity.</strong> The real insanity? The queue for the car park.
+</div>
+
+<div class="fun-fact">
+<strong>The Cliffs of Moher are 214 metres tall.</strong> The selfie sticks are an additional 1.5 metres. The wind gusts make those selfie sticks a legitimate safety hazard.
+</div>
+
+<div class="fun-fact">
+<strong>Moher to love about Ireland!</strong>
+</div>
+
+<div class="fun-fact">
+<strong>O’Brien’s Tower sits at the highest point of the Cliffs.</strong> It was built in 1835 by a local landlord as an observation point for tourists. The Irish invented the tourist trap 200 years ago and they’ve only gotten better at it.
+</div>
+
+<h3 class="ireland">Ring of Kerry &amp; Sheep Farm</h3>
+
+<div class="fun-fact">
+<strong>A tourist driving the Ring of Kerry got stuck behind a sheep.</strong> He honked his horn. The farmer appeared and said: "No use honking. He can’t drive any faster."
+</div>
+
+<div class="fun-fact">
+<strong>The Ring of Kerry is 179 km of the most beautiful scenery you’ll see at 20 mph</strong> because you’re stuck behind a tour bus. Or a sheep. Usually both.
+</div>
+
+<div class="fun-fact">
+<strong>At the sheep farm visit, the dog does all the work.</strong> The farmer does all the talking. The sheep do all the ignoring. It’s basically a corporate meeting.
+</div>
+
+<div class="fun-fact">
+<strong>Why do Irish sheep love to dance?</strong> Because they enjoy the baa-ll!
+</div>
+
+<h3 class="ireland">Blarney Castle</h3>
+
+<div class="fun-fact">
+<strong>They say kissing the Blarney Stone gives you the gift of eloquence.</strong> They don’t mention it also gives you the gift of hand sanitiser anxiety.
+</div>
+
+<div class="fun-fact">
+<strong>After kissing the Blarney Stone,</strong> a tourist felt like she could talk to anyone. She was right &mdash; but no one could make her stop.
+</div>
+
+<div class="fun-fact">
+<strong>To kiss the Blarney Stone, you have to lean backwards over a ledge</strong> while someone holds your waist. The Irish have turned "please lie down and kiss this old rock" into a multi-million euro industry. Respect.
+</div>
+
+<div class="fun-fact">
+<strong>Queen Elizabeth I supposedly coined the word "blarney"</strong> after the Earl of Blarney kept stalling her with flattering letters instead of handing over his castle. Even royalty can’t resist Irish charm &mdash; though it took her a while to realise she was being had.
+</div>
+
+<h3 class="ireland">Irish Dance &amp; Gaelic Games</h3>
+
+<div class="fun-fact">
+<strong>Why are Irish dancers so good at keeping secrets?</strong> Because they never move their lips!
+</div>
+
+<div class="fun-fact">
+<strong>Hurling explained for Americans:</strong> Imagine baseball, hockey, and rugby had a baby, and the baby was raised by people who think helmets are optional. That’s hurling.
+</div>
+
+<div class="fun-fact">
+<strong>In Gaelic football, you can bounce the ball, kick it, punch it, and carry it.</strong> The only thing you can’t do is understand the rules on the first try.
+</div>
+
+<div class="fun-fact">
+<strong>Irish dancing looks like the top half of the body and the bottom half</strong> had a serious disagreement and decided to do their own thing. The feet are going 200mph. The arms are on a permanent tea break.
+</div>
+
+<div class="fun-fact">
+<strong>Croke Park in Dublin seats 82,300 people.</strong> On match day, every one of them is an expert coach. Just ask them.
+</div>
+
+<h3 class="ireland">Dublin &mdash; Final Day</h3>
+
+<div class="fun-fact">
+<strong>The EPIC Irish Emigration Museum tells the story of 10 million Irish who left.</strong> After two weeks of Irish hospitality, you’ll understand why it’s so hard to leave &mdash; and why the museum gift shop sells tissues.
+</div>
+
+<div class="fun-fact">
+<strong>The James Joyce Tower in Sandycove</strong> features in the opening of <em>Ulysses</em>. If you haven’t read it, don’t worry &mdash; neither have most of the Irish. They just pretend they have. Convincingly.
+</div>
+
+<div class="fun-fact">
+<strong>On your last day, you’ll want to buy "just one more" souvenir.</strong> Then "one more" pint. Then "one more" bag of Tayto. The Irish goodbye takes approximately three hours.
+</div>
+
+<div class="tip-box green">
+<strong>Pub joke etiquette:</strong> If you’re brave enough to try a joke in an Irish pub, self-deprecating humour works best. The Irish call friendly teasing "slagging" &mdash; if someone slags you, they like you. If they stop, worry.
+</div>
+
 </section>
 </div>
 </div>
