@@ -1,0 +1,1220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ireland Locations | Scotland & Ireland Trip Guide</title>
+  <style>
+
+
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap');
+
+  :root {
+    --scotland-blue: #005EB8;
+    --scotland-dark: #1a2744;
+    --ireland-green: #169B62;
+    --ireland-dark: #0d5e3b;
+    --gold: #D4A843;
+    --warm-cream: #FDF6EC;
+    --soft-gray: #f5f5f5;
+    --text: #2d2d2d;
+    --text-light: #555;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    color: var(--text);
+    background: var(--warm-cream);
+    line-height: 1.7;
+  }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, var(--scotland-dark) 0%, var(--scotland-blue) 30%, var(--ireland-green) 70%, var(--ireland-dark) 100%);
+    color: white;
+    text-align: center;
+    padding: 80px 20px 60px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 5 L35 20 L50 20 L38 30 L42 45 L30 36 L18 45 L22 30 L10 20 L25 20 Z' fill='rgba(255,255,255,0.03)'/%3E%3C/svg%3E");
+    opacity: 0.5;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.2em;
+    font-weight: 900;
+    margin-bottom: 10px;
+    position: relative;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  }
+  .hero .dates {
+    font-size: 1.3em;
+    font-weight: 300;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    position: relative;
+  }
+  .hero .tagline {
+    font-size: 1.1em;
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+  }
+  .flag-row {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 25px;
+    font-size: 2.5em;
+    position: relative;
+  }
+
+  /* NAV */
+  .toc {
+    background: white;
+    padding: 30px;
+    max-width: 900px;
+    margin: -30px auto 30px;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    position: relative;
+    z-index: 2;
+  }
+  .toc h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4em;
+    margin-bottom: 15px;
+    text-align: center;
+    color: var(--scotland-dark);
+  }
+  .toc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+  }
+  .toc-grid a {
+    display: block;
+    padding: 12px 16px;
+    background: var(--soft-gray);
+    border-radius: 10px;
+    text-decoration: none;
+    color: var(--text);
+    font-weight: 500;
+    font-size: 0.95em;
+    transition: all 0.2s;
+    text-align: center;
+  }
+  .toc-grid a:hover {
+    background: var(--scotland-blue);
+    color: white;
+    transform: translateY(-2px);
+  }
+
+  /* SECTIONS */
+  .container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+
+  section {
+    background: white;
+    border-radius: 16px;
+    padding: 40px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 3px solid var(--gold);
+  }
+  .section-icon { font-size: 2em; }
+  .section-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8em;
+    color: var(--scotland-dark);
+  }
+
+  h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3em;
+    color: var(--scotland-blue);
+    margin: 25px 0 12px;
+  }
+  h3.ireland { color: var(--ireland-green); }
+
+  h4 {
+    font-weight: 600;
+    font-size: 1.05em;
+    margin: 18px 0 8px;
+    color: var(--text);
+  }
+
+  p { margin-bottom: 12px; color: var(--text-light); }
+
+  /* CARDS */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 16px;
+    margin: 15px 0;
+  }
+  .card {
+    background: var(--soft-gray);
+    border-radius: 12px;
+    padding: 20px;
+    border-left: 4px solid var(--gold);
+  }
+  .card.scotland { border-left-color: var(--scotland-blue); }
+  .card.ireland { border-left-color: var(--ireland-green); }
+  .card h4 { margin-top: 0; font-size: 1em; }
+  .card p { font-size: 0.92em; margin-bottom: 6px; }
+
+  /* PHRASE BOXES */
+  .phrase-box {
+    display: inline-block;
+    background: linear-gradient(135deg, #f8f4ff, #f0f0ff);
+    border-radius: 10px;
+    padding: 14px 20px;
+    margin: 6px 4px;
+    border: 1px solid #e0d8f0;
+  }
+  .phrase-box.gaelic { background: linear-gradient(135deg, #f0fff4, #e8f5e9); border-color: #b2dfdb; }
+  .phrase-word {
+    font-weight: 700;
+    font-size: 1.1em;
+    color: var(--scotland-dark);
+    display: block;
+  }
+  .phrase-pron {
+    font-style: italic;
+    font-size: 0.85em;
+    color: #888;
+  }
+  .phrase-meaning {
+    font-size: 0.9em;
+    color: var(--text-light);
+    margin-top: 2px;
+  }
+
+  /* FUN FACT CALLOUTS */
+  .fun-fact {
+    background: linear-gradient(135deg, #FFF8E7, #FFF3D6);
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin: 12px 0;
+    border-left: 4px solid var(--gold);
+    font-size: 0.95em;
+  }
+  .fun-fact strong { color: var(--scotland-dark); }
+
+  /* FOOD ITEMS */
+  .food-item {
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .food-item:last-child { border-bottom: none; }
+  .food-name {
+    font-weight: 700;
+    font-size: 1.05em;
+    color: var(--text);
+  }
+  .food-desc {
+    font-size: 0.92em;
+    color: var(--text-light);
+    margin-top: 2px;
+  }
+
+  /* CHECKLIST */
+  .checklist { list-style: none; padding: 0; }
+  .checklist li {
+    padding: 8px 0 8px 32px;
+    position: relative;
+    font-size: 0.95em;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  .checklist li::before {
+    content: '\2610';
+    position: absolute;
+    left: 0;
+    font-size: 1.2em;
+    color: var(--scotland-blue);
+  }
+
+  /* ITINERARY */
+  .itinerary-day {
+    display: flex;
+    gap: 16px;
+    padding: 14px 0;
+    border-bottom: 1px solid #eee;
+    align-items: flex-start;
+  }
+  .day-num {
+    background: var(--scotland-blue);
+    color: white;
+    border-radius: 50%;
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.85em;
+    flex-shrink: 0;
+  }
+  .day-num.ireland-day { background: var(--ireland-green); }
+  .day-info { flex: 1; }
+  .day-date { font-weight: 600; font-size: 0.95em; }
+  .day-details { font-size: 0.88em; color: var(--text-light); }
+
+  /* LOCATION BLOCK (new) */
+  .location-block {
+    background: var(--soft-gray);
+    border-radius: 14px;
+    padding: 25px 28px;
+    margin: 20px 0 30px;
+    border-top: 4px solid var(--scotland-blue);
+  }
+  .location-block.ireland-block { border-top-color: var(--ireland-green); }
+  .location-block h3 { margin-top: 0; }
+  .location-block .fun-fact { background: white; }
+  .location-block .card { background: white; }
+  .location-block .tip-box { background: white; border-left-color: var(--gold); }
+
+  /* EASTER EGG */
+  .easter-egg {
+    background: linear-gradient(135deg, #F3E8FF, #EDE4F7);
+    border-radius: 12px;
+    padding: 14px 18px;
+    margin: 8px 0;
+    border-left: 4px solid #9B59B6;
+    font-size: 0.92em;
+  }
+  .easter-egg strong { color: #6C3483; }
+  .easter-egg-header {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1em;
+    color: #6C3483;
+    margin: 22px 0 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .location-block .easter-egg { background: white; border-left-color: #9B59B6; }
+
+  /* TIP BOX */
+  .tip-box {
+    background: linear-gradient(135deg, #E8F4FD, #D6EAF8);
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin: 12px 0;
+    border-left: 4px solid var(--scotland-blue);
+    font-size: 0.95em;
+  }
+  .tip-box.green {
+    background: linear-gradient(135deg, #E8F8F0, #D5F5E3);
+    border-left-color: var(--ireland-green);
+  }
+
+  /* BADGE */
+  .badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 0.75em;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+  .badge.scotland { background: #E8F0FE; color: var(--scotland-blue); }
+  .badge.ireland { background: #E8F8F0; color: var(--ireland-green); }
+  .badge.both { background: #FFF3D6; color: #8B6914; }
+
+  /* CURRENCY TABLE */
+  .currency-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+    font-size: 0.92em;
+  }
+  .currency-table th {
+    background: var(--scotland-dark);
+    color: white;
+    padding: 12px 16px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .currency-table td {
+    padding: 10px 16px;
+    border-bottom: 1px solid #eee;
+  }
+  .currency-table tr:nth-child(even) { background: #fafafa; }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--text-light);
+    font-size: 0.9em;
+  }
+
+  @media (max-width: 600px) {
+    .hero h1 { font-size: 2em; }
+    section { padding: 25px 20px; }
+    .card-grid { grid-template-columns: 1fr; }
+    .location-block { padding: 18px 16px; }
+  }
+
+
+  /* SITE NAV */
+  .site-nav {
+    background: white;
+    padding: 12px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  .site-nav-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .site-nav-brand {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1.1em;
+    color: var(--scotland-dark);
+    text-decoration: none;
+    margin-right: auto;
+    white-space: nowrap;
+  }
+  .site-nav a.nav-link {
+    font-size: 0.85em;
+    font-weight: 500;
+    color: var(--text-light);
+    text-decoration: none;
+    padding: 6px 10px;
+    border-radius: 8px;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .site-nav a.nav-link:hover,
+  .site-nav a.nav-link.active {
+    background: var(--scotland-blue);
+    color: white;
+  }
+  .site-nav a.nav-link.active-ireland {
+    background: var(--ireland-green);
+    color: white;
+  }
+  .nav-toggle {
+    display: none;
+    background: none;
+    border: 2px solid var(--scotland-blue);
+    border-radius: 6px;
+    padding: 6px 10px;
+    font-size: 1.2em;
+    cursor: pointer;
+    color: var(--scotland-blue);
+  }
+  .nav-links { display: flex; gap: 4px; flex-wrap: wrap; align-items: center; }
+  @media (max-width: 768px) {
+    .nav-toggle { display: block; }
+    .nav-links { display: none; width: 100%; flex-direction: column; gap: 2px; }
+    .nav-links.open { display: flex; }
+    .site-nav a.nav-link { width: 100%; text-align: left; }
+  }
+  .hero { padding: 50px 20px 40px; }
+  .hero h1 { font-size: 2.4em; }
+
+
+
+  /* NAVIGATION STRUCTURE */
+  .trip-nav {
+    background: white;
+    padding: 12px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  .trip-nav-inner {
+    max-width: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .trip-brand {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1.1em;
+    color: var(--scotland-dark);
+    text-decoration: none;
+    margin-right: auto;
+    white-space: nowrap;
+  }
+  .nav-toggle {
+    display: none;
+    background: none;
+    border: 2px solid var(--scotland-blue);
+    border-radius: 6px;
+    padding: 6px 10px;
+    font-size: 1.2em;
+    cursor: pointer;
+    color: var(--scotland-blue);
+  }
+
+  /* HORIZONTAL TABS */
+  .horizontal-tabs {
+    display: flex;
+    gap: 8px;
+    padding: 12px 20px;
+    background: white;
+    border-bottom: 1px solid #e0e0e0;
+    flex-wrap: wrap;
+  }
+  .h-tab {
+    padding: 10px 18px;
+    font-size: 0.95em;
+    font-weight: 500;
+    color: var(--text);
+    text-decoration: none;
+    border-bottom: 3px solid transparent;
+    border-radius: 6px 6px 0 0;
+    transition: all 0.2s;
+    display: inline-block;
+  }
+  .h-tab:hover {
+    background: var(--soft-gray);
+  }
+  .h-tab.active {
+    color: white;
+    border-bottom-color: currentColor;
+  }
+  .h-tab.general.active {
+    background: var(--gold);
+    border-bottom-color: var(--gold);
+  }
+  .h-tab.scotland.active {
+    background: var(--scotland-blue);
+    border-bottom-color: var(--scotland-blue);
+  }
+  .h-tab.ireland.active {
+    background: var(--ireland-green);
+    border-bottom-color: var(--ireland-green);
+  }
+
+  /* PAGE LAYOUT */
+  .page-layout {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .sidebar {
+    width: 220px;
+    background: white;
+    border-right: 2px solid var(--soft-gray);
+    padding: 16px 0;
+    flex-shrink: 0;
+    max-height: calc(100vh - 200px);
+    overflow-y: auto;
+  }
+  .v-tab {
+    display: block;
+    padding: 12px 16px;
+    font-size: 0.95em;
+    color: var(--text);
+    text-decoration: none;
+    border-left: 4px solid transparent;
+    transition: all 0.2s;
+  }
+  .v-tab:hover {
+    background: var(--soft-gray);
+  }
+  .v-tab.active {
+    color: white;
+    font-weight: 600;
+  }
+  .general .v-tab.active {
+    background: var(--gold);
+    border-left-color: var(--gold);
+  }
+  .scotland .v-tab.active {
+    background: var(--scotland-blue);
+    border-left-color: var(--scotland-blue);
+  }
+  .ireland .v-tab.active {
+    background: var(--ireland-green);
+    border-left-color: var(--ireland-green);
+  }
+
+  .main-content {
+    flex: 1;
+    padding: 30px;
+    background: var(--warm-cream);
+    overflow-y: auto;
+  }
+
+  /* MOBILE RESPONSIVE */
+  @media (max-width: 768px) {
+    .nav-toggle {
+      display: block;
+    }
+    .trip-nav-inner {
+      flex-direction: row;
+    }
+    .horizontal-tabs {
+      gap: 4px;
+      padding: 8px 12px;
+      overflow-x: auto;
+    }
+    .h-tab {
+      padding: 8px 12px;
+      font-size: 0.9em;
+    }
+    .page-layout {
+      flex-direction: column;
+    }
+    .sidebar {
+      width: 100%;
+      border-right: none;
+      border-bottom: 2px solid var(--soft-gray);
+      display: flex;
+      overflow-x: auto;
+      overflow-y: visible;
+      padding: 8px 0;
+      max-height: none;
+    }
+    .v-tab {
+      white-space: nowrap;
+      border-left: none;
+      border-bottom: 4px solid transparent;
+      padding: 10px 12px;
+    }
+    .general .v-tab.active {
+      background: transparent;
+      border-left: none;
+      border-bottom-color: var(--gold);
+    }
+    .scotland .v-tab.active {
+      background: transparent;
+      border-left: none;
+      border-bottom-color: var(--scotland-blue);
+    }
+    .ireland .v-tab.active {
+      background: transparent;
+      border-left: none;
+      border-bottom-color: var(--ireland-green);
+    }
+    .main-content {
+      padding: 20px;
+    }
+  }
+
+  </style>
+</head>
+<body>
+
+<nav class="trip-nav">
+  <div class="trip-nav-inner">
+    <a href="index.html" class="trip-brand">Scotland & Ireland 2026</a>
+    <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">&#9776;</button>
+  </div>
+  <div class="horizontal-tabs">
+  <a href="index.html" class="h-tab general">General</a>
+  <a href="scotland-locations.html" class="h-tab scotland">Scotland</a>
+  <a href="ireland-locations.html" class="h-tab ireland active">Ireland</a>
+</div>
+</nav>
+
+
+<div class="page-layout ireland">
+<div class="sidebar">
+  <a href="ireland-locations.html" class="v-tab active">Locations</a>
+  <a href="ireland-food.html" class="v-tab">Food & Drink</a>
+  <a href="ireland-phrases.html" class="v-tab">Phrases & Slang</a>
+  <a href="ireland-funfacts.html" class="v-tab">Fun Facts</a>
+  <a href="ireland-souvenirs.html" class="v-tab">Souvenirs</a>
+  <a href="ireland-jokes.html" class="v-tab">Jokes</a>
+  <a href="ireland-movies.html" class="v-tab">Movies & TV</a>
+</div>
+<div class="main-content">
+<section id="ireland-locations">
+<div class="section-header"><span class="section-icon">🇮🇪</span><h2>Your Ireland Journey</h2></div>
+<div class="section-header">
+<span class="section-icon">📅</span>
+<h2>Your Journey</h2>
+</div><div class="itinerary-day">
+<div class="day-num ireland-day">7</div>
+<div class="day-info"><span class="day-date">Jul 13 — Belfast</span><div class="day-details">Ferry to Northern Ireland, Giant's Causeway</div></div>
+</div><div class="location-block ireland-block">
+<h3 class="ireland">Giant's Causeway</h3>
+<div class="fun-fact">
+<strong>The Giant's Causeway has about 40,000 interlocking basalt columns</strong> formed by a volcanic eruption 50–60 million years ago. Most are hexagonal, but some have 4, 5, 7, or 8 sides. Legend says the giant Finn McCool built it as a walkway to Scotland to fight a rival giant — but when he saw how big the Scottish giant was, his wife disguised him as a baby. The Scottish giant, terrified of how big the "baby" was, fled back across the sea, destroying the causeway behind him.
+    </div>
+<div class="fun-fact">
+<strong>60% of the columns are mathematically perfect hexagons.</strong> Not accidental. It's the most energy-efficient way for cooling basalt to crack and contract. Nature optimizing for minimum energy expenditure.
+    </div>
+<div class="fun-fact">
+<strong>The Causeway extends underwater.</strong> What you see is just the tip. The lowest columnar lava flow thickens to over 70 metres beneath the water, compared to 20 metres on the headlands. A vast underwater extension remains mostly unexplored.
+    </div>
+<div class="fun-fact">
+<strong>Led Zeppelin's "Houses of the Holy" album cover featured the Causeway.</strong> The 1973 cover featured the Causeway with eerie child figures. But the site has appeared in art for centuries and was named one of only 100 global "geological heritage sites" in 2022.
+    </div>
+<div class="fun-fact">
+<strong>Scientists only recently cracked the formation temperature.</strong> The exact cooling temperature (between 1,544–1,634°F) was only reproduced in the lab recently. A site 60 million years old is still yielding scientific breakthroughs.
+    </div>
+<div class="tip-box green">
+<strong>Currency switch:</strong> You're now in Northern Ireland, which is part of the UK. You're still using British Pounds (£) here, same as Scotland. The switch to Euros happens when you cross into the Republic of Ireland (Dublin).
+    </div>
+<div class="easter-egg-header">🔍 Easter Eggs &amp; Hidden Gems</div>
+<div class="easter-egg">
+<strong>The Camel &amp; the Giant's Boot —</strong> Distinctive rock formations among the basalt columns that look exactly like a camel and a giant's boot. A natural scavenger hunt through the formations.
+    </div>
+<div class="easter-egg">
+<strong>The Scotland Connection —</strong> You're standing at one end of a geologically connected basalt formation. The other end is Fingal's Cave on the Isle of Staffa in Scotland, 150km away across the sea. The "causeway" myth isn't entirely wrong — the same volcanic eruption created both.
+    </div>
+<div class="easter-egg">
+<strong>Four Walking Trails —</strong> Most tourists only see the main columns. Four marked trails offer emptier perspectives and formations most visitors never reach.
+    </div>
+</div><div class="itinerary-day">
+<div class="day-num ireland-day">8</div>
+<div class="day-info"><span class="day-date">Jul 14 — Belfast → Dublin</span><div class="day-details">Belfast sightseeing, Titanic Quarter, travel to Dublin</div></div>
+</div><div class="location-block ireland-block">
+<h3 class="ireland">Belfast &amp; Arrival in Dublin</h3>
+<div class="fun-fact">
+<strong>The Titanic was built in Belfast</strong> at Harland &amp; Wolff shipyard. The Titanic, Olympic, and Britannic were all built here. The famous yellow cranes "Samson" and "Goliath" still dominate the skyline. Belfast's dark joke: "She was fine when she left here." The Titanic Belfast museum now stands on the exact site where the ship was constructed. Its angular aluminium exterior is designed to look like a ship's hull, with a height (38.5m) exactly matching the Titanic's hull height.
+    </div>
+<div class="fun-fact">
+<strong>Belfast has the oldest pub in Ireland.</strong> McHugh's Bar (1711) in Queen's Square. Though several pubs across Ireland dispute this claim.
+    </div>
+<div class="fun-fact">
+<strong>Dublin's Ha'Penny Bridge</strong> gets its name from the ha'penny (half-penny) toll that pedestrians once had to pay to cross it from 1816 to 1919. Before the bridge, people crossed the Liffey by ferry — the bridge was built by the ferry operator as a replacement. Citizens had a one-year trial to reject it if they found it "objectionable." During the 1916 Easter Rising, rebels crossed without paying. The 2014 restoration used 85% original metalwork.
+    </div>
+<div class="tip-box green">
+<strong>You're now in the Republic of Ireland!</strong> Switch to Euros (€). Cards work almost everywhere, but it's good to have some cash. And remember: tipping is 10–15% in restaurants if there's no service charge already on the bill.
+    </div>
+<div class="easter-egg-header">🔍 Easter Eggs &amp; Hidden Gems</div>
+<div class="easter-egg-header">Titanic Quarter</div>
+<div class="easter-egg">
+<strong>"Big Fish" Salmon Sculpture —</strong> A modern art installation along the Lagan walk. Look closely at the scales — they contain printed images showing Belfast's entire history, reading like a visual comic book of the city.
+    </div>
+<div class="easter-egg">
+<strong>The Titanic Slipways —</strong> The actual slipways where the Titanic and Olympic were built are marked on the ground outside the museum. You're standing where the ship was born.
+    </div>
+<div class="easter-egg-header">Peace Walls &amp; Murals</div>
+<div class="easter-egg">
+<strong>Falls Road Murals Include Palestinian and Basque Symbols —</strong> The Nationalist/Republican murals don't just depict Irish history — they include symbols of Palestinian liberation and Basque freedom, showing how Belfast's struggle connected to global revolutionary movements.
+    </div>
+<div class="easter-egg">
+<strong>The A-Z History Mural Is a Coded Timeline —</strong> One Shankill Road mural arranges the street's entire history as an alphabetical grid. Each letter corresponds to a specific event, location, or figure. It's a coded visual encyclopedia requiring intimate local knowledge to decode.
+    </div>
+<div class="easter-egg">
+<strong>The Lower Shankill Women's Quilt Mural —</strong> In an area known for paramilitary imagery, artist Lesley Cherry helped local women create murals designed like family quilts. Each woman contributed her family stories of care, loss, and love — a deliberately gentle counternarrative.
+    </div>
+<div class="easter-egg">
+<strong>Titanic to Healing Murals —</strong> Entire sections of formerly political walls in East Belfast now feature Titanic and shipyard imagery instead. The shift from conflict to maritime heritage is visible proof of community healing, literally written on the walls.
+    </div>
+<div class="easter-egg">
+<strong>The Gates Still Close —</strong> Some Peace Wall gates between Catholic and Protestant neighborhoods are still locked at night. This isn't historical — it's ongoing. The walls were supposed to come down by 2023 but the deadline has been quietly extended.
+    </div>
+<div class="easter-egg-header">Belfast City Hall</div>
+<div class="easter-egg">
+<strong>Hidden Marble Creatures —</strong> Look closely at the marble pillars and banisters inside City Hall. Craftsmen carved tiny hidden figures into the stonework: mice, angels, and other creatures tucked into corners and behind columns. A marble scavenger hunt.
+    </div>
+</div><div class="itinerary-day">
+<div class="day-num ireland-day">9</div>
+<div class="day-info"><span class="day-date">Jul 15 — Dublin</span><div class="day-details">Trinity College, Book of Kells, Phoenix Park, Aviva Stadium, pub dinner</div></div>
+</div><div class="location-block ireland-block">
+<h3 class="ireland">Dublin Landmarks</h3>
+<div class="fun-fact">
+<strong>Dublin means "Black Pool".</strong> From the Irish <em>Dubh Linn</em> (dark pool), referring to a tidal pool where the River Poddle met the Liffey. The Irish name for Dublin is <em>Baile Átha Cliath</em> (Town of the Hurdled Ford), which is completely different and refers to a different feature.
+    </div>
+<div class="fun-fact">
+<strong>Dublin has the youngest population of any European capital.</strong> About 50% of the population is under 25.
+    </div>
+<div class="fun-fact">
+<strong>The Book of Kells was handwritten by Irish monks around 800 AD</strong> using multicolored ink made from plants and crushed insects. The intricate Celtic designs are so detailed that some can only be fully appreciated with a magnifying glass. It's housed in the Long Room at Trinity College — a stunning 65-meter library with over 200,000 old books.
+    </div>
+<div class="fun-fact">
+<strong>Phoenix Park in Dublin is 1,752 acres</strong> — the largest enclosed park in any European capital. It has free-roaming wild deer, cricket pitches, and the President of Ireland's residence. The name has nothing to do with the mythical bird — it comes from the Irish "fionn uisce" meaning "clear water."
+    </div>
+<div class="fun-fact">
+<strong>St. Valentine's actual remains are in Dublin</strong> at Whitefriar Street Church, donated in 1836 by Pope Gregory XVI.
+    </div>
+<div class="fun-fact">
+<strong>Dublin's oldest pub, The Brazen Head, opened in 1198.</strong> That's over 800 years of pouring pints.
+    </div>
+<div class="easter-egg-header">🔍 Easter Eggs &amp; Hidden Gems</div>
+<div class="easter-egg-header">Trinity College &amp; Book of Kells</div>
+<div class="easter-egg">
+<strong>The Long Room &amp; Star Wars —</strong> Trinity's Old Library Long Room (65m of barrel-vaulted ceiling, 200,000 ancient books) was the visual inspiration for the Jedi Archives in <em>Star Wars: Attack of the Clones</em>. Lucasfilm initially denied this but the resemblance is undeniable. Compare photos side by side.
+    </div>
+<div class="easter-egg">
+<strong>Hidden Microscopic Portraits in the Book of Kells —</strong> A 20th-century scholar used photography to enlarge one decorative panel and discovered a tiny human face buried within the knotwork — invisible to the naked eye. Medieval monks were creating hidden micro-art that wouldn't be discovered for 700+ years.
+    </div>
+<div class="easter-egg">
+<strong>Tiny Animals Hidden in the Illuminations —</strong> Within the spirals and margins are mice, cats, otters, and other creatures, many no larger than a fingernail. Scholars believe monks snuck these in as jokes or personal signatures. Medieval monks invented Easter eggs in artwork 12 centuries before digital media.
+    </div>
+<div class="easter-egg">
+<strong>The Book Was Stolen in 1007 and Thrown in a Ditch —</strong> The medieval Annals of Ulster describe it as "the most precious object in the western world." It was found after two months buried under sod. The missing pages at the beginning and end were likely destroyed when the binding was ripped off.
+    </div>
+<div class="easter-egg">
+<strong>The Book Was Later Used for Real Estate Records —</strong> In the 11th–12th centuries, blank pages were repurposed to record property transactions. One of history's greatest artworks became a medieval ledger.
+    </div>
+<div class="easter-egg">
+<strong>Museum Building Carvings —</strong> The exterior (built 1853–1857) is covered in intricate stone carvings of animals and plants from when it housed the Geology department. Hunt for your favorite hidden animal.
+    </div>
+<div class="easter-egg">
+<strong>The Campanile Superstition —</strong> Trinity students believe that if you walk under the Campanile (bell tower) when the bell is ringing, you'll fail your exams. Watch students scatter when it chimes.
+    </div>
+<div class="easter-egg-header">Ha'Penny Bridge</div>
+<div class="easter-egg">
+<strong>The Toll —</strong> Named for the half-penny toll charged to cross from 1816 to 1919. Before the bridge, people crossed the Liffey by ferry — the bridge was built by the ferry operator as a replacement.
+    </div>
+<div class="easter-egg">
+<strong>Citizens Had a One-Year Trial to Reject It —</strong> A clause stated that if Dublin citizens found the bridge "objectionable" during the first year, it would be removed at no cost. The first ten days of crossing were toll-free as an incentive.
+    </div>
+<div class="easter-egg">
+<strong>Easter Rising Rebels Crossed Without Paying —</strong> During the 1916 Rising, Hibernian Rifles member J.J. Scollan proudly noted he and fellow rebels crossed the bridge without paying: "the toll man was still on duty but did not get it."
+    </div>
+<div class="easter-egg">
+<strong>The 2014 Restoration Used 85% Original Metalwork —</strong> Engineers considered 52 different design options. They removed over 1,000 individual rail pieces for repair. The 85% original requirement was to maintain UNESCO heritage status.
+    </div>
+<div class="easter-egg-header">Molly Malone Statue</div>
+<div class="easter-egg">
+<strong>"The Tart with the Cart" —</strong> Dublin's irreverent nickname for the statue of the famous fishmonger. Her bronze décolletage is noticeably shinier than the rest of the statue from people rubbing it for luck. (Same energy as Greyfriars Bobby's nose.)
+    </div>
+<div class="easter-egg">
+<strong>She Probably Never Existed —</strong> Despite the famous song, there's no historical evidence that Molly Malone was a real person. The statue's "birthday" (June 13) was invented for a 1988 Dublin millennium celebration.
+    </div>
+<div class="easter-egg-header">St Patrick's Cathedral</div>
+<div class="easter-egg">
+<strong>Jonathan Swift's Self-Written Epitaph —</strong> The author of <em>Gulliver's Travels</em> was Dean of St Patrick's for 32 years (1713–1745) and wrote his own epitaph, which translates to: "He has gone where fierce indignation can no longer lacerate his heart." W.B. Yeats called it the greatest epitaph in history.
+    </div>
+<div class="easter-egg">
+<strong>The Door of Reconciliation —</strong> In 1492, two feuding Irish earls (Ormonde and Kildare) fought inside the cathedral. Kildare cut a hole in the Chapter House door and stuck his arm through as a peace gesture, risking having it cut off. This is allegedly the origin of the phrase "chancing your arm."
+    </div>
+<div class="easter-egg-header">The Spire (O'Connell Street)</div>
+<div class="easter-egg">
+<strong>Dublin's Nicknames for the Spire —</strong> The 120m stainless steel monument has collected more nicknames than any structure in Ireland: "The Stiletto in the Ghetto," "The Pin in the Bin," "The Stiffy by the Liffey," "The Nail in the Pale," and "The Erection at the Intersection." Dubliners are relentless.
+    </div>
+<div class="easter-egg-header">O'Connell Street &amp; GPO</div>
+<div class="easter-egg">
+<strong>Bullet Holes Deliberately Preserved —</strong> The GPO's facade is still pockmarked with bullet holes and shrapnel from the 1916 Easter Rising. Dublin chose to keep them as physical reminders. Most countries would rebuild and erase — Dublin kept the scars.
+    </div>
+<div class="easter-egg">
+<strong>The Proclamation Was Read During an Active Seizure —</strong> Patrick Pearse read the Proclamation of the Irish Republic outside the GPO on April 24, 1916 — while 1,200 armed nationalists were simultaneously seizing the building. A live declaration during a military takeover.
+    </div>
+<div class="easter-egg">
+<strong>The Ionic Columns Saved the Building —</strong> While the interior was devastated, the six enormous Ionic columns at the facade were structurally sound enough that the decision was made to rebuild around them rather than demolish entirely. Columns designed for beauty saved the building from destruction.
+    </div>
+<div class="easter-egg-header">Parnell Square</div>
+<div class="easter-egg">
+<strong>Buck Mulligan Was Born Here —</strong> Oliver St John Gogarty, the real person Joyce immortalized as "Buck Mulligan" (the character who opens <em>Ulysses</em>), was born on Parnell Square. Writer, surgeon, and senator — friends with both Yeats and Joyce.
+    </div>
+<div class="easter-egg">
+<strong>The Hugh Lane Gallery Was the World's First Public Gallery of Modern Art —</strong> Founded in 1908 by art collector Sir Hugh Lane. Not just important nationally — revolutionary internationally.
+    </div>
+<div class="easter-egg">
+<strong>W.B. Yeats Wrote Five Poems About the Hugh Lane Gallery —</strong> A major poet dedicated multiple poems to an art gallery, treating an institution with the same attention as landscapes or people.
+    </div>
+<div class="easter-egg">
+<strong>Garden of Remembrance —</strong> Occupies the site where the Irish Volunteers were founded in 1913 and where leaders of the 1916 Rising were held overnight before transport to Kilmainham Gaol. A beautiful garden covering a site of both revolutionary founding and tragic imprisonment.
+    </div>
+<div class="easter-egg-header">Phoenix Park</div>
+<div class="easter-egg">
+<strong>The Phoenix Park Murders Used Surgical Knives —</strong> On May 6, 1882, Lord Cavendish and Thomas Burke were assassinated by the Irish National Invincibles using 12-inch surgical knives. The group chose surgical knives deliberately — to avoid making noise in the park.
+    </div>
+<div class="easter-egg">
+<strong>The Papal Cross Was Supposed to Be Temporary —</strong> The 116-foot white cross was erected for Pope John Paul II's 1979 visit. Architect Ronnie Tallon mentioned the Office of Public Works planned to remove it. Taoiseach Charlie Haughey vetoed the removal by phone call. It's been there ever since.
+    </div>
+<div class="easter-egg">
+<strong>The Hole in the Wall Pub —</strong> British soldiers from nearby barracks used to get drinks through a literal hole in the wall without officially leaving the park grounds. The pub still exists and the name stuck.
+    </div>
+<div class="easter-egg-header">Glasnevin Cemetery</div>
+<div class="easter-egg">
+<strong>Nearly 800,000 People Lie in Unmarked Mass Graves —</strong> Due to the Great Famine and cholera epidemics, hundreds of thousands were buried anonymously. Over a million total burials — more than the current population of Dublin.
+    </div>
+<div class="easter-egg">
+<strong>Gunfights Between Mourners and Body Snatchers —</strong> In the 1830s, gunshots were exchanged between mourners and grave robbers. The locks, gates, and watchtowers were built specifically to prevent body theft.
+    </div>
+<div class="easter-egg">
+<strong>A Lion Tamer Killed by His Lion —</strong> Among the unusual graves: a lion tamer killed by one of the lions he trained.
+    </div>
+<div class="easter-egg">
+<strong>Famous Graves —</strong> Michael Collins, Éamon de Valera, Daniel O'Connell (whose round tower at 51m is the tallest in Ireland), Constance Markievicz, Brendan Behan.
+    </div>
+<div class="easter-egg-header">Aviva Stadium</div>
+<div class="easter-egg">
+<strong>The World's First International Sporting Venue —</strong> The original Lansdowne Road, founded in 1872, was the first international sporting venue anywhere. On March 11, 1878, it hosted the first international rugby union test match (Ireland vs. England), making it the world's oldest rugby test venue.
+    </div>
+<div class="easter-egg">
+<strong>The English Rugby Team Got a Standing Ovation During the Troubles —</strong> When threats to visiting teams were real, the English team came to play. When they ran onto the field, they received a spontaneous standing ovation. Captain Bill Pullin said: "We may not be much good but at least we turned up."
+    </div>
+<div class="easter-egg">
+<strong>134 Years of Continuous Use Before Demolition —</strong> Lansdowne Road closed in 2006 and was demolished in 2007 after 134 years. The new Aviva Stadium opened in 2010 on the same site.
+    </div>
+<div class="easter-egg-header">Other Dublin</div>
+<div class="easter-egg">
+<strong>Dublin Statue Nicknames —</strong> Dubliners give irreverent nicknames to every public statue. The James Joyce statue is "The Prick with the Stick." The women-on-a-bench statue is "The Hags with the Bags." The former Anna Livia fountain was "The Floozie in the Jacuzzi." Ask locals for more — they love sharing these.
+    </div>
+<div class="easter-egg">
+<strong>The Father Pat Noise Plaque —</strong> A fake commemorative plaque on a Dublin bridge claiming to mark where "Father Pat Noise" drowned in 1919 under suspicious circumstances. It's an elaborate local prank that fooled visitors for years. Peak Dublin humor.
+    </div>
+</div><div class="itinerary-day">
+<div class="day-num ireland-day">10</div>
+<div class="day-info"><span class="day-date">Jul 16 — Galway</span><div class="day-details">Travel to Galway, Arts Festival, city walk</div></div>
+</div><div class="location-block ireland-block">
+<h3 class="ireland">Galway &amp; the Arts Festival</h3>
+<div class="fun-fact">
+<strong>The longest place name in Ireland</strong> is Muckanaghederdauhaulia in County Galway. It means "pig-marsh between two sea inlets." Good luck pronouncing it.
+    </div>
+<div class="fun-fact">
+<strong>Galway is the "City of the Tribes"</strong> — 14 merchant families (the "Tribes of Galway") controlled the city for centuries. Their family crests appear throughout the city — look for them on buildings, flags, and plaques in Eyre Square.
+    </div>
+<div class="fun-fact">
+<strong>The Galway International Arts Festival</strong> is one of Europe's leading arts festivals, running since 1978. Your visit (mid-July) should overlap with festival dates — expect street performers, installations, and events everywhere.
+    </div>
+<div class="card ireland">
+<h4>Galway International Arts Festival</h4>
+<p>Your visit coincides with the 2026 Galway International Arts Festival (July 13–26)! Expect street performers, music, theatre, and art installations throughout the city. The energy is incredible. 2026 acts include James, The Saw Doctors, Bell X1, and Cian Ducrot.</p>
+</div>
+<div class="easter-egg-header">🔍 Spanish Arch</div>
+<div class="easter-egg">
+<strong>The 1755 Tsunami Damage</strong> — The "Spanish" Arch was partially destroyed by a 10-foot tidal wave from the 1755 Lisbon earthquake. The wave traveled 1,000 miles in just over 4 hours. The damage is still visible on the Caoċ Arch (blind arch). You're looking at earthquake damage from across Europe.
+    </div>
+<div class="easter-egg">
+<strong>Not Actually Spanish</strong> — The arch was built in 1584 to protect merchant quays from looting. It's called "Spanish" because Spanish traders were the main users of the docks. The Galway-Spain trading connection was so strong that the "Spanish Arch" area felt like a little corner of Iberia.
+    </div>
+<div class="easter-egg-header">🔍 Eyre Square</div>
+<div class="easter-egg">
+<strong>The Browne Doorway</strong> — An ornate 17th-century doorway from a demolished family mansion, moved to the square in 1905 and now encased in plexiglass as it slowly deteriorates. A ghost of old Galway fading in plain sight.
+    </div>
+<div class="easter-egg">
+<strong>Tribal Family Flags</strong> — Fourteen flag poles in the square fly the crests of Galway's original 14 merchant families. See how many family names you can spot around the city on buildings and plaques.
+    </div>
+<div class="easter-egg-header">🔍 St Nicholas' Collegiate Church</div>
+<div class="easter-egg">
+<strong>The Columbus Connection</strong> — Legend says Christopher Columbus prayed here in 1477 before his voyage to the Americas. A bust of Columbus sits inside the church. Whether the story is true is debated, but Galway's maritime links to Spain make it plausible.
+    </div>
+<div class="easter-egg">
+<strong>The Crusader's Tomb</strong> — A 13th-century tomb effigy inside the church depicts a knight in full Crusader armor. One of the oldest such carvings in Ireland.
+    </div>
+<div class="easter-egg-header">🔍 Other Galway</div>
+<div class="easter-egg">
+<strong>Lynch's Window</strong> — Built into the wall of St Nicholas' Church on Market Street. In 1493, Mayor James Lynch FitzStephen personally executed his own son Walter for murdering a Spanish merchant because no one else in the city would carry out the sentence. Cited (though debated) as a possible origin of the term "lynch law" — but the real origin is the opposite of mob justice: a father upholding the law.
+    </div>
+<div class="easter-egg">
+<strong>Nora Barnacle's House</strong> — James Joyce's partner (and later wife) Nora Barnacle lived in Galway until 1904. She left for Dublin at age 21 and began her relationship with Joyce. The family home (1894–1940) is now a private museum. The house preserves her pre-fame life.
+    </div>
+<div class="easter-egg">
+<strong>The Claddagh Ring</strong> — Legend says Richard Joyce fashioned the first one — with heart for love, hands for friendship, crown for loyalty. Some versions claim Joyce created it while enslaved as a galley slave. The world's most famous Irish ring may originate from a trauma narrative softened into romance.
+    </div>
+<div class="easter-egg">
+<strong>Medieval Wall in the Shopping Mall</strong> — One surviving portion of the old city wall has been cleverly incorporated into the modern Eyre Square Centre shopping mall. Medieval meets modern.
+    </div>
+<div class="easter-egg">
+<strong>The Long Walk</strong> — The colorful row of houses along the waterfront is one of the most photographed streets in Ireland. The colors aren't just decorative — they helped fishermen identify their homes from the sea.
+    </div>
+<div class="tip-box green">
+<strong>Pub music tip:</strong> Galway is one of the best cities in Ireland for live traditional music. Try Tigh Coili's for authentic trad sessions. The Claddagh Ring originated here — in the old Claddagh fishing village. This is the perfect place to buy one.
+    </div>
+</div><div class="itinerary-day">
+<div class="day-num ireland-day">11</div>
+<div class="day-info"><span class="day-date">Jul 17 — Inishmore</span><div class="day-details">Ferry to Aran Islands, bike ride, Dún Aonghasa, beach time</div></div>
+</div><div class="location-block ireland-block">
+<h3 class="ireland">Inishmore &amp; the Aran Islands</h3>
+<div class="fun-fact">
+<strong>Irish is the first language here</strong> — Inishmore is in the Gaeltacht (Irish-speaking region). Road signs are in Irish only. You'll hear Irish spoken casually — one of the few places left where it's a living daily language, not just a school subject.
+    </div>
+<div class="fun-fact">
+<strong>Aran sweaters originated here</strong> — The distinctive cable-knit patterns were supposedly unique to each family, so drowned fishermen could be identified by their sweaters. Whether this is true or romantic legend is debated, but the sweaters are real and still hand-knitted on the islands.
+    </div>
+<div class="card ireland">
+<h4>Bike Inishmore</h4>
+<p>The 30-minute ride from the pier to Dún Aonghasa is one of Ireland's most popular cycling routes. Gentle roads, spectacular ocean views, ancient stone forts, and seal colonies. E-bikes available if you want an easier ride. Don't miss the Worm Hole — a natural rectangular pool where the sea ebbs and flows.</p>
+</div>
+<div class="easter-egg-header">🔍 Dún Aonghasa</div>
+<div class="easter-egg">
+<strong>Originally 1,000 Meters From the Sea</strong> — When built, sea levels were much lower. Cliff erosion over millennia brought it to the edge. The "dramatic cliff fort" was originally well inland.
+    </div>
+<div class="easter-egg">
+<strong>14 Acres of Defensive Space</strong> — Four concentric walls. Outside the third ring is a <em>cheval de frise</em> — upright limestone spikes designed to shred anyone charging the walls. Still well preserved.
+    </div>
+<div class="easter-egg">
+<strong>1,270 Cubic Tons of Stone Without Mortar</strong> — Roughly the weight of 200 elephants, placed stone by stone, before mechanization.
+    </div>
+<div class="easter-egg">
+<strong>Named After a Pre-Christian God</strong> — "Fort of Aonghas" — either a deity or mythical Iron Age king. Its exact construction date remains unknown despite intensive archaeology.
+    </div>
+<div class="easter-egg-header">🔍 The Worm Hole (Poll na bPéist)</div>
+<div class="easter-egg">
+<strong>A Naturally Rectangular Pool</strong> — 25m long, 10m wide, carved along natural fault lines. The shape is so perfect it looks artificial. Connected to the Atlantic through underwater channels — the ocean surges in and drains rhythmically.
+    </div>
+<div class="easter-egg">
+<strong>Red Bull Cliff Diving World Series (2014 &amp; 2017)</strong> — World-class divers plunged from 27 meters (90 feet) into this pool. A natural formation became an international sports venue.
+    </div>
+<div class="easter-egg-header">🔍 Other Inishmore</div>
+<div class="easter-egg">
+<strong>Megalithic Wedge Tomb</strong> — A burial chamber dating back 4,000 years (2000 BC). Older than the Egyptian pyramids. You're literally standing in a 4,000-year-old grave.
+    </div>
+<div class="easter-egg">
+<strong>50+ Ancient Monuments</strong> — Beyond Dún Aonghasa, the island has over 50 ancient sites including Na Seacht dTeampaill (Seven Churches), St Benan's Church, and multiple stone forts. The whole island is an outdoor museum spanning 1,500+ years.
+    </div>
+<div class="easter-egg">
+<strong>Kilmurvey Beach</strong> — Holds Blue Flag designation for water quality. Grey seals sunbathe on rocks at low tide (invisible at high tide). Contains rare plant species found nowhere else in Ireland. Also the main gateway to Dún Aonghasa — your hike starts here.
+    </div>
+<div class="fun-fact">
+<strong>Dún Aonghasa is a prehistoric stone fort</strong> perched on top of 100-meter cliffs on Inishmore. It's over 3,000 years old, and there are no railings at the cliff edge — you can sit with your legs dangling over the Atlantic. Thrilling and terrifying in equal measure.
+    </div>
+<div class="tip-box green">
+<strong>Souvenir alert:</strong> The Aran Islands are the birthplace of Aran sweaters. Traditional wool with intricate cable-knit patterns, each with a specific meaning. This is the most authentic place to buy one.
+    </div>
+</div><div class="itinerary-day">
+<div class="day-num ireland-day">12</div>
+<div class="day-info"><span class="day-date">Jul 18 — Killarney</span><div class="day-details">Cliffs of Moher, Limerick, travel to Killarney</div></div>
+</div><div class="location-block ireland-block">
+<h3 class="ireland">Cliffs of Moher</h3>
+<div class="fun-fact">
+<strong>The Cliffs of Moher were the "Cliffs of Insanity"</strong> in the movie <em>The Princess Bride</em>. They stretch 8km along the coast, reach 214 meters at their highest, and are home to puffins, razorbills, and peregrine falcons. On a clear day you can see the Aran Islands you just visited from O'Brien's Tower at the cliff edge.
+    </div>
+<div class="fun-fact">
+<strong>The cliffs are 214m (702 ft) at their highest point</strong> — That's taller than a 60-story building. On a clear day, you can see the Aran Islands, Galway Bay, and the mountains of Connemara.
+    </div>
+<div class="fun-fact">
+<strong>Harry Potter Connection</strong> — The Cliffs of Moher appear in <em>Harry Potter and the Half-Blood Prince</em> (2009) as the dramatic coastal cave where Dumbledore and Harry search for a Horcrux. The cave entrance scene was filmed here.
+    </div>
+<div class="fun-fact">
+<strong>Ancient river channels are visible in the rock</strong> — Frozen into the 300-million-year-old stone, you can see the actual traces of rivers that flowed during the Carboniferous period. Time capsules of geological action.
+    </div>
+<div class="fun-fact">
+<strong>The "white stripes" on sea stacks are bird droppings, not geology</strong> — What looks like geological layering is actually guano from massive guillemot colonies. 30,000 pairs of seabirds (20+ species) breed here at peak season — 60,000+ individual birds.
+    </div>
+<div class="fun-fact">
+<strong>Guillemots can dive to 180 meters (600 feet)</strong> — These black-and-white seabirds launch from the 700-foot cliffs and can dive twice as deep as the cliff is tall. The cliffs are just their launching point.
+    </div>
+<div class="fun-fact">
+<strong>O'Brien's Tower was built as a romantic gesture</strong> — Sir Cornelius O'Brien built it in 1835. Local stories say he built it to impress a woman he was courting. A major landmark built on love.
+    </div>
+<div class="easter-egg">
+<strong>Hag's Head Viewpoint</strong> — Walk south from the main visitor center to the southernmost point of the cliffs. Far fewer tourists, better photography angles, different lighting. Most people never leave the main viewing area.
+    </div>
+<div class="easter-egg">
+<strong>Woman's Head Rock Formation</strong> — At the southern end, a rock formation resembles a woman's profile gazing out to sea. Best viewed from the north. Once you see it, you can't unsee it.
+    </div>
+<div class="easter-egg">
+<strong>Lost Town of Kilstiffen</strong> — Local folklore tells of an underwater town near the cliffs that sank when its chieftain lost a golden key. Ireland's own Atlantis legend.
+    </div>
+</div><div class="itinerary-day">
+<div class="day-num ireland-day">13</div>
+<div class="day-info"><span class="day-date">Jul 19 — Killarney</span><div class="day-details">Ring of Kerry, sheep farm visit</div></div>
+</div><div class="location-block ireland-block">
+<h3 class="ireland">Ring of Kerry &amp; Sheep Farm</h3>
+<div class="fun-fact">
+<strong>The Ring of Kerry is 179km (111 miles)</strong> — Tour buses are required to drive counterclockwise. If you're in a car, go clockwise to avoid being stuck behind them.
+    </div>
+<div class="fun-fact">
+<strong>Killarney National Park was Ireland's first national park</strong> — Established in 1932 when the Muckross Estate was donated to the state. It's 26,000 acres of mountains, lakes, and ancient oak woodland.
+    </div>
+<div class="fun-fact">
+<strong>The Ring of Kerry is 112 miles of jaw-dropping coastal road</strong> around the Iveragh Peninsula. You'll see the vast Atlantic, the Lakes of Killarney, and the Macgillycuddy's Reeks (Ireland's tallest mountains). There are more sheep than people in County Kerry — you'll meet some up close at the farm visit.
+    </div>
+<div class="easter-egg">
+<strong>Caherdaniel Fort (Hidden Chamber)</strong> — A lesser-known ring fort off the main Ring of Kerry route with a hidden chamber in the wall that most visitors miss entirely. Panoramic views of Derrynane Bay.
+    </div>
+<div class="easter-egg">
+<strong>Torc Waterfall</strong> — A 60-foot cascading waterfall about 4 miles outside Killarney on the Kenmare road. Short walk from the parking area.
+    </div>
+<div class="easter-egg">
+<strong>Ladies View</strong> — A famous viewpoint overlooking the Killarney Lakes, named because Queen Victoria's ladies-in-waiting were so enchanted by the view during the Queen's 1861 visit. Still one of the best panoramas in Ireland.
+    </div>
+<div class="easter-egg">
+<strong>Charlie Chaplin Statue (Waterville)</strong> — A life-sized bronze statue of Charlie Chaplin in the tiny village of Waterville, where he vacationed with his family every summer from the 1950s to the 1970s. The village hosts an annual Charlie Chaplin Comedy Film Festival.
+    </div>
+<div class="easter-egg">
+<strong>Moll's Gap</strong> — Named after Moll Kissane, a woman who ran a poitín (illegal moonshine) shop here in the early 19th century. Now a scenic mountain pass with a café and views of the MacGillycuddy's Reeks.
+    </div>
+<div class="easter-egg">
+<strong>Fairy Forest Walk (Reenadinna Wood)</strong> — An ancient yew woodland on the Muckross Peninsula, one of the few remaining in Europe. The moss-covered trees and eerie atmosphere feel straight out of a fairy tale. Easy walk from Muckross House.
+    </div>
+<div class="easter-egg-header">🔍 Sheep Farm Visit</div>
+<div class="easter-egg">
+<strong>The Galway Sheep Is Ireland's Only Native Wool-Producing Breed</strong> — Developed in the 17th century from English Longwool sheep. The wool is soft, dense, and long-stapled — ideal for Aran sweaters. But most "Irish sheep" today are actually imported breeds (Suffolks, Texels). The native breed is now a minority on Irish farms.
+    </div>
+<div class="easter-egg">
+<strong>Ireland's Sheep Population Collapsed 63% in 20 Years</strong> — In 1985, Ireland had over 8 million sheep. By 2005, just 3 million. The international wool market collapsed due to synthetic garments like micro-fleece. A boom-to-bust within a single generation.
+    </div>
+<div class="easter-egg">
+<strong>Aran Sweater Patterns Carry Coded Meaning</strong> — Cable stitch = fishermen's ropes and good fortune. Diamond stitch = wealth and success. Each pattern tells a story woven into the garment. Traditional clothing as a coded language.
+    </div>
+<div class="easter-egg">
+<strong>Open Commonage Is Still Medieval</strong> — In upland areas, sheep are still managed in open commonage — a system virtually unchanged from medieval times where farmers graze on shared upland pastures. A living agricultural practice.
+    </div>
+</div><div class="itinerary-day">
+<div class="day-num ireland-day">14</div>
+<div class="day-info"><span class="day-date">Jul 20 — Dublin</span><div class="day-details">Blarney Castle &amp; stone kiss, travel to Dublin</div></div>
+</div><div class="location-block ireland-block">
+<h3 class="ireland">Blarney Castle</h3>
+<div class="fun-fact">
+<strong>The Blarney Stone gets cleaned after each kiss</strong> using WHO-approved cleansers. You lean backwards over a gap to kiss it upside-down, 125+ steps up a spiral staircase. Legend says it gives you the "gift of the gab" for seven years.
+    </div>
+<div class="fun-fact">
+<strong>"Blarney" entered the English language because of this castle</strong> — Cormac Láidir MacCarthy built the castle in 1446. When facing pressure from the English crown, he resisted through clever correspondence. Queen Elizabeth I called his evasive letters "nothing but Blarney" — giving the term its meaning: smooth talk used to deceive.
+    </div>
+<div class="fun-fact">
+<strong>Over 400,000 people kiss the Blarney Stone each year</strong> — You have to lie on your back and lean backwards over a gap in the battlements to kiss it. The stone is cleaned regularly, despite the urban legends.
+    </div>
+<div class="fun-fact">
+<strong>The Murder Hole</strong> — On the second floor (now blocked with an iron gate). Castle occupants used it to pour boiling water or oil on intruders climbing inside. Physics applied to warfare.
+    </div>
+<div class="fun-fact">
+<strong>Cromwell's Forces Were Escaped Through Secret Tunnels</strong> — In 1646, when one of Cromwell's commanders arrived, the McCarthy clan made a hasty exit through secret underground tunnels beneath the castle.
+    </div>
+<div class="card ireland">
+<h4>Kiss the Blarney Stone</h4>
+<p>Climb 125+ narrow spiral steps, then lean backwards over a gap to kiss the stone upside-down. Staff help you and there are safety bars. Not ideal if you're afraid of heights, but absolutely worth it. Don't miss the gardens, Druid's Circle, and Witch's Cave.</p>
+</div>
+<div class="easter-egg">
+<strong>The Poison Garden</strong> — Within the castle grounds, a garden of dangerous plants contained behind cage-like barriers. Educational and slightly creepy. The teens will love it.
+    </div>
+<div class="easter-egg">
+<strong>The Wishing Steps</strong> — Steps carved through solid rock in the castle grounds leading to a waterfall. Legend says walking backwards down them with your eyes closed grants a wish.
+    </div>
+<div class="easter-egg">
+<strong>Rock Close (2,000-Year-Old Yew Trees)</strong> — An ancient area within the grounds with yew trees over 2,000 years old and "druidic boulders" from a pre-castle settlement. Atmospheric and supposedly supernatural.
+    </div>
+<div class="easter-egg">
+<strong>Badger's Cave</strong> — A historic cave through which Cromwell's forces supposedly fled during a siege. Hidden escape route from a real battle.
+    </div>
+<div class="easter-egg">
+<strong>Hidden Rooms in the Tower</strong> — Explore the castle interior for hidden staircases, side chambers, and nested rooms — especially off the main kitchen area. It feels like solving a medieval puzzle.
+    </div>
+<div class="tip-box green">
+<strong>Blarney pro tip:</strong> July means long lines. Budget 3–4 hours for the full castle and grounds experience. Wear comfortable shoes and bring water.
+    </div>
+</div><div class="itinerary-day">
+<div class="day-num ireland-day">15</div>
+<div class="day-info"><span class="day-date">Jul 21 — Dublin</span><div class="day-details">Irish dance class, Gaelic Games experience</div></div>
+</div><div class="location-block ireland-block">
+<h3 class="ireland">Irish Dance &amp; Gaelic Games</h3>
+<div class="fun-fact">
+<strong>Hurling is the fastest field sport in the world</strong> — A sliotar can exceed 160 km/h (100 mph) when struck by elite players. Faster than professional baseball pitches. Brought to Ireland by Celtic peoples approximately 3,000 years ago.
+    </div>
+<div class="fun-fact">
+<strong>Irish dancers keep their arms rigid because...</strong> — The origin is debated. Popular theories: priests wanted dancing to look less suggestive, cramped dance spaces on tabletops or half-doors required stillness above the waist, or dancers wanted to emphasize the complexity of their footwork. Nobody knows for sure.
+    </div>
+<div class="fun-fact">
+<strong>All GAA Players Are Amateur</strong> — Even at inter-county senior level. In an era of professional sports, elite athletes at the highest level play for glory only. No payment.
+    </div>
+<div class="fun-fact">
+<strong>Hurling Scoring Is Unique</strong> — Goals (into the net) score 3 points; over-the-bar scores 1 point. "Dublin 3-5" means 3 goals (9 pts) + 5 points = 14 total. A hybrid system unique to this sport.
+    </div>
+<div class="fun-fact">
+<strong>London Won the All-Ireland Hurling Championship</strong> — In 1901. The only non-Irish team ever to do so. A historical anomaly that never repeated.
+    </div>
+<div class="fun-fact">
+<strong>The GAA Is a Cultural Preservation Body, Not Just a Sports Organization</strong> — Its official objectives include promoting the Irish language, music, song, and dance. A sports org functioning as an official culture keeper.
+    </div>
+<div class="card-grid">
+<div class="card ireland">
+<h4>Irish Dance Class</h4>
+<p>You'll learn traditional ceili steps and maybe some Riverdance-style moves. It's high-energy, everyone looks a bit silly at first, and it's an absolute blast as a group activity.</p>
+</div>
+<div class="card ireland">
+<h4>Gaelic Games</h4>
+<p>You'll actually participate in Ireland's native sports: hurling (a stick-and-ball game that's insanely fast) and Gaelic football (a mix of soccer and rugby). These sports are over 2,000 years old and deeply woven into Irish identity.</p>
+</div>
+</div>
+</div><div class="itinerary-day">
+<div class="day-num ireland-day">16</div>
+<div class="day-info"><span class="day-date">Jul 22 — Dublin</span><div class="day-details">James Joyce Museum, EPIC Emigration Museum, farewell dinner</div></div>
+</div><div class="location-block ireland-block">
+<h3 class="ireland">Dublin — Final Day</h3>
+<div class="fun-fact">
+<strong>Dublin is a UNESCO City of Literature</strong> — home to James Joyce, Oscar Wilde, Bram Stoker (creator of Dracula), Samuel Beckett, and W.B. Yeats. You'll visit the James Joyce Museum to learn about the author of <em>Ulysses</em>, one of the most influential novels ever written.
+    </div>
+<div class="fun-fact">
+<strong>The EPIC Emigration Museum</strong> is located at the original departure point for Irish emigrants. Over 10 million people left Ireland between 1800 and 1950 — more than the current population. The interactive museum explores why they left and how they shaped the world.
+    </div>
+<div class="easter-egg-header">🔍 James Joyce Tower (Sandycove)</div>
+<div class="easter-egg">
+<strong>The Revolver Incident</strong> — Joyce lived in this Martello tower for only 6 nights in September 1904. On the sixth night, housemate Trench fired his pistol at an imaginary panther while Joyce slept. Gogarty (fictionalized as "Buck Mulligan") then deliberately shot the pots above Joyce's head. Joyce stormed out so angrily he walked 8 miles back to Dublin without even collecting his belongings.
+    </div>
+<div class="easter-egg">
+<strong>The Tower Opens <em>Ulysses</em></strong> — The very first scene takes place on the roof. You can stand in the exact spot where Buck Mulligan held up his shaving bowl "introit-wise."
+    </div>
+<div class="easter-egg">
+<strong>The Tower Was Built to Defend Against Napoleon</strong> — One of a network of Martello towers built by the British in the early 1800s against a Napoleonic invasion that never occurred. Military architecture famous for having nothing to do with its purpose.
+    </div>
+<div class="easter-egg">
+<strong>Sylvia Beach Opened It as a Museum</strong> — On June 16, 1962 (Bloomsday), the publisher of <em>Ulysses</em> herself opened the museum. Contains the first edition of <em>Ulysses</em> (1922), Joyce's letters, photos, and his death mask.
+    </div>
+<div class="easter-egg-header">🔍 EPIC The Irish Emigration Museum</div>
+<div class="easter-egg">
+<strong>70 Million People Globally Claim Irish Heritage</strong> — Over 10 million emigrated; 70 million now claim Irish heritage worldwide. Ireland's population is 5 million. A 14:1 ratio showing the scale of historical emigration.
+    </div>
+<div class="easter-egg">
+<strong>23 U.S. Presidents Have Irish Ancestry</strong> — From James Buchanan to Joe Biden. The Irish diaspora literally shaped American political leadership.
+    </div>
+<div class="easter-egg">
+<strong>The Oscar Statuette Was Designed by an Irish-American</strong> — Cedric Gibbons, featured in the museum's exhibits. Every Academy Award carries the fingerprints of Irish-descended design.
+    </div>
+<div class="easter-egg">
+<strong>The Passport Stamps</strong> — You receive a "passport" at entry that you stamp at each exhibit. By the end, your passport is full of stamps telling the story of Irish emigration. A clever souvenir built into the experience.
+    </div>
+<div class="easter-egg">
+<strong>20 Individually Themed Galleries</strong> — Organized under four themes: Migration (patterns since 500 AD), Motivation (reasons), Influence (diaspora achievements), and Diaspora Today. Covers religious missionaries, the Famine, criminal transportation to Australia, and more — not just a "fleeing poverty" narrative.
+    </div>
+<div class="easter-egg-header">🔍 Temple Bar</div>
+<div class="easter-egg">
+<strong>Rory Gallagher's Guitar</strong> — An exact replica of rock legend Rory Gallagher's famous Fender Stratocaster displayed high on a building at "Rory's Corner" in Temple Bar. You have to look UP to spot it.
+    </div>
+<div class="easter-egg">
+<strong>Temple Bar Isn't Named After a Pub</strong> — The area is named after Sir William Temple, who owned land here in the 17th century. "Bar" refers to a riverside walkway. The pubs came later.
+    </div>
+<div class="easter-egg">
+<strong>It Was Dublin's Red Light District in the 1700s</strong> — After the customs house arrived in 1707, warehouses, taverns, theatres, and brothels flourished. Before becoming Europe's most famous party district, it was famous for an entirely different reason.
+    </div>
+<div class="easter-egg">
+<strong>It Nearly Became a Giant Bus Depot</strong> — After 200 years of urban decay, the government planned to build a bus depot here. Protests prevented it. Today's cultural district exists because people said "no" to buses.
+    </div>
+<div class="easter-egg">
+<strong>Handel's Messiah Premiered Next Door</strong> — On April 13, 1742, Handel's <em>Messiah</em> premiered on Fishamble Street, a stone's throw from Temple Bar. An annual performance is still held at the same location on the same date.
+    </div>
+<div class="easter-egg">
+<strong>The United Irishmen Were Founded in a Tavern on Eustace Street</strong> — The pivotal republican revolutionary group was founded at a meeting in a Temple Bar tavern in 1791.
+    </div>
+</div><div class="itinerary-day">
+<div class="day-num ireland-day">17</div>
+<div class="day-info"><span class="day-date">Jul 23 — Fly home</span><div class="day-details">Flight home from Dublin</div></div>
+</div>
+</section>
+</div>
+</div>
+
+<footer>
+  <p>Scotland & Ireland Trip Guide — July 7–23, 2026</p>
+  <p style="margin-top: 8px; font-size: 0.85em;">Made with love for the pod</p>
+</footer>
+
+</body>
+</html>

@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Practical Tips | Scotland & Ireland Trip Guide</title>
-<style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Practical Tips | Scotland & Ireland Trip Guide</title>
+  <style>
+
 
   @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap');
 
@@ -442,122 +443,307 @@
   .hero { padding: 50px 20px 40px; }
   .hero h1 { font-size: 2.4em; }
 
-</style>
+
+
+  /* NAVIGATION STRUCTURE */
+  .trip-nav {
+    background: white;
+    padding: 12px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  .trip-nav-inner {
+    max-width: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .trip-brand {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1.1em;
+    color: var(--scotland-dark);
+    text-decoration: none;
+    margin-right: auto;
+    white-space: nowrap;
+  }
+  .nav-toggle {
+    display: none;
+    background: none;
+    border: 2px solid var(--scotland-blue);
+    border-radius: 6px;
+    padding: 6px 10px;
+    font-size: 1.2em;
+    cursor: pointer;
+    color: var(--scotland-blue);
+  }
+
+  /* HORIZONTAL TABS */
+  .horizontal-tabs {
+    display: flex;
+    gap: 8px;
+    padding: 12px 20px;
+    background: white;
+    border-bottom: 1px solid #e0e0e0;
+    flex-wrap: wrap;
+  }
+  .h-tab {
+    padding: 10px 18px;
+    font-size: 0.95em;
+    font-weight: 500;
+    color: var(--text);
+    text-decoration: none;
+    border-bottom: 3px solid transparent;
+    border-radius: 6px 6px 0 0;
+    transition: all 0.2s;
+    display: inline-block;
+  }
+  .h-tab:hover {
+    background: var(--soft-gray);
+  }
+  .h-tab.active {
+    color: white;
+    border-bottom-color: currentColor;
+  }
+  .h-tab.general.active {
+    background: var(--gold);
+    border-bottom-color: var(--gold);
+  }
+  .h-tab.scotland.active {
+    background: var(--scotland-blue);
+    border-bottom-color: var(--scotland-blue);
+  }
+  .h-tab.ireland.active {
+    background: var(--ireland-green);
+    border-bottom-color: var(--ireland-green);
+  }
+
+  /* PAGE LAYOUT */
+  .page-layout {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .sidebar {
+    width: 220px;
+    background: white;
+    border-right: 2px solid var(--soft-gray);
+    padding: 16px 0;
+    flex-shrink: 0;
+    max-height: calc(100vh - 200px);
+    overflow-y: auto;
+  }
+  .v-tab {
+    display: block;
+    padding: 12px 16px;
+    font-size: 0.95em;
+    color: var(--text);
+    text-decoration: none;
+    border-left: 4px solid transparent;
+    transition: all 0.2s;
+  }
+  .v-tab:hover {
+    background: var(--soft-gray);
+  }
+  .v-tab.active {
+    color: white;
+    font-weight: 600;
+  }
+  .general .v-tab.active {
+    background: var(--gold);
+    border-left-color: var(--gold);
+  }
+  .scotland .v-tab.active {
+    background: var(--scotland-blue);
+    border-left-color: var(--scotland-blue);
+  }
+  .ireland .v-tab.active {
+    background: var(--ireland-green);
+    border-left-color: var(--ireland-green);
+  }
+
+  .main-content {
+    flex: 1;
+    padding: 30px;
+    background: var(--warm-cream);
+    overflow-y: auto;
+  }
+
+  /* MOBILE RESPONSIVE */
+  @media (max-width: 768px) {
+    .nav-toggle {
+      display: block;
+    }
+    .trip-nav-inner {
+      flex-direction: row;
+    }
+    .horizontal-tabs {
+      gap: 4px;
+      padding: 8px 12px;
+      overflow-x: auto;
+    }
+    .h-tab {
+      padding: 8px 12px;
+      font-size: 0.9em;
+    }
+    .page-layout {
+      flex-direction: column;
+    }
+    .sidebar {
+      width: 100%;
+      border-right: none;
+      border-bottom: 2px solid var(--soft-gray);
+      display: flex;
+      overflow-x: auto;
+      overflow-y: visible;
+      padding: 8px 0;
+      max-height: none;
+    }
+    .v-tab {
+      white-space: nowrap;
+      border-left: none;
+      border-bottom: 4px solid transparent;
+      padding: 10px 12px;
+    }
+    .general .v-tab.active {
+      background: transparent;
+      border-left: none;
+      border-bottom-color: var(--gold);
+    }
+    .scotland .v-tab.active {
+      background: transparent;
+      border-left: none;
+      border-bottom-color: var(--scotland-blue);
+    }
+    .ireland .v-tab.active {
+      background: transparent;
+      border-left: none;
+      border-bottom-color: var(--ireland-green);
+    }
+    .main-content {
+      padding: 20px;
+    }
+  }
+
+  </style>
 </head>
 <body>
 
-<nav class="site-nav">
-  <div class="site-nav-inner">
-    <a href="index.html" class="site-nav-brand">Scotland &amp; Ireland 2026</a>
+<nav class="trip-nav">
+  <div class="trip-nav-inner">
+    <a href="index.html" class="trip-brand">Scotland & Ireland 2026</a>
     <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">&#9776;</button>
-    <div class="nav-links">
-      <a href="index.html" class="nav-link">Home</a>
-      <a href="itinerary.html" class="nav-link">Your Journey</a>
-      <a href="packing.html" class="nav-link">Packing List</a>
-      <a href="food.html" class="nav-link">Food & Drink</a>
-      <a href="funfacts.html" class="nav-link">Fun Facts</a>
-      <a href="phrases.html" class="nav-link">Phrases & Slang</a>
-      <a href="souvenirs.html" class="nav-link">Souvenirs</a>
-      <a href="etiquette.html" class="nav-link">Etiquette</a>
-      <a href="practical.html" class="nav-link active">Practical Tips</a>
-      <a href="jokes.html" class="nav-link">Jokes</a>
-      <a href="movies.html" class="nav-link">Movies & TV</a>
-    </div>
   </div>
+  <div class="horizontal-tabs">
+  <a href="index.html" class="h-tab general active">General</a>
+  <a href="scotland-locations.html" class="h-tab scotland">Scotland</a>
+  <a href="ireland-locations.html" class="h-tab ireland">Ireland</a>
+</div>
 </nav>
 
 
-<div class="container" style="padding-top: 20px;">
+<div class="page-layout general">
+<div class="sidebar">
+  <a href="index.html" class="v-tab">Overview</a>
+  <a href="packing.html" class="v-tab">Packing List</a>
+  <a href="practical.html" class="v-tab active">Practical Tips</a>
+  <a href="etiquette.html" class="v-tab">Etiquette</a>
+</div>
+<div class="main-content">
 <section id="practical">
-  <div class="section-header">
-    <span class="section-icon">&#128161;</span>
-    <h2>Practical Tips</h2>
-  </div>
-
-  <h3>Currency Cheat Sheet</h3>
-  <table class="currency-table">
-    <tr>
-      <th>Location</th>
-      <th>Currency</th>
-      <th>Days</th>
-    </tr>
-    <tr>
-      <td>Scotland (Edinburgh, Highlands, Glasgow)</td>
-      <td>British Pound (&#163;)</td>
-      <td>Days 1&ndash;7</td>
-    </tr>
-    <tr>
-      <td>Northern Ireland (Belfast)</td>
-      <td>British Pound (&#163;)</td>
-      <td>Days 7&ndash;8</td>
-    </tr>
-    <tr>
-      <td>Republic of Ireland (Dublin, Galway, Killarney)</td>
-      <td>Euro (&euro;)</td>
-      <td>Days 8&ndash;17</td>
-    </tr>
-  </table>
-
-  <h3>Tipping Guide</h3>
-  <p>Tipping is much more relaxed than in the US. Staff in both countries earn a fair minimum wage, so tips are appreciated but not expected the same way.</p>
-
-  <table class="currency-table">
-    <tr>
-      <th>Situation</th>
-      <th>What to do</th>
-    </tr>
-    <tr>
-      <td>Restaurants (sit-down)</td>
-      <td>10&ndash;15% if no service charge is already on the bill</td>
-    </tr>
-    <tr>
-      <td>Pubs / Bars</td>
-      <td>Not expected. Round up if you want.</td>
-    </tr>
-    <tr>
-      <td>Taxis</td>
-      <td>Round up to the nearest pound/euro</td>
-    </tr>
-    <tr>
-      <td>Hotels</td>
-      <td>Not expected, but appreciated for exceptional help</td>
-    </tr>
-    <tr>
-      <td>Tour guides</td>
-      <td>A few pounds/euros appreciated for good tours</td>
-    </tr>
-  </table>
-
-  <h3>Electrical Outlets</h3>
-  <p>Both Scotland and Ireland use <strong>Type G plugs</strong> (three rectangular prongs). The voltage is 230V / 50Hz. You'll need a US-to-UK adapter &mdash; the same one works in both countries. Your phone and laptop chargers are dual-voltage, so you just need the adapter, not a converter. Buy one before you go!</p>
-
-  <h3>Weather &amp; What to Expect</h3>
-  <p>July is the warmest month, but "warm" here means 55&ndash;66&deg;F (12&ndash;19&deg;C). Expect rain at some point almost every day &mdash; usually brief showers, not all-day downpours. The upside? July has the longest daylight hours, with sunset not until around 10 PM. That means extra time to explore.</p>
-
-  <h3>Good to Know</h3>
-  <div class="card-grid">
-    <div class="card">
-      <h4>Driving Side</h4>
-      <p>They drive on the LEFT. Look right first when crossing the street! Many crosswalks have "LOOK RIGHT" painted on the ground to help.</p>
-    </div>
-    <div class="card">
-      <h4>Tap Water</h4>
-      <p>Safe to drink everywhere in both countries. Bring a reusable bottle and save money.</p>
-    </div>
-    <div class="card">
-      <h4>WiFi &amp; Data</h4>
-      <p>Free WiFi is common in hotels, cafes, and restaurants. Check with your carrier about international plans or pick up a local SIM.</p>
-    </div>
-  </div>
-
-  <div class="tip-box">
-    <strong>Safety:</strong> Both Scotland and Ireland are very safe countries for travelers. Normal precautions apply: keep an eye on your belongings in crowded tourist spots, stay aware of your surroundings, and stick together as a group. Emergency number is 999 (UK) or 112 (Ireland &mdash; though 999 also works).
+<section id="practical">
+<section id="practical">
+<section id="practical">
+<div class="section-header">
+<span class="section-icon">💡</span>
+<h2>Practical Tips</h2>
+</div>
+<h3>Currency Cheat Sheet</h3>
+<table class="currency-table">
+<tr>
+<th>Location</th>
+<th>Currency</th>
+<th>Days</th>
+</tr>
+<tr>
+<td>Scotland (Edinburgh, Highlands, Glasgow)</td>
+<td>British Pound (£)</td>
+<td>Days 1–7</td>
+</tr>
+<tr>
+<td>Northern Ireland (Belfast)</td>
+<td>British Pound (£)</td>
+<td>Days 7–8</td>
+</tr>
+<tr>
+<td>Republic of Ireland (Dublin, Galway, Killarney)</td>
+<td>Euro (€)</td>
+<td>Days 8–17</td>
+</tr>
+</table>
+<h3>Tipping Guide</h3>
+<p>Tipping is much more relaxed than in the US. Staff in both countries earn a fair minimum wage, so tips are appreciated but not expected the same way.</p>
+<table class="currency-table">
+<tr>
+<th>Situation</th>
+<th>What to do</th>
+</tr>
+<tr>
+<td>Restaurants (sit-down)</td>
+<td>10–15% if no service charge is already on the bill</td>
+</tr>
+<tr>
+<td>Pubs / Bars</td>
+<td>Not expected. Round up if you want.</td>
+</tr>
+<tr>
+<td>Taxis</td>
+<td>Round up to the nearest pound/euro</td>
+</tr>
+<tr>
+<td>Hotels</td>
+<td>Not expected, but appreciated for exceptional help</td>
+</tr>
+<tr>
+<td>Tour guides</td>
+<td>A few pounds/euros appreciated for good tours</td>
+</tr>
+</table>
+<h3>Electrical Outlets</h3>
+<p>Both Scotland and Ireland use <strong>Type G plugs</strong> (three rectangular prongs). The voltage is 230V / 50Hz. You'll need a US-to-UK adapter — the same one works in both countries. Your phone and laptop chargers are dual-voltage, so you just need the adapter, not a converter. Buy one before you go!</p>
+<h3>Weather &amp; What to Expect</h3>
+<p>July is the warmest month, but "warm" here means 55–66°F (12–19°C). Expect rain at some point almost every day — usually brief showers, not all-day downpours. The upside? July has the longest daylight hours, with sunset not until around 10 PM. That means extra time to explore.</p>
+<h3>Good to Know</h3>
+<div class="card-grid">
+<div class="card">
+<h4>Driving Side</h4>
+<p>They drive on the LEFT. Look right first when crossing the street! Many crosswalks have "LOOK RIGHT" painted on the ground to help.</p>
+</div>
+<div class="card">
+<h4>Tap Water</h4>
+<p>Safe to drink everywhere in both countries. Bring a reusable bottle and save money.</p>
+</div>
+<div class="card">
+<h4>WiFi &amp; Data</h4>
+<p>Free WiFi is common in hotels, cafes, and restaurants. Check with your carrier about international plans or pick up a local SIM.</p>
+</div>
+</div>
+<div class="tip-box">
+<strong>Safety:</strong> Both Scotland and Ireland are very safe countries for travelers. Normal precautions apply: keep an eye on your belongings in crowded tourist spots, stay aware of your surroundings, and stick together as a group. Emergency number is 999 (UK) or 112 (Ireland — though 999 also works).
   </div>
 </section>
+</section>
+</section>
+</section>
+</div>
 </div>
 
 <footer>
-  <p>Scotland &amp; Ireland Trip Guide &mdash; July 7&ndash;23, 2026</p>
+  <p>Scotland & Ireland Trip Guide — July 7–23, 2026</p>
   <p style="margin-top: 8px; font-size: 0.85em;">Made with love for the pod</p>
 </footer>
 

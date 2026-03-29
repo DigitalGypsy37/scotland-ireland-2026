@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fun Facts | Scotland & Ireland Trip Guide</title>
-<style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Irish Phrases | Scotland & Ireland Trip Guide</title>
+  <style>
+
 
   @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap');
 
@@ -442,68 +443,294 @@
   .hero { padding: 50px 20px 40px; }
   .hero h1 { font-size: 2.4em; }
 
-</style>
+
+
+  /* NAVIGATION STRUCTURE */
+  .trip-nav {
+    background: white;
+    padding: 12px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  .trip-nav-inner {
+    max-width: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .trip-brand {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1.1em;
+    color: var(--scotland-dark);
+    text-decoration: none;
+    margin-right: auto;
+    white-space: nowrap;
+  }
+  .nav-toggle {
+    display: none;
+    background: none;
+    border: 2px solid var(--scotland-blue);
+    border-radius: 6px;
+    padding: 6px 10px;
+    font-size: 1.2em;
+    cursor: pointer;
+    color: var(--scotland-blue);
+  }
+
+  /* HORIZONTAL TABS */
+  .horizontal-tabs {
+    display: flex;
+    gap: 8px;
+    padding: 12px 20px;
+    background: white;
+    border-bottom: 1px solid #e0e0e0;
+    flex-wrap: wrap;
+  }
+  .h-tab {
+    padding: 10px 18px;
+    font-size: 0.95em;
+    font-weight: 500;
+    color: var(--text);
+    text-decoration: none;
+    border-bottom: 3px solid transparent;
+    border-radius: 6px 6px 0 0;
+    transition: all 0.2s;
+    display: inline-block;
+  }
+  .h-tab:hover {
+    background: var(--soft-gray);
+  }
+  .h-tab.active {
+    color: white;
+    border-bottom-color: currentColor;
+  }
+  .h-tab.general.active {
+    background: var(--gold);
+    border-bottom-color: var(--gold);
+  }
+  .h-tab.scotland.active {
+    background: var(--scotland-blue);
+    border-bottom-color: var(--scotland-blue);
+  }
+  .h-tab.ireland.active {
+    background: var(--ireland-green);
+    border-bottom-color: var(--ireland-green);
+  }
+
+  /* PAGE LAYOUT */
+  .page-layout {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .sidebar {
+    width: 220px;
+    background: white;
+    border-right: 2px solid var(--soft-gray);
+    padding: 16px 0;
+    flex-shrink: 0;
+    max-height: calc(100vh - 200px);
+    overflow-y: auto;
+  }
+  .v-tab {
+    display: block;
+    padding: 12px 16px;
+    font-size: 0.95em;
+    color: var(--text);
+    text-decoration: none;
+    border-left: 4px solid transparent;
+    transition: all 0.2s;
+  }
+  .v-tab:hover {
+    background: var(--soft-gray);
+  }
+  .v-tab.active {
+    color: white;
+    font-weight: 600;
+  }
+  .general .v-tab.active {
+    background: var(--gold);
+    border-left-color: var(--gold);
+  }
+  .scotland .v-tab.active {
+    background: var(--scotland-blue);
+    border-left-color: var(--scotland-blue);
+  }
+  .ireland .v-tab.active {
+    background: var(--ireland-green);
+    border-left-color: var(--ireland-green);
+  }
+
+  .main-content {
+    flex: 1;
+    padding: 30px;
+    background: var(--warm-cream);
+    overflow-y: auto;
+  }
+
+  /* MOBILE RESPONSIVE */
+  @media (max-width: 768px) {
+    .nav-toggle {
+      display: block;
+    }
+    .trip-nav-inner {
+      flex-direction: row;
+    }
+    .horizontal-tabs {
+      gap: 4px;
+      padding: 8px 12px;
+      overflow-x: auto;
+    }
+    .h-tab {
+      padding: 8px 12px;
+      font-size: 0.9em;
+    }
+    .page-layout {
+      flex-direction: column;
+    }
+    .sidebar {
+      width: 100%;
+      border-right: none;
+      border-bottom: 2px solid var(--soft-gray);
+      display: flex;
+      overflow-x: auto;
+      overflow-y: visible;
+      padding: 8px 0;
+      max-height: none;
+    }
+    .v-tab {
+      white-space: nowrap;
+      border-left: none;
+      border-bottom: 4px solid transparent;
+      padding: 10px 12px;
+    }
+    .general .v-tab.active {
+      background: transparent;
+      border-left: none;
+      border-bottom-color: var(--gold);
+    }
+    .scotland .v-tab.active {
+      background: transparent;
+      border-left: none;
+      border-bottom-color: var(--scotland-blue);
+    }
+    .ireland .v-tab.active {
+      background: transparent;
+      border-left: none;
+      border-bottom-color: var(--ireland-green);
+    }
+    .main-content {
+      padding: 20px;
+    }
+  }
+
+  </style>
 </head>
 <body>
 
-<nav class="site-nav">
-  <div class="site-nav-inner">
-    <a href="index.html" class="site-nav-brand">Scotland &amp; Ireland 2026</a>
+<nav class="trip-nav">
+  <div class="trip-nav-inner">
+    <a href="index.html" class="trip-brand">Scotland & Ireland 2026</a>
     <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">&#9776;</button>
-    <div class="nav-links">
-      <a href="index.html" class="nav-link">Home</a>
-      <a href="itinerary.html" class="nav-link">Your Journey</a>
-      <a href="packing.html" class="nav-link">Packing List</a>
-      <a href="food.html" class="nav-link">Food & Drink</a>
-      <a href="funfacts.html" class="nav-link active">Fun Facts</a>
-      <a href="phrases.html" class="nav-link">Phrases & Slang</a>
-      <a href="souvenirs.html" class="nav-link">Souvenirs</a>
-      <a href="etiquette.html" class="nav-link">Etiquette</a>
-      <a href="practical.html" class="nav-link">Practical Tips</a>
-      <a href="jokes.html" class="nav-link">Jokes</a>
-      <a href="movies.html" class="nav-link">Movies & TV</a>
-    </div>
   </div>
+  <div class="horizontal-tabs">
+  <a href="index.html" class="h-tab general">General</a>
+  <a href="scotland-locations.html" class="h-tab scotland">Scotland</a>
+  <a href="ireland-locations.html" class="h-tab ireland active">Ireland</a>
+</div>
 </nav>
 
 
-<div class="container" style="padding-top: 20px;">
-<section id="funfacts">
-  <div class="section-header">
-    <span class="section-icon">&#129300;</span>
-    <h2>General Fun Facts</h2>
-  </div>
-
-  <p>Location-specific facts are woven into the itinerary above. Here are some bigger-picture gems:</p>
-
-  <h3>Scotland <span class="badge scotland">Scotland</span></h3>
-
-  <div class="fun-fact">
-    <strong>The world's first color photograph</strong> was taken in Scotland in 1861 by physicist James Clerk Maxwell. The subject? A tartan ribbon. Of course it was.
-  </div>
-  <div class="fun-fact">
-    <strong>The Picts were the original Scots.</strong> Before the Scots, Vikings, or English arrived, the Picts dominated most of Scotland from around 300&ndash;900 AD. They were fierce warriors famous for their blue body paint (their name may come from the Latin <em>pictus</em> meaning "painted") and intricate carved symbol stones that archaeologists still can't fully decode. They eventually merged with the Gaelic Scots to form the Kingdom of Alba &mdash; the foundation of modern Scotland.
-  </div>
-  <div class="fun-fact">
-    <strong>The Angel's Share:</strong> When Scotch whisky ages in oak barrels, about 2% evaporates into the air each year. The Scots call this "the angel's share" &mdash; the portion that goes up to heaven. Over decades of aging, a significant amount vanishes. There's even a popular Scottish film by the same name. You'll smell it in the air near any distillery.
-  </div>
-
-  <h3 class="ireland">Ireland <span class="badge ireland">Ireland</span></h3>
-
-  <div class="fun-fact">
-    <strong>Ireland has no native snakes.</strong> Legend credits St. Patrick with banishing them, but the real reason is that the island separated from mainland Europe before snakes could slither over.
-  </div>
-  <div class="fun-fact">
-    <strong>Halloween was invented in Ireland.</strong> It originated from the ancient Celtic festival of Samhain, which marked the end of the harvest season and a time when the boundary between the living and dead was believed to thin.
-  </div>
-  <div class="fun-fact">
-    <strong>Ireland is the only country in the world with a musical instrument as its national symbol</strong> &mdash; the harp. You'll see it everywhere, including on Euro coins minted in Ireland.
+<div class="page-layout ireland">
+<div class="sidebar">
+  <a href="ireland-locations.html" class="v-tab">Locations</a>
+  <a href="ireland-food.html" class="v-tab">Food & Drink</a>
+  <a href="ireland-phrases.html" class="v-tab active">Phrases & Slang</a>
+  <a href="ireland-funfacts.html" class="v-tab">Fun Facts</a>
+  <a href="ireland-souvenirs.html" class="v-tab">Souvenirs</a>
+  <a href="ireland-jokes.html" class="v-tab">Jokes</a>
+  <a href="ireland-movies.html" class="v-tab">Movies & TV</a>
+</div>
+<div class="main-content">
+<section id="ireland-phrases">
+<div style="margin: 15px 0;">
+<div class="phrase-box">
+<span class="phrase-word">Craic</span>
+<span class="phrase-pron">CRACK</span>
+<span class="phrase-meaning">Fun, good times, news. "What's the craic?" = "How are you? / What's happening?"</span>
+</div>
+<div class="phrase-box">
+<span class="phrase-word">Grand</span>
+<span class="phrase-meaning">Fine, OK. The Irish answer to everything. "How are you?" "I'm grand."</span>
+</div>
+<div class="phrase-box">
+<span class="phrase-word">Gas</span>
+<span class="phrase-meaning">Funny, hilarious. "That's gas!"</span>
+</div>
+<div class="phrase-box">
+<span class="phrase-word">Banjaxed</span>
+<span class="phrase-meaning">Broken, ruined, worn out</span>
+</div>
+<div class="phrase-box">
+<span class="phrase-word">Acting the maggot</span>
+<span class="phrase-meaning">Fooling around, misbehaving (in a playful way)</span>
+</div>
+<div class="phrase-box">
+<span class="phrase-word">Cop on</span>
+<span class="phrase-meaning">Get a clue, wise up</span>
+</div>
+<div class="phrase-box">
+<span class="phrase-word">Eejit</span>
+<span class="phrase-meaning">Idiot (affectionate or not)</span>
+</div>
+<div class="phrase-box">
+<span class="phrase-word">Deadly</span>
+<span class="phrase-meaning">Awesome, brilliant</span>
+</div>
+<div class="phrase-box">
+<span class="phrase-word">Fair play</span>
+<span class="phrase-meaning">Well done, good for you</span>
+</div>
+</div><h4>Irish Gaelic Phrases</h4><div style="margin: 15px 0;">
+<div class="phrase-box gaelic">
+<span class="phrase-word">Sláinte</span>
+<span class="phrase-pron">SLAWN-cha</span>
+<span class="phrase-meaning">"Cheers!" / "Good health!" (the classic toast)</span>
+</div>
+<div class="phrase-box gaelic">
+<span class="phrase-word">Dia dhuit</span>
+<span class="phrase-pron">DEE-ah gwith</span>
+<span class="phrase-meaning">Hello (literally "God be with you")</span>
+</div>
+<div class="phrase-box gaelic">
+<span class="phrase-word">Fáilte</span>
+<span class="phrase-pron">FAHL-cheh</span>
+<span class="phrase-meaning">Welcome</span>
+</div>
+<div class="phrase-box gaelic">
+<span class="phrase-word">Céad Míle Fáilte</span>
+<span class="phrase-pron">KAYD MEE-luh FAHL-cheh</span>
+<span class="phrase-meaning">"A Hundred Thousand Welcomes" (you'll see this everywhere)</span>
+</div>
+<div class="phrase-box gaelic">
+<span class="phrase-word">Go raibh maith agat</span>
+<span class="phrase-pron">guh rev MAH ah-gut</span>
+<span class="phrase-meaning">Thank you</span>
+</div>
+</div><div class="tip-box green">
+<strong>Important:</strong> "Top of the morning to you" is NOT actually used by Irish people — it's a Hollywood stereotype and will get you gentle eye-rolls. Stick with "What's the craic?" and you'll fit right in.
   </div>
 </section>
 </div>
+</div>
 
 <footer>
-  <p>Scotland &amp; Ireland Trip Guide &mdash; July 7&ndash;23, 2026</p>
+  <p>Scotland & Ireland Trip Guide — July 7–23, 2026</p>
   <p style="margin-top: 8px; font-size: 0.85em;">Made with love for the pod</p>
 </footer>
 

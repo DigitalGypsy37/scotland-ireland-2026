@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Scotland & Ireland Trip Guide | July 7-23, 2026</title>
-<style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trip Overview | Scotland & Ireland Trip Guide</title>
+  <style>
+
 
   @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap');
 
@@ -442,67 +443,287 @@
   .hero { padding: 50px 20px 40px; }
   .hero h1 { font-size: 2.4em; }
 
-</style>
+
+
+  /* NAVIGATION STRUCTURE */
+  .trip-nav {
+    background: white;
+    padding: 12px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  .trip-nav-inner {
+    max-width: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .trip-brand {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1.1em;
+    color: var(--scotland-dark);
+    text-decoration: none;
+    margin-right: auto;
+    white-space: nowrap;
+  }
+  .nav-toggle {
+    display: none;
+    background: none;
+    border: 2px solid var(--scotland-blue);
+    border-radius: 6px;
+    padding: 6px 10px;
+    font-size: 1.2em;
+    cursor: pointer;
+    color: var(--scotland-blue);
+  }
+
+  /* HORIZONTAL TABS */
+  .horizontal-tabs {
+    display: flex;
+    gap: 8px;
+    padding: 12px 20px;
+    background: white;
+    border-bottom: 1px solid #e0e0e0;
+    flex-wrap: wrap;
+  }
+  .h-tab {
+    padding: 10px 18px;
+    font-size: 0.95em;
+    font-weight: 500;
+    color: var(--text);
+    text-decoration: none;
+    border-bottom: 3px solid transparent;
+    border-radius: 6px 6px 0 0;
+    transition: all 0.2s;
+    display: inline-block;
+  }
+  .h-tab:hover {
+    background: var(--soft-gray);
+  }
+  .h-tab.active {
+    color: white;
+    border-bottom-color: currentColor;
+  }
+  .h-tab.general.active {
+    background: var(--gold);
+    border-bottom-color: var(--gold);
+  }
+  .h-tab.scotland.active {
+    background: var(--scotland-blue);
+    border-bottom-color: var(--scotland-blue);
+  }
+  .h-tab.ireland.active {
+    background: var(--ireland-green);
+    border-bottom-color: var(--ireland-green);
+  }
+
+  /* PAGE LAYOUT */
+  .page-layout {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .sidebar {
+    width: 220px;
+    background: white;
+    border-right: 2px solid var(--soft-gray);
+    padding: 16px 0;
+    flex-shrink: 0;
+    max-height: calc(100vh - 200px);
+    overflow-y: auto;
+  }
+  .v-tab {
+    display: block;
+    padding: 12px 16px;
+    font-size: 0.95em;
+    color: var(--text);
+    text-decoration: none;
+    border-left: 4px solid transparent;
+    transition: all 0.2s;
+  }
+  .v-tab:hover {
+    background: var(--soft-gray);
+  }
+  .v-tab.active {
+    color: white;
+    font-weight: 600;
+  }
+  .general .v-tab.active {
+    background: var(--gold);
+    border-left-color: var(--gold);
+  }
+  .scotland .v-tab.active {
+    background: var(--scotland-blue);
+    border-left-color: var(--scotland-blue);
+  }
+  .ireland .v-tab.active {
+    background: var(--ireland-green);
+    border-left-color: var(--ireland-green);
+  }
+
+  .main-content {
+    flex: 1;
+    padding: 30px;
+    background: var(--warm-cream);
+    overflow-y: auto;
+  }
+
+  /* MOBILE RESPONSIVE */
+  @media (max-width: 768px) {
+    .nav-toggle {
+      display: block;
+    }
+    .trip-nav-inner {
+      flex-direction: row;
+    }
+    .horizontal-tabs {
+      gap: 4px;
+      padding: 8px 12px;
+      overflow-x: auto;
+    }
+    .h-tab {
+      padding: 8px 12px;
+      font-size: 0.9em;
+    }
+    .page-layout {
+      flex-direction: column;
+    }
+    .sidebar {
+      width: 100%;
+      border-right: none;
+      border-bottom: 2px solid var(--soft-gray);
+      display: flex;
+      overflow-x: auto;
+      overflow-y: visible;
+      padding: 8px 0;
+      max-height: none;
+    }
+    .v-tab {
+      white-space: nowrap;
+      border-left: none;
+      border-bottom: 4px solid transparent;
+      padding: 10px 12px;
+    }
+    .general .v-tab.active {
+      background: transparent;
+      border-left: none;
+      border-bottom-color: var(--gold);
+    }
+    .scotland .v-tab.active {
+      background: transparent;
+      border-left: none;
+      border-bottom-color: var(--scotland-blue);
+    }
+    .ireland .v-tab.active {
+      background: transparent;
+      border-left: none;
+      border-bottom-color: var(--ireland-green);
+    }
+    .main-content {
+      padding: 20px;
+    }
+  }
+
+  </style>
 </head>
 <body>
 
-<nav class="site-nav">
-  <div class="site-nav-inner">
-    <a href="index.html" class="site-nav-brand">Scotland &amp; Ireland 2026</a>
+<nav class="trip-nav">
+  <div class="trip-nav-inner">
+    <a href="index.html" class="trip-brand">Scotland & Ireland 2026</a>
     <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">&#9776;</button>
-    <div class="nav-links">
-      <a href="index.html" class="nav-link active">Home</a>
-      <a href="itinerary.html" class="nav-link">Your Journey</a>
-      <a href="packing.html" class="nav-link">Packing List</a>
-      <a href="food.html" class="nav-link">Food & Drink</a>
-      <a href="funfacts.html" class="nav-link">Fun Facts</a>
-      <a href="phrases.html" class="nav-link">Phrases & Slang</a>
-      <a href="souvenirs.html" class="nav-link">Souvenirs</a>
-      <a href="etiquette.html" class="nav-link">Etiquette</a>
-      <a href="practical.html" class="nav-link">Practical Tips</a>
-      <a href="jokes.html" class="nav-link">Jokes</a>
-      <a href="movies.html" class="nav-link">Movies & TV</a>
-    </div>
   </div>
+  <div class="horizontal-tabs">
+  <a href="index.html" class="h-tab general active">General</a>
+  <a href="scotland-locations.html" class="h-tab scotland">Scotland</a>
+  <a href="ireland-locations.html" class="h-tab ireland">Ireland</a>
+</div>
 </nav>
 
 
-<div class="container" style="padding-top: 20px;">
-
-<div class="hero" style="border-radius: 16px; margin-bottom: 30px;">
-  <h1>Scotland &amp; Ireland</h1>
+<div class="hero">
+  <h1>Scotland & Ireland</h1>
   <div class="dates">July 7 - 23, 2026</div>
   <p class="tagline">Your ultimate guide to 17 days of castles, cliffs, craic, and unforgettable adventures across two incredible countries.</p>
   <div class="flag-row">
-    <span title="Scotland">&#127988;&#917607;&#917602;&#917619;&#917603;&#917620;&#917631;</span>
-    <span title="Ireland">&#127470;&#127466;</span>
+    <span title="Scotland">🏴󠁧󠁢󠁳󠁣󠁴󠁿</span>
+    <span title="Ireland">🇮🇪</span>
   </div>
 </div>
 
-<section>
+<div class="page-layout general">
+<div class="sidebar">
+  <a href="index.html" class="v-tab active">Overview</a>
+  <a href="packing.html" class="v-tab">Packing List</a>
+  <a href="practical.html" class="v-tab">Practical Tips</a>
+  <a href="etiquette.html" class="v-tab">Etiquette</a>
+</div>
+<div class="main-content">
+<section id="overview">
   <div class="section-header">
-    <span class="section-icon">&#128218;</span>
-    <h2>Your Trip Guide</h2>
+    <span class="section-icon">📍</span>
+    <h2>Trip Overview</h2>
   </div>
-  <p>Everything you need to know for 17 incredible days across Scotland and Ireland. Click any section to explore:</p>
-  <div class="toc-grid">
-    <a href="itinerary.html">&#128197; Your Journey</a>
-    <a href="packing.html">&#127890; Packing List</a>
-    <a href="food.html">&#127860; Food &amp; Drink</a>
-    <a href="funfacts.html">&#129300; Fun Facts</a>
-    <a href="phrases.html">&#128172; Phrases &amp; Slang</a>
-    <a href="souvenirs.html">&#127873; Souvenirs</a>
-    <a href="etiquette.html">&#129309; Etiquette</a>
-    <a href="practical.html">&#9889; Practical Tips</a>
-    <a href="jokes.html">&#128514; Jokes</a>
-    <a href="movies.html">&#127916; Movies &amp; TV</a>
-  </div>
+  <svg style="width:100%;max-width:580px;margin:20px auto;display:block;background:#e8f0f8;border-radius:16px;" viewbox="0 0 580 720" xmlns="http://www.w3.org/2000/svg">
+    <rect fill="#dae8f5" height="720" rx="16" width="580"></rect>
+    <path d="M280,30 L330,25 L370,40 L400,35 L420,55 L410,80 L440,95 L430,120 L450,140 L435,165 L445,190 L420,210 L400,200 L380,220 L360,215 L340,235 L310,230 L290,245 L270,235 L250,250 L230,240 L220,220 L240,200 L230,180 L250,160 L240,140 L260,120 L250,100 L270,80 L260,55 L280,30Z" fill="#8CB369" opacity="0.7" stroke="#6a9a45" stroke-width="1.5"></path>
+    <path d="M220,220 L240,250 L260,270 L290,280 L320,285 L350,275 L380,280 L400,265 L420,270 L440,260 L445,280 L430,300 L410,310 L380,320 L350,315 L320,325 L290,320 L260,330 L240,320 L220,310 L210,290 L200,270 L210,250 L220,220Z" fill="#8CB369" opacity="0.7" stroke="#6a9a45" stroke-width="1.5"></path>
+    <path d="M160,340 L200,330 L230,340 L260,335 L280,350 L270,370 L280,390 L260,400 L240,395 L220,405 L200,395 L180,400 L160,390 L150,370 L155,350 L160,340Z" fill="#7BC47F" opacity="0.7" stroke="#4da653" stroke-width="1.5"></path>
+    <path d="M120,400 L160,390 L200,395 L230,400 L260,400 L280,410 L300,430 L310,460 L305,490 L310,520 L300,550 L290,580 L270,600 L250,620 L220,635 L190,640 L160,630 L135,610 L115,585 L100,555 L95,520 L100,490 L110,460 L105,430 L120,400Z" fill="#7BC47F" opacity="0.7" stroke="#4da653" stroke-width="1.5"></path>
+    <polyline fill="none" opacity="0.9" points="365,230 335,175 370,125 290,290 215,370 265,435 155,490 120,520 155,575 265,435" stroke="#D4A843" stroke-dasharray="8,4" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></polyline>
+    <circle cx="365" cy="230" fill="#005EB8" r="8" stroke="white" stroke-width="2.5"></circle>
+    <text fill="#1a2744" font-family="Inter,sans-serif" font-size="13" font-weight="700" x="380" y="224">Edinburgh</text>
+    <text fill="#555" font-family="Inter,sans-serif" font-size="10" x="380" y="239">Days 2-3</text>
+    <circle cx="335" cy="175" fill="#005EB8" r="7" stroke="white" stroke-width="2"></circle>
+    <text fill="#1a2744" font-family="Inter,sans-serif" font-size="12" font-weight="600" x="350" y="170">Stirling</text>
+    <text fill="#555" font-family="Inter,sans-serif" font-size="10" x="350" y="183">Day 4</text>
+    <circle cx="370" cy="125" fill="#005EB8" r="7" stroke="white" stroke-width="2"></circle>
+    <text fill="#1a2744" font-family="Inter,sans-serif" font-size="12" font-weight="600" x="385" y="120">Highlands</text>
+    <text fill="#555" font-family="Inter,sans-serif" font-size="10" x="385" y="133">Loch Ness • Day 5</text>
+    <circle cx="290" cy="290" fill="#005EB8" r="7" stroke="white" stroke-width="2"></circle>
+    <text fill="#1a2744" font-family="Inter,sans-serif" font-size="12" font-weight="600" x="305" y="285">Glasgow</text>
+    <text fill="#555" font-family="Inter,sans-serif" font-size="10" x="305" y="298">Day 6</text>
+    <circle cx="230" cy="340" fill="#169B62" r="5" stroke="white" stroke-width="1.5"></circle>
+    <text fill="#0d5e3b" font-family="Inter,sans-serif" font-size="10" font-weight="600" x="170" y="330">Giant's Causeway</text>
+    <circle cx="215" cy="370" fill="#169B62" r="7" stroke="white" stroke-width="2"></circle>
+    <text fill="#0d5e3b" font-family="Inter,sans-serif" font-size="12" font-weight="600" x="230" y="365">Belfast</text>
+    <text fill="#555" font-family="Inter,sans-serif" font-size="10" x="230" y="378">Days 7-8</text>
+    <circle cx="265" cy="435" fill="#169B62" r="8" stroke="white" stroke-width="2.5"></circle>
+    <text fill="#0d5e3b" font-family="Inter,sans-serif" font-size="13" font-weight="700" x="280" y="430">Dublin</text>
+    <text fill="#555" font-family="Inter,sans-serif" font-size="10" x="280" y="445">Days 8-9, 14-17</text>
+    <circle cx="155" cy="490" fill="#169B62" r="7" stroke="white" stroke-width="2"></circle>
+    <text fill="#0d5e3b" font-family="Inter,sans-serif" font-size="12" font-weight="600" x="100" y="480">Galway</text>
+    <text fill="#555" font-family="Inter,sans-serif" font-size="10" x="100" y="493">Days 10-11</text>
+    <circle cx="120" cy="520" fill="#169B62" r="5" stroke="white" stroke-width="1.5"></circle>
+    <text fill="#0d5e3b" font-family="Inter,sans-serif" font-size="10" font-weight="600" x="55" y="530">Inishmore</text>
+    <circle cx="120" cy="545" fill="#D4A843" r="4" stroke="white" stroke-width="1.5"></circle>
+    <text fill="#8B6914" font-family="Inter,sans-serif" font-size="10" font-weight="600" x="45" y="553">Cliffs of Moher</text>
+    <circle cx="170" cy="580" fill="#169B62" r="5" stroke="white" stroke-width="1.5"></circle>
+    <text fill="#0d5e3b" font-family="Inter,sans-serif" font-size="10" font-weight="600" x="182" y="584">Blarney</text>
+    <circle cx="155" cy="575" fill="#169B62" r="7" stroke="white" stroke-width="2"></circle>
+    <text fill="#0d5e3b" font-family="Inter,sans-serif" font-size="12" font-weight="600" x="90" y="585">Killarney</text>
+    <text fill="#555" font-family="Inter,sans-serif" font-size="10" x="90" y="598">Days 12-13</text>
+    <rect fill="white" height="65" opacity="0.85" rx="8" width="180" x="380" y="640"></rect>
+    <circle cx="398" cy="658" fill="#005EB8" r="5"></circle>
+    <text fill="#333" font-family="Inter,sans-serif" font-size="11" x="410" y="662">Scotland</text>
+    <circle cx="398" cy="680" fill="#169B62" r="5"></circle>
+    <text fill="#333" font-family="Inter,sans-serif" font-size="11" x="410" y="684">Ireland</text>
+    <line stroke="#D4A843" stroke-dasharray="5,3" stroke-width="2.5" x1="388" x2="408" y1="698" y2="698"></line>
+    <text fill="#333" font-family="Inter,sans-serif" font-size="11" x="414" y="702">Route</text>
+  </svg>
+  <p><strong>This is your two-week adventure map.</strong> You'll spend 6 days in Scotland exploring Edinburgh, the Highlands, and Glasgow, then 11 days in Ireland across Belfast, Dublin, Galway, and the southwest. Click the <strong>Scotland</strong> and <strong>Ireland</strong> tabs above to dive into destination-specific content.</p>
 </section>
 
 </div>
+</div>
 
 <footer>
-  <p>Scotland &amp; Ireland Trip Guide &mdash; July 7&ndash;23, 2026</p>
+  <p>Scotland & Ireland Trip Guide — July 7–23, 2026</p>
   <p style="margin-top: 8px; font-size: 0.85em;">Made with love for the pod</p>
 </footer>
 

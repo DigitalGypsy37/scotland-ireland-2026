@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Packing List | Scotland & Ireland Trip Guide</title>
-<style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Packing List | Scotland & Ireland Trip Guide</title>
+  <style>
+
 
   @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap');
 
@@ -442,92 +443,278 @@
   .hero { padding: 50px 20px 40px; }
   .hero h1 { font-size: 2.4em; }
 
-</style>
+
+
+  /* NAVIGATION STRUCTURE */
+  .trip-nav {
+    background: white;
+    padding: 12px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  .trip-nav-inner {
+    max-width: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .trip-brand {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1.1em;
+    color: var(--scotland-dark);
+    text-decoration: none;
+    margin-right: auto;
+    white-space: nowrap;
+  }
+  .nav-toggle {
+    display: none;
+    background: none;
+    border: 2px solid var(--scotland-blue);
+    border-radius: 6px;
+    padding: 6px 10px;
+    font-size: 1.2em;
+    cursor: pointer;
+    color: var(--scotland-blue);
+  }
+
+  /* HORIZONTAL TABS */
+  .horizontal-tabs {
+    display: flex;
+    gap: 8px;
+    padding: 12px 20px;
+    background: white;
+    border-bottom: 1px solid #e0e0e0;
+    flex-wrap: wrap;
+  }
+  .h-tab {
+    padding: 10px 18px;
+    font-size: 0.95em;
+    font-weight: 500;
+    color: var(--text);
+    text-decoration: none;
+    border-bottom: 3px solid transparent;
+    border-radius: 6px 6px 0 0;
+    transition: all 0.2s;
+    display: inline-block;
+  }
+  .h-tab:hover {
+    background: var(--soft-gray);
+  }
+  .h-tab.active {
+    color: white;
+    border-bottom-color: currentColor;
+  }
+  .h-tab.general.active {
+    background: var(--gold);
+    border-bottom-color: var(--gold);
+  }
+  .h-tab.scotland.active {
+    background: var(--scotland-blue);
+    border-bottom-color: var(--scotland-blue);
+  }
+  .h-tab.ireland.active {
+    background: var(--ireland-green);
+    border-bottom-color: var(--ireland-green);
+  }
+
+  /* PAGE LAYOUT */
+  .page-layout {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .sidebar {
+    width: 220px;
+    background: white;
+    border-right: 2px solid var(--soft-gray);
+    padding: 16px 0;
+    flex-shrink: 0;
+    max-height: calc(100vh - 200px);
+    overflow-y: auto;
+  }
+  .v-tab {
+    display: block;
+    padding: 12px 16px;
+    font-size: 0.95em;
+    color: var(--text);
+    text-decoration: none;
+    border-left: 4px solid transparent;
+    transition: all 0.2s;
+  }
+  .v-tab:hover {
+    background: var(--soft-gray);
+  }
+  .v-tab.active {
+    color: white;
+    font-weight: 600;
+  }
+  .general .v-tab.active {
+    background: var(--gold);
+    border-left-color: var(--gold);
+  }
+  .scotland .v-tab.active {
+    background: var(--scotland-blue);
+    border-left-color: var(--scotland-blue);
+  }
+  .ireland .v-tab.active {
+    background: var(--ireland-green);
+    border-left-color: var(--ireland-green);
+  }
+
+  .main-content {
+    flex: 1;
+    padding: 30px;
+    background: var(--warm-cream);
+    overflow-y: auto;
+  }
+
+  /* MOBILE RESPONSIVE */
+  @media (max-width: 768px) {
+    .nav-toggle {
+      display: block;
+    }
+    .trip-nav-inner {
+      flex-direction: row;
+    }
+    .horizontal-tabs {
+      gap: 4px;
+      padding: 8px 12px;
+      overflow-x: auto;
+    }
+    .h-tab {
+      padding: 8px 12px;
+      font-size: 0.9em;
+    }
+    .page-layout {
+      flex-direction: column;
+    }
+    .sidebar {
+      width: 100%;
+      border-right: none;
+      border-bottom: 2px solid var(--soft-gray);
+      display: flex;
+      overflow-x: auto;
+      overflow-y: visible;
+      padding: 8px 0;
+      max-height: none;
+    }
+    .v-tab {
+      white-space: nowrap;
+      border-left: none;
+      border-bottom: 4px solid transparent;
+      padding: 10px 12px;
+    }
+    .general .v-tab.active {
+      background: transparent;
+      border-left: none;
+      border-bottom-color: var(--gold);
+    }
+    .scotland .v-tab.active {
+      background: transparent;
+      border-left: none;
+      border-bottom-color: var(--scotland-blue);
+    }
+    .ireland .v-tab.active {
+      background: transparent;
+      border-left: none;
+      border-bottom-color: var(--ireland-green);
+    }
+    .main-content {
+      padding: 20px;
+    }
+  }
+
+  </style>
 </head>
 <body>
 
-<nav class="site-nav">
-  <div class="site-nav-inner">
-    <a href="index.html" class="site-nav-brand">Scotland &amp; Ireland 2026</a>
+<nav class="trip-nav">
+  <div class="trip-nav-inner">
+    <a href="index.html" class="trip-brand">Scotland & Ireland 2026</a>
     <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">&#9776;</button>
-    <div class="nav-links">
-      <a href="index.html" class="nav-link">Home</a>
-      <a href="itinerary.html" class="nav-link">Your Journey</a>
-      <a href="packing.html" class="nav-link active">Packing List</a>
-      <a href="food.html" class="nav-link">Food & Drink</a>
-      <a href="funfacts.html" class="nav-link">Fun Facts</a>
-      <a href="phrases.html" class="nav-link">Phrases & Slang</a>
-      <a href="souvenirs.html" class="nav-link">Souvenirs</a>
-      <a href="etiquette.html" class="nav-link">Etiquette</a>
-      <a href="practical.html" class="nav-link">Practical Tips</a>
-      <a href="jokes.html" class="nav-link">Jokes</a>
-      <a href="movies.html" class="nav-link">Movies & TV</a>
-    </div>
   </div>
+  <div class="horizontal-tabs">
+  <a href="index.html" class="h-tab general active">General</a>
+  <a href="scotland-locations.html" class="h-tab scotland">Scotland</a>
+  <a href="ireland-locations.html" class="h-tab ireland">Ireland</a>
+</div>
 </nav>
 
 
-<div class="container" style="padding-top: 20px;">
+<div class="page-layout general">
+<div class="sidebar">
+  <a href="index.html" class="v-tab">Overview</a>
+  <a href="packing.html" class="v-tab active">Packing List</a>
+  <a href="practical.html" class="v-tab">Practical Tips</a>
+  <a href="etiquette.html" class="v-tab">Etiquette</a>
+</div>
+<div class="main-content">
 <section id="packing">
-  <div class="section-header">
-    <span class="section-icon">&#127890;</span>
-    <h2>Packing List</h2>
-  </div>
-
-  <p>July in Scotland and Ireland means mild temps (55&ndash;66&deg;F / 12&ndash;19&deg;C) but unpredictable weather. You can easily get four seasons in a single day, so layers are everything.</p>
-
-  <h3>Clothing Essentials</h3>
-  <ul class="checklist">
-    <li>Lightweight waterproof rain jacket (you WILL need this)</li>
-    <li>2&ndash;3 long-sleeve shirts for layering</li>
-    <li>T-shirts and breathable tops</li>
-    <li>1&ndash;2 cardigans or light sweaters</li>
-    <li>Jeans or pants (2&ndash;3 pairs)</li>
-    <li>Shorts (for warmer days &mdash; yes, they happen!)</li>
-    <li>One nicer outfit for farewell/welcome dinners</li>
-    <li>Swimwear (for Kilmurvey Beach on Inishmore)</li>
-    <li>Warm hat or beanie for boat rides and Highlands</li>
-    <li>Lightweight scarf</li>
-    <li>Sunglasses</li>
-  </ul>
-
-  <h3>Footwear</h3>
-  <ul class="checklist">
-    <li>Comfortable waterproof walking shoes (you'll walk A LOT)</li>
-    <li>Sturdy hiking boots (for D&uacute;n Aonghasa, Ring of Kerry, Highlands)</li>
-    <li>Casual shoes or sandals for evenings</li>
-  </ul>
-
-  <h3>Gear & Accessories</h3>
-  <ul class="checklist">
-    <li><strong>UK/Ireland power adapter</strong> (Type G &mdash; 3 rectangular prongs). Same adapter works in both countries!</li>
-    <li>Portable phone charger / power bank</li>
-    <li>Small umbrella</li>
-    <li>Day pack or small backpack</li>
-    <li>Reusable water bottle</li>
-    <li>Midge/bug repellent (essential for the Scottish Highlands &mdash; tiny biting insects thrive in July)</li>
-    <li>Sunscreen &amp; lip balm with SPF</li>
-    <li>Moisturizer (wind + rain = dry skin)</li>
-  </ul>
-
-  <h3>Documents & Money</h3>
-  <ul class="checklist">
-    <li>Valid passport</li>
-    <li>Travel insurance info</li>
-    <li>Credit/debit cards (Visa &amp; Mastercard widely accepted)</li>
-    <li>Some British Pounds (&#163;) for Scotland &amp; Northern Ireland</li>
-    <li>Some Euros (&euro;) for Republic of Ireland</li>
-    <li>Prescriptions &amp; medications</li>
-  </ul>
-
-  <div class="tip-box">
-    <strong>Currency heads-up:</strong> You'll use TWO currencies on this trip. Scotland and Belfast use British Pounds (&#163;). Once you cross into the Republic of Ireland (Dublin onward), everything switches to Euros (&euro;). They are NOT interchangeable. Cards work almost everywhere, but it's smart to carry some cash in each currency.
+<section id="packing">
+<section id="packing">
+<section id="packing">
+<div class="section-header">
+<span class="section-icon">🎒</span>
+<h2>Packing List</h2>
+</div>
+<p>July in Scotland and Ireland means mild temps (55–66°F / 12–19°C) but unpredictable weather. You can easily get four seasons in a single day, so layers are everything.</p>
+<h3>Clothing Essentials</h3>
+<ul class="checklist">
+<li>Lightweight waterproof rain jacket (you WILL need this)</li>
+<li>2–3 long-sleeve shirts for layering</li>
+<li>T-shirts and breathable tops</li>
+<li>1–2 cardigans or light sweaters</li>
+<li>Jeans or pants (2–3 pairs)</li>
+<li>Shorts (for warmer days — yes, they happen!)</li>
+<li>One nicer outfit for farewell/welcome dinners</li>
+<li>Swimwear (for Kilmurvey Beach on Inishmore)</li>
+<li>Warm hat or beanie for boat rides and Highlands</li>
+<li>Lightweight scarf</li>
+<li>Sunglasses</li>
+</ul>
+<h3>Footwear</h3>
+<ul class="checklist">
+<li>Comfortable waterproof walking shoes (you'll walk A LOT)</li>
+<li>Sturdy hiking boots (for Dún Aonghasa, Ring of Kerry, Highlands)</li>
+<li>Casual shoes or sandals for evenings</li>
+</ul>
+<h3>Gear &amp; Accessories</h3>
+<ul class="checklist">
+<li><strong>UK/Ireland power adapter</strong> (Type G — 3 rectangular prongs). Same adapter works in both countries!</li>
+<li>Portable phone charger / power bank</li>
+<li>Small umbrella</li>
+<li>Day pack or small backpack</li>
+<li>Reusable water bottle</li>
+<li>Midge/bug repellent (essential for the Scottish Highlands — tiny biting insects thrive in July)</li>
+<li>Sunscreen &amp; lip balm with SPF</li>
+<li>Moisturizer (wind + rain = dry skin)</li>
+</ul>
+<h3>Documents &amp; Money</h3>
+<ul class="checklist">
+<li>Valid passport</li>
+<li>Travel insurance info</li>
+<li>Credit/debit cards (Visa &amp; Mastercard widely accepted)</li>
+<li>Some British Pounds (£) for Scotland &amp; Northern Ireland</li>
+<li>Some Euros (€) for Republic of Ireland</li>
+<li>Prescriptions &amp; medications</li>
+</ul>
+<div class="tip-box">
+<strong>Currency heads-up:</strong> You'll use TWO currencies on this trip. Scotland and Belfast use British Pounds (£). Once you cross into the Republic of Ireland (Dublin onward), everything switches to Euros (€). They are NOT interchangeable. Cards work almost everywhere, but it's smart to carry some cash in each currency.
   </div>
 </section>
+</section>
+</section>
+</section>
+</div>
 </div>
 
 <footer>
-  <p>Scotland &amp; Ireland Trip Guide &mdash; July 7&ndash;23, 2026</p>
+  <p>Scotland & Ireland Trip Guide — July 7–23, 2026</p>
   <p style="margin-top: 8px; font-size: 0.85em;">Made with love for the pod</p>
 </footer>
 

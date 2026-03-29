@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scotland Locations | Scotland & Ireland Trip Guide</title>
+  <style>
+
+
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap');
+
+  :root {
+    --scotland-blue: #005EB8;
+    --scotland-dark: #1a2744;
+    --ireland-green: #169B62;
+    --ireland-dark: #0d5e3b;
+    --gold: #D4A843;
+    --warm-cream: #FDF6EC;
+    --soft-gray: #f5f5f5;
+    --text: #2d2d2d;
+    --text-light: #555;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    color: var(--text);
+    background: var(--warm-cream);
+    line-height: 1.7;
+  }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, var(--scotland-dark) 0%, var(--scotland-blue) 30%, var(--ireland-green) 70%, var(--ireland-dark) 100%);
+    color: white;
+    text-align: center;
+    padding: 80px 20px 60px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 5 L35 20 L50 20 L38 30 L42 45 L30 36 L18 45 L22 30 L10 20 L25 20 Z' fill='rgba(255,255,255,0.03)'/%3E%3C/svg%3E");
+    opacity: 0.5;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.2em;
+    font-weight: 900;
+    margin-bottom: 10px;
+    position: relative;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  }
+  .hero .dates {
+    font-size: 1.3em;
+    font-weight: 300;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    position: relative;
+  }
+  .hero .tagline {
+    font-size: 1.1em;
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+  }
+  .flag-row {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 25px;
+    font-size: 2.5em;
+    position: relative;
+  }
+
+  /* NAV */
+  .toc {
+    background: white;
+    padding: 30px;
+    max-width: 900px;
+    margin: -30px auto 30px;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    position: relative;
+    z-index: 2;
+  }
+  .toc h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4em;
+    margin-bottom: 15px;
+    text-align: center;
+    color: var(--scotland-dark);
+  }
+  .toc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+  }
+  .toc-grid a {
+    display: block;
+    padding: 12px 16px;
+    background: var(--soft-gray);
+    border-radius: 10px;
+    text-decoration: none;
+    color: var(--text);
+    font-weight: 500;
+    font-size: 0.95em;
+    transition: all 0.2s;
+    text-align: center;
+  }
+  .toc-grid a:hover {
+    background: var(--scotland-blue);
+    color: white;
+    transform: translateY(-2px);
+  }
+
+  /* SECTIONS */
+  .container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+
+  section {
+    background: white;
+    border-radius: 16px;
+    padding: 40px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 3px solid var(--gold);
+  }
+  .section-icon { font-size: 2em; }
+  .section-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8em;
+    color: var(--scotland-dark);
+  }
+
+  h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3em;
+    color: var(--scotland-blue);
+    margin: 25px 0 12px;
+  }
+  h3.ireland { color: var(--ireland-green); }
+
+  h4 {
+    font-weight: 600;
+    font-size: 1.05em;
+    margin: 18px 0 8px;
+    color: var(--text);
+  }
+
+  p { margin-bottom: 12px; color: var(--text-light); }
+
+  /* CARDS */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 16px;
+    margin: 15px 0;
+  }
+  .card {
+    background: var(--soft-gray);
+    border-radius: 12px;
+    padding: 20px;
+    border-left: 4px solid var(--gold);
+  }
+  .card.scotland { border-left-color: var(--scotland-blue); }
+  .card.ireland { border-left-color: var(--ireland-green); }
+  .card h4 { margin-top: 0; font-size: 1em; }
+  .card p { font-size: 0.92em; margin-bottom: 6px; }
+
+  /* PHRASE BOXES */
+  .phrase-box {
+    display: inline-block;
+    background: linear-gradient(135deg, #f8f4ff, #f0f0ff);
+    border-radius: 10px;
+    padding: 14px 20px;
+    margin: 6px 4px;
+    border: 1px solid #e0d8f0;
+  }
+  .phrase-box.gaelic { background: linear-gradient(135deg, #f0fff4, #e8f5e9); border-color: #b2dfdb; }
+  .phrase-word {
+    font-weight: 700;
+    font-size: 1.1em;
+    color: var(--scotland-dark);
+    display: block;
+  }
+  .phrase-pron {
+    font-style: italic;
+    font-size: 0.85em;
+    color: #888;
+  }
+  .phrase-meaning {
+    font-size: 0.9em;
+    color: var(--text-light);
+    margin-top: 2px;
+  }
+
+  /* FUN FACT CALLOUTS */
+  .fun-fact {
+    background: linear-gradient(135deg, #FFF8E7, #FFF3D6);
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin: 12px 0;
+    border-left: 4px solid var(--gold);
+    font-size: 0.95em;
+  }
+  .fun-fact strong { color: var(--scotland-dark); }
+
+  /* FOOD ITEMS */
+  .food-item {
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .food-item:last-child { border-bottom: none; }
+  .food-name {
+    font-weight: 700;
+    font-size: 1.05em;
+    color: var(--text);
+  }
+  .food-desc {
+    font-size: 0.92em;
+    color: var(--text-light);
+    margin-top: 2px;
+  }
+
+  /* CHECKLIST */
+  .checklist { list-style: none; padding: 0; }
+  .checklist li {
+    padding: 8px 0 8px 32px;
+    position: relative;
+    font-size: 0.95em;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  .checklist li::before {
+    content: '\2610';
+    position: absolute;
+    left: 0;
+    font-size: 1.2em;
+    color: var(--scotland-blue);
+  }
+
+  /* ITINERARY */
+  .itinerary-day {
+    display: flex;
+    gap: 16px;
+    padding: 14px 0;
+    border-bottom: 1px solid #eee;
+    align-items: flex-start;
+  }
+  .day-num {
+    background: var(--scotland-blue);
+    color: white;
+    border-radius: 50%;
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.85em;
+    flex-shrink: 0;
+  }
+  .day-num.ireland-day { background: var(--ireland-green); }
+  .day-info { flex: 1; }
+  .day-date { font-weight: 600; font-size: 0.95em; }
+  .day-details { font-size: 0.88em; color: var(--text-light); }
+
+  /* LOCATION BLOCK (new) */
+  .location-block {
+    background: var(--soft-gray);
+    border-radius: 14px;
+    padding: 25px 28px;
+    margin: 20px 0 30px;
+    border-top: 4px solid var(--scotland-blue);
+  }
+  .location-block.ireland-block { border-top-color: var(--ireland-green); }
+  .location-block h3 { margin-top: 0; }
+  .location-block .fun-fact { background: white; }
+  .location-block .card { background: white; }
+  .location-block .tip-box { background: white; border-left-color: var(--gold); }
+
+  /* EASTER EGG */
+  .easter-egg {
+    background: linear-gradient(135deg, #F3E8FF, #EDE4F7);
+    border-radius: 12px;
+    padding: 14px 18px;
+    margin: 8px 0;
+    border-left: 4px solid #9B59B6;
+    font-size: 0.92em;
+  }
+  .easter-egg strong { color: #6C3483; }
+  .easter-egg-header {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1em;
+    color: #6C3483;
+    margin: 22px 0 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .location-block .easter-egg { background: white; border-left-color: #9B59B6; }
+
+  /* TIP BOX */
+  .tip-box {
+    background: linear-gradient(135deg, #E8F4FD, #D6EAF8);
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin: 12px 0;
+    border-left: 4px solid var(--scotland-blue);
+    font-size: 0.95em;
+  }
+  .tip-box.green {
+    background: linear-gradient(135deg, #E8F8F0, #D5F5E3);
+    border-left-color: var(--ireland-green);
+  }
+
+  /* BADGE */
+  .badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 0.75em;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+  .badge.scotland { background: #E8F0FE; color: var(--scotland-blue); }
+  .badge.ireland { background: #E8F8F0; color: var(--ireland-green); }
+  .badge.both { background: #FFF3D6; color: #8B6914; }
+
+  /* CURRENCY TABLE */
+  .currency-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+    font-size: 0.92em;
+  }
+  .currency-table th {
+    background: var(--scotland-dark);
+    color: white;
+    padding: 12px 16px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .currency-table td {
+    padding: 10px 16px;
+    border-bottom: 1px solid #eee;
+  }
+  .currency-table tr:nth-child(even) { background: #fafafa; }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--text-light);
+    font-size: 0.9em;
+  }
+
+  @media (max-width: 600px) {
+    .hero h1 { font-size: 2em; }
+    section { padding: 25px 20px; }
+    .card-grid { grid-template-columns: 1fr; }
+    .location-block { padding: 18px 16px; }
+  }
+
+
+  /* SITE NAV */
+  .site-nav {
+    background: white;
+    padding: 12px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  .site-nav-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .site-nav-brand {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1.1em;
+    color: var(--scotland-dark);
+    text-decoration: none;
+    margin-right: auto;
+    white-space: nowrap;
+  }
+  .site-nav a.nav-link {
+    font-size: 0.85em;
+    font-weight: 500;
+    color: var(--text-light);
+    text-decoration: none;
+    padding: 6px 10px;
+    border-radius: 8px;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .site-nav a.nav-link:hover,
+  .site-nav a.nav-link.active {
+    background: var(--scotland-blue);
+    color: white;
+  }
+  .site-nav a.nav-link.active-ireland {
+    background: var(--ireland-green);
+    color: white;
+  }
+  .nav-toggle {
+    display: none;
+    background: none;
+    border: 2px solid var(--scotland-blue);
+    border-radius: 6px;
+    padding: 6px 10px;
+    font-size: 1.2em;
+    cursor: pointer;
+    color: var(--scotland-blue);
+  }
+  .nav-links { display: flex; gap: 4px; flex-wrap: wrap; align-items: center; }
+  @media (max-width: 768px) {
+    .nav-toggle { display: block; }
+    .nav-links { display: none; width: 100%; flex-direction: column; gap: 2px; }
+    .nav-links.open { display: flex; }
+    .site-nav a.nav-link { width: 100%; text-align: left; }
+  }
+  .hero { padding: 50px 20px 40px; }
+  .hero h1 { font-size: 2.4em; }
+
+
+
+  /* NAVIGATION STRUCTURE */
+  .trip-nav {
+    background: white;
+    padding: 12px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  .trip-nav-inner {
+    max-width: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .trip-brand {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1.1em;
+    color: var(--scotland-dark);
+    text-decoration: none;
+    margin-right: auto;
+    white-space: nowrap;
+  }
+  .nav-toggle {
+    display: none;
+    background: none;
+    border: 2px solid var(--scotland-blue);
+    border-radius: 6px;
+    padding: 6px 10px;
+    font-size: 1.2em;
+    cursor: pointer;
+    color: var(--scotland-blue);
+  }
+
+  /* HORIZONTAL TABS */
+  .horizontal-tabs {
+    display: flex;
+    gap: 8px;
+    padding: 12px 20px;
+    background: white;
+    border-bottom: 1px solid #e0e0e0;
+    flex-wrap: wrap;
+  }
+  .h-tab {
+    padding: 10px 18px;
+    font-size: 0.95em;
+    font-weight: 500;
+    color: var(--text);
+    text-decoration: none;
+    border-bottom: 3px solid transparent;
+    border-radius: 6px 6px 0 0;
+    transition: all 0.2s;
+    display: inline-block;
+  }
+  .h-tab:hover {
+    background: var(--soft-gray);
+  }
+  .h-tab.active {
+    color: white;
+    border-bottom-color: currentColor;
+  }
+  .h-tab.general.active {
+    background: var(--gold);
+    border-bottom-color: var(--gold);
+  }
+  .h-tab.scotland.active {
+    background: var(--scotland-blue);
+    border-bottom-color: var(--scotland-blue);
+  }
+  .h-tab.ireland.active {
+    background: var(--ireland-green);
+    border-bottom-color: var(--ireland-green);
+  }
+
+  /* PAGE LAYOUT */
+  .page-layout {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .sidebar {
+    width: 220px;
+    background: white;
+    border-right: 2px solid var(--soft-gray);
+    padding: 16px 0;
+    flex-shrink: 0;
+    max-height: calc(100vh - 200px);
+    overflow-y: auto;
+  }
+  .v-tab {
+    display: block;
+    padding: 12px 16px;
+    font-size: 0.95em;
+    color: var(--text);
+    text-decoration: none;
+    border-left: 4px solid transparent;
+    transition: all 0.2s;
+  }
+  .v-tab:hover {
+    background: var(--soft-gray);
+  }
+  .v-tab.active {
+    color: white;
+    font-weight: 600;
+  }
+  .general .v-tab.active {
+    background: var(--gold);
+    border-left-color: var(--gold);
+  }
+  .scotland .v-tab.active {
+    background: var(--scotland-blue);
+    border-left-color: var(--scotland-blue);
+  }
+  .ireland .v-tab.active {
+    background: var(--ireland-green);
+    border-left-color: var(--ireland-green);
+  }
+
+  .main-content {
+    flex: 1;
+    padding: 30px;
+    background: var(--warm-cream);
+    overflow-y: auto;
+  }
+
+  /* MOBILE RESPONSIVE */
+  @media (max-width: 768px) {
+    .nav-toggle {
+      display: block;
+    }
+    .trip-nav-inner {
+      flex-direction: row;
+    }
+    .horizontal-tabs {
+      gap: 4px;
+      padding: 8px 12px;
+      overflow-x: auto;
+    }
+    .h-tab {
+      padding: 8px 12px;
+      font-size: 0.9em;
+    }
+    .page-layout {
+      flex-direction: column;
+    }
+    .sidebar {
+      width: 100%;
+      border-right: none;
+      border-bottom: 2px solid var(--soft-gray);
+      display: flex;
+      overflow-x: auto;
+      overflow-y: visible;
+      padding: 8px 0;
+      max-height: none;
+    }
+    .v-tab {
+      white-space: nowrap;
+      border-left: none;
+      border-bottom: 4px solid transparent;
+      padding: 10px 12px;
+    }
+    .general .v-tab.active {
+      background: transparent;
+      border-left: none;
+      border-bottom-color: var(--gold);
+    }
+    .scotland .v-tab.active {
+      background: transparent;
+      border-left: none;
+      border-bottom-color: var(--scotland-blue);
+    }
+    .ireland .v-tab.active {
+      background: transparent;
+      border-left: none;
+      border-bottom-color: var(--ireland-green);
+    }
+    .main-content {
+      padding: 20px;
+    }
+  }
+
+  </style>
+</head>
+<body>
+
+<nav class="trip-nav">
+  <div class="trip-nav-inner">
+    <a href="index.html" class="trip-brand">Scotland & Ireland 2026</a>
+    <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">&#9776;</button>
+  </div>
+  <div class="horizontal-tabs">
+  <a href="index.html" class="h-tab general">General</a>
+  <a href="scotland-locations.html" class="h-tab scotland active">Scotland</a>
+  <a href="ireland-locations.html" class="h-tab ireland">Ireland</a>
+</div>
+</nav>
+
+
+<div class="page-layout scotland">
+<div class="sidebar">
+  <a href="scotland-locations.html" class="v-tab active">Locations</a>
+  <a href="scotland-food.html" class="v-tab">Food & Drink</a>
+  <a href="scotland-phrases.html" class="v-tab">Phrases & Slang</a>
+  <a href="scotland-funfacts.html" class="v-tab">Fun Facts</a>
+  <a href="scotland-souvenirs.html" class="v-tab">Souvenirs</a>
+  <a href="scotland-jokes.html" class="v-tab">Jokes</a>
+  <a href="scotland-movies.html" class="v-tab">Movies & TV</a>
+</div>
+<div class="main-content">
+<section id="scotland-locations">
+<div class="section-header"><span class="section-icon">🏴󠁧󠁢󠁳󠁣󠁴󠁿</span><h2>Your Scotland Journey</h2></div>
+<div class="section-header">
+<span class="section-icon">📅</span>
+<h2>Your Journey</h2>
+</div><div class="itinerary-day">
+<div class="day-num">1</div>
+<div class="day-info"><span class="day-date">Jul 7 — Overnight flight</span><div class="day-details">Fly to Edinburgh, Scotland</div></div>
+</div><div class="itinerary-day">
+<div class="day-num">2</div>
+<div class="day-info"><span class="day-date">Jul 8 — Edinburgh</span><div class="day-details">City walk, Royal Mile, St. Giles Cathedral, welcome dinner</div></div>
+</div><div class="itinerary-day">
+<div class="day-num">3</div>
+<div class="day-info"><span class="day-date">Jul 9 — Edinburgh</span><div class="day-details">Edinburgh Castle, Elephant House, ghost tour</div></div>
+</div><div class="location-block">
+<h3>Edinburgh — "Auld Reekie"</h3>
+<div class="fun-fact">
+<strong>Edinburgh Castle sits on an extinct volcano.</strong> The volcanic rock is about 350 million years old. Scotland has over 2,000 castles scattered across the country.
+    </div>
+<div class="fun-fact">
+<strong>Scotland's national animal is the unicorn.</strong> It's been a symbol of Scottish heraldry for centuries, representing purity and power. Look for it on royal coats of arms throughout Edinburgh.
+    </div>
+<div class="fun-fact">
+<strong>There's a knighted penguin at Edinburgh Zoo.</strong> Sir Nils Olav is a king penguin who holds the rank of Major General in the Norwegian King's Guard. He has his own medal collection and inspects troops during official visits.
+    </div>
+<div class="fun-fact">
+<strong>A hidden underground city lies beneath Edinburgh.</strong> Mary King's Close is a 17th-century street that was sealed up and built over. It's now a tourist attraction where you can walk through the eerily preserved underground rooms.
+    </div>
+<div class="fun-fact">
+<strong>The Picts were here first.</strong> Long before Edinburgh was Edinburgh, it was part of the kingdom of the Picts — a fierce, mysterious people who dominated Scotland from around 300–900 AD. They're famous for their intricate carved stones covered in symbols that scholars still can't fully decode. The name "Edinburgh" may come from "Din Eidyn," a Pictish/Brittonic fortress. You'll see Pictish stone carvings in the National Museum of Scotland.
+    </div>
+<div class="fun-fact">
+<strong>The Black Dinner of 1440 inspired Game of Thrones.</strong> At Edinburgh Castle, the young Earl of Douglas and his brother were invited to dine with the 10-year-old King James II. A black bull's head was placed on the table as a symbol of death, and the brothers were dragged outside and beheaded. This event directly inspired the Red Wedding scene in <em>Game of Thrones</em>. George R.R. Martin has confirmed the connection.
+    </div>
+<div class="fun-fact">
+<strong>Edinburgh has more listed buildings than anywhere in the world.</strong> The Old Town and New Town together form a UNESCO World Heritage Site, with over 4,500 listed buildings.
+    </div>
+<div class="fun-fact">
+<strong>The Royal Mile isn't actually a mile.</strong> It's 1.12 miles (1.81 km) from Edinburgh Castle to the Palace of Holyroodhouse.
+    </div>
+<div class="fun-fact">
+<strong>The Old Town's layout looks like a fish skeleton.</strong> The Royal Mile is the spine and the narrow closes/wynds are the ribs. "Closes" were private and literally locked at night; "wynds" were public thoroughfares. This distinction was a medieval security system built into the urban design.
+    </div>
+<div class="fun-fact">
+<strong>The South Bridge Vaults went from business hub to criminal underworld.</strong> When South Bridge opened in 1788, the arches beneath attracted legitimate businesses. Flooding drove them out, and the vaults became a sordid world of brothels, gambling, and unlicensed taverns before being sealed in the mid-19th century and forgotten until rediscovered in the 1980s.
+    </div>
+<div class="fun-fact">
+<strong>The Georgian New Town was designed by a 23-year-old nobody.</strong> In 1766, unknown architect James Craig won the competition for Edinburgh's New Town with a revolutionary grid plan. He beat out established architects. Many wealthy New Town residents grew rich through involvement in the slave trade — the elegant Georgian architecture hides a troubling financial foundation.
+    </div>
+<div class="easter-egg-header">🔍 Royal Mile</div>
+<div class="easter-egg">
+<strong>Heart of Midlothian —</strong> A heart-shaped mosaic of red and black cobblestones embedded in the pavement near St Giles' Cathedral. It marks where the Old Tolbooth prison once stood. Locals traditionally spit on it as a sign of contempt for the old prison. Look down or you'll walk right over it.
+    </div>
+<div class="easter-egg">
+<strong>Paisley Close —</strong> Look for a carved face of a boy above the close entrance with the inscription "Heave away chaps, I'm no dead yet." 12-year-old Joseph McIvor was pulled alive from a tenement collapse in 1861.
+    </div>
+<div class="easter-egg">
+<strong>Dunbar's Close Garden —</strong> A hidden 17th-century formal garden tucked behind an unassuming gate on Canongate (bottom of the Royal Mile). Within 50 feet of the crowded Mile, most tourists walk right past it.
+    </div>
+<div class="easter-egg">
+<strong>Witches' Memorial Fountain —</strong> A cast iron fountain near the top of the Royal Mile commemorating 300+ women executed for witchcraft between 1479–1722. More women were killed here than anywhere else in Scotland.
+    </div>
+<div class="easter-egg">
+<strong>Camera Obscura —</strong> At the top of the Royal Mile near Edinburgh Castle. Over 100 optical illusions across 5 floors, including the original 17th-century Camera Obscura device that projects live views of Edinburgh's streets onto a screen using mirrors. Great for teens.
+    </div>
+<div class="easter-egg">
+<strong>Mary King's Close —</strong> An entire buried 17th-century street network underground beneath the Royal Mile, abandoned after plague. Requires a pre-booked guided tour. You walk through actual 17th-century alleyways below modern street level.
+    </div>
+<div class="easter-egg">
+<strong>Anchor Close —</strong> Where the first editions of the Encyclopaedia Britannica and Robert Burns' poems were printed (1768 and 1787). A tiny plaque marks the spot but almost nobody notices it.
+    </div>
+<div class="easter-egg-header">🔍 St Giles' Cathedral</div>
+<div class="easter-egg">
+<strong>Thistle Chapel —</strong> An ornate chapel with enormous carved wooden seats, each topped with wildly decorative crests. The craftsmanship is over-the-top in the best way. Look up at the carved ceiling — three angels playing bagpipes are hidden in the woodwork. Two blend almost invisibly into the beams near the door, the third is carved from stone overlooking a window. They're the only Scottish instruments in the cathedral's celestial imagery.
+    </div>
+<div class="easter-egg">
+<strong>Jenny Geddes' Stool Riot —</strong> When King Charles I tried to impose a new prayer book at St Giles' in 1637, a local woman named Jenny Geddes picked up her prayer stool and threw it at the preacher, sparking a riot. One woman's frustration became a turning point in Scottish religious history.
+    </div>
+<div class="easter-egg">
+<strong>John Knox's Grave —</strong> The famous Protestant reformer is buried under parking space #23 in Parliament Square, right behind the cathedral. A small brass plate in the pavement is the only marker. You're literally standing on his grave.
+    </div>
+<div class="easter-egg-header">🔍 Edinburgh Castle</div>
+<div class="easter-egg">
+<strong>Mons Meg —</strong> A massive 15th-century siege cannon (over 6 tons) sitting on the castle battlements. When fired at the wedding of James IV in 1558, the cannonball was reportedly found 2 miles away in Wardie.
+    </div>
+<div class="easter-egg">
+<strong>The Stone of Destiny —</strong> Returned to Scotland in 1996 after 700 years in England (stolen by Edward I in 1296). It sits in the Crown Room. Scottish kings were crowned on this stone for centuries.
+    </div>
+<div class="easter-egg">
+<strong>The One O'Clock Gun —</strong> Fired every day at 1pm (except Sundays). Originally helped ships in the Firth of Forth set their maritime clocks. Still fires daily — you'll hear it across the city. Stand on the castle esplanade at 12:59 for the full experience.
+    </div>
+<div class="easter-egg">
+<strong>David's Tower — Rediscovered in a Coal Cellar —</strong> In 1912, a hidden tower built in the 1380s by King David II was rediscovered behind a canteen coal cellar window. It originally stood 100 feet high and had been forgotten for centuries.
+    </div>
+<div class="easter-egg">
+<strong>A 1715 Jacobite Siege Failed Because the Ladder Was Too Short —</strong> The Jacobites brought a siege ladder that turned out to be shorter than the castle ramparts. One of history's more embarrassing military failures, caused by a measurement error.
+    </div>
+<div class="easter-egg">
+<strong>Caribbean Pirates Were Held Here —</strong> The castle reportedly held 21 pirates from Caribbean raids, who were ultimately sentenced to death. Few realize Edinburgh Castle served as a prison for international criminals from across the ocean.
+    </div>
+<div class="easter-egg-header">🔍 Greyfriars Kirkyard</div>
+<div class="easter-egg">
+<strong>Tom Riddle's Grave —</strong> A headstone for "Thomas Riddell" (died 1806), the real person whose name inspired Voldemort. The graveyard is full of Harry Potter name inspirations: look for Moodie (Mad-Eye Moody), McGonagall, Scrymgeour, and even Potter headstones scattered throughout.
+    </div>
+<div class="easter-egg">
+<strong>Greyfriars Bobby —</strong> A statue of a Skye Terrier who reportedly guarded his owner's grave for 14 years (1858–1872) sits outside the kirkyard gates. His nose is shiny gold from everyone rubbing it for luck.
+    </div>
+<div class="easter-egg">
+<strong>The Covenanters' Prison —</strong> A locked section of the kirkyard where 1,200 Covenanters were imprisoned in 1679. Said to be one of the most haunted spots in Edinburgh, home to the "Mackenzie Poltergeist."
+    </div>
+<div class="easter-egg-header">🔍 Palace of Holyroodhouse</div>
+<div class="easter-egg">
+<strong>David Rizzio's 57 Dagger Wounds —</strong> Mary Queen of Scots' Italian secretary David Rizzio was murdered in her private chambers on March 9, 1566, sustaining 57 dagger wounds. He was stabbed while hiding behind the heavily pregnant Mary. The murder was orchestrated partly because Rizzio's enemies convinced Mary's jealous husband Darnley that Rizzio had fathered her child — probably false, but deadly enough.
+    </div>
+<div class="easter-egg">
+<strong>The Bloodstain Room —</strong> You can still visit the exact room where Rizzio was murdered. Red ink is deliberately placed on the floor to show visitors where the bloodstains supposedly remain. The palace maintains this theatrical touch as part of the tourist experience.
+    </div>
+<div class="easter-egg-header">🔍 Sir Walter Scott Monument</div>
+<div class="easter-egg">
+<strong>The Designer Used a Fake Name and Died Before Completion —</strong> George Meikle Kemp, a 45-year-old joiner and self-taught architect, submitted his winning design under the pseudonym "John Morvo" because he feared his lack of formal credentials would disqualify him. He drowned in the Union Canal before the monument was completed. One of Scotland's most iconic monuments was designed by someone working under a fake name to overcome class barriers.
+    </div>
+<div class="easter-egg">
+<strong>23 Stonemasons Died Building It —</strong> The oily Binny sandstone required intense carving, making the masons vulnerable to silicosis. As many as 23 of the 70 stonemasons died from occupational disease during or shortly after construction. The beautiful monument celebrates literature but represents a largely forgotten health crisis.
+    </div>
+<div class="easter-egg-header">🔍 Edinburgh Ghost Tours</div>
+<div class="easter-egg">
+<strong>South Bridge Vaults —</strong> The most common ghost tour route. The vaults were sealed in the mid-19th century and forgotten until rediscovered in the 1980s. The most famous haunting is "The Watcher" or "Mr. Boots" — witnesses consistently describe the same heavy footsteps with a distinctive scuff or shuffle as they come to a standstill.
+    </div>
+<div class="easter-egg">
+<strong>The Bagpiper's Tunnel Mystery —</strong> Legend says a young boy was sent to play bagpipes through tunnels beneath Edinburgh Castle. The music stopped abruptly when he reached Tron Kirk, and he was never seen again — suggesting the tunnel system has unknown depths still uncharted.
+    </div>
+<div class="easter-egg">
+<strong>Greyfriars Covenanters' Prison —</strong> 1,200 Covenanters were imprisoned in a locked section of Greyfriars Kirkyard in 1679. Home to the "Mackenzie Poltergeist," said to be one of the most documented poltergeist cases in the world.
+    </div>
+<div class="easter-egg-header">🔍 Other Edinburgh</div>
+<div class="easter-egg">
+<strong>The Elephant House Café —</strong> Despite calling itself "The Birthplace of Harry Potter," J.K. Rowling didn't visit until years after she'd started writing the series. She conceived Harry Potter on a delayed train in 1990 and wrote the first chapters in Portugal. The café's toilets were famously covered in HP fan graffiti — staff repainted daily but fans worked faster. After a devastating fire in 2021, the café was closed for 1,587 days before reopening.
+    </div>
+<div class="easter-egg">
+<strong>National Museum of Scotland Roof Terrace —</strong> A secret terrace on the top floor of the museum on Chambers Street with panoramic views of Edinburgh Castle. Most visitors don't know it exists. Free entry.
+    </div>
+<div class="easter-egg">
+<strong>Sir Walter Scott Monument —</strong> The second-largest monument to a writer anywhere in the world (only José Martí's in Havana is taller). 287 steps to the top for panoramic views. 64 statuettes of characters from his novels decorate the exterior. Arthur Conan Doyle and Sir Walter Scott both lived in the Georgian New Town.
+    </div>
+<div class="card-grid">
+<div class="card scotland">
+<h4>Edinburgh Ghost Tour</h4>
+<p>Edinburgh has a genuinely creepy history — witch burnings, plague, underground vaults. The ghost tours are atmospheric and fun, not campy. Great for a group! Listen for the story of "Gardy Loo!" — the warning cry before chamber pots were emptied out windows.</p>
+</div>
+<div class="card scotland">
+<h4>The Elephant House Café</h4>
+<p>The Edinburgh café where J.K. Rowling wrote parts of Harry Potter. Grab a coffee, enjoy the view of Edinburgh Castle, and channel your inner wizard.</p>
+</div>
+</div>
+</div><div class="itinerary-day">
+<div class="day-num">4</div>
+<div class="day-info"><span class="day-date">Jul 10 — Highlands</span><div class="day-details">Stirling Castle, the Trossachs</div></div>
+</div><div class="location-block">
+<h3>Stirling Castle &amp; the Trossachs</h3>
+<div class="fun-fact">
+<strong>Someone once tried to fly from Stirling Castle.</strong> In the 1500s, an Italian alchemist named John Damian strapped on feathered wings and leapt from the castle battlements. He landed in a dunghill and broke his thighbone. He blamed the chicken feathers — he should have used eagle feathers, apparently.
+    </div>
+<div class="fun-fact">
+<strong>The world's oldest football was found at Stirling Castle</strong> — discovered hidden behind wall panelling in the Queen's chamber. Mary, Queen of Scots was reportedly a big sports fan.
+    </div>
+<div class="fun-fact">
+<strong>This is Braveheart country.</strong> The Battle of Stirling Bridge (1297) where William Wallace defeated the English took place just below the castle. The Wallace Monument towers over the landscape nearby. The castle has passed between Scottish and English control more times than anyone can count.
+    </div>
+<div class="fun-fact">
+<strong>Stirling Castle has been besieged at least 16 times.</strong> More than any other castle in Scotland. Whoever held Stirling controlled the route between the Highlands and Lowlands.
+    </div>
+<div class="fun-fact">
+<strong>The Battle of Stirling Bridge (1297).</strong> William Wallace's famous victory happened just below the castle. The English army tried to cross a narrow bridge and Wallace waited until half were across, then attacked. The bridge collapsed under the weight of armored soldiers.
+    </div>
+<div class="fun-fact">
+<strong>A single poem invented tourism in the Trossachs.</strong> Sir Walter Scott's 1810 poem "The Lady of the Lake" was a blockbuster (25,000 copies sold in 8 months). It immediately made the Trossachs a literary pilgrimage, drawing Keats, Coleridge, and later Jules Verne. Modern tourism marketing 200 years early.
+    </div>
+<div class="easter-egg-header">🔍 Stirling Castle</div>
+<div class="easter-egg">
+<strong>The Stirling Heads —</strong> 38 surviving metre-wide 16th-century carved oak portrait medallions in the ceiling of the King's Inner Hall. Kings, queens, mythological figures — each one different, created around 1540. Scotland's great art treasures hiding in plain sight above your head.
+    </div>
+<div class="easter-egg">
+<strong>Royal Graffiti —</strong> Behind a locked door in the Princes Tower, there's historic graffiti reading "James 6" — possibly an autograph by young King James VI himself.
+    </div>
+<div class="easter-egg">
+<strong>Roof Unicorns &amp; Lions —</strong> Look up at the Great Hall roof ridge for carved stone unicorns and lions perching on top. Easy to miss if you don't look up.
+    </div>
+<div class="easter-egg">
+<strong>Seven "Hunt of the Unicorn" Tapestries —</strong> Hang in the Queen's Inner Hall, based on the 1500s tapestry series. The castle is essentially a unicorn museum.
+    </div>
+<div class="easter-egg-header">🔍 The Trossachs</div>
+<div class="easter-egg">
+<strong>Rob Roy Born by Loch Katrine —</strong> The outlaw Rob Roy MacGregor was born in 1671 at Glengyle on Loch Katrine's banks and buried at nearby Balquhidder. Scott's 1817 novel romanticized his legend, but the real story is nearly as dramatic.
+    </div>
+<div class="easter-egg">
+<strong>Queen Victoria's Royal Cottage She Never Visited —</strong> Victoria arrived in 1859 and was rowed on Loch Katrine. An expensive Royal Cottage was built overlooking the loch for her stay. But the 21-gun salute welcoming her shattered the windows. She never stayed. The cottage became staff accommodation for Scottish Water.
+    </div>
+<div class="easter-egg">
+<strong>White Milestone Markers —</strong> Markers installed for Victoria's 1859 journey still line the roadsides, creating a 150+ year-old "royal route" you can trace.
+    </div>
+</div><div class="itinerary-day">
+<div class="day-num">5</div>
+<div class="day-info"><span class="day-date">Jul 11 — Highlands</span><div class="day-details">Glencoe, Loch Ness boat cruise, Culloden Moor</div></div>
+</div><div class="location-block">
+<h3>Glencoe, Loch Ness &amp; Culloden</h3>
+<div class="fun-fact">
+<strong>Loch Ness is 24 miles long and up to 700 feet deep.</strong> Stories of a mysterious creature living in its dark waters have persisted for over 1,500 years. Recent eDNA testing found evidence of giant eels, but no definitive "Nessie." Keep your camera ready on the boat cruise.
+    </div>
+<div class="fun-fact">
+<strong>Loch Ness contains more fresh water than all the lakes in England and Wales combined</strong> — it's 230m deep and 37km long. If Nessie is in there, she's got plenty of room to hide.
+    </div>
+<div class="fun-fact">
+<strong>The Massacre of Glencoe (1692)</strong> — Government soldiers were billeted with the MacDonald clan for 12 days under sacred Highland hospitality before rising at 5am and murdering 38 men, women, and children. The betrayal of hospitality — not the killing itself — is what made it infamous. Still a raw subject.
+    </div>
+<div class="card scotland">
+<h4>Loch Ness Boat Cruise</h4>
+<p>Keep your eyes peeled and your camera ready. The water is dark with peat — you can barely see a few feet below the surface. Will you be the one to finally spot Nessie?</p>
+</div>
+<div class="tip-box">
+<strong>Highland midges alert:</strong> Tiny biting insects that swarm in the Scottish Highlands in summer. They're harmless but annoying. Bug repellent with DEET or Smidge brand (sold locally) works best. They're worst at dawn and dusk.
+    </div>
+<div class="easter-egg-header">🔍 Glencoe</div>
+<div class="easter-egg">
+<strong>Glencoe Lochan (A Little Piece of Canada) —</strong> Woodland planted in 1895 by Lord Strathcona, a Scottish-born fur trader who made his fortune in Canada. He created this landscape to ease his Canadian wife's homesickness. A pocket of the Canadian Rockies in the Highlands.
+    </div>
+<div class="easter-egg">
+<strong>Monty Python's Bridge of Death —</strong> The "Bridge of Death" scene from <em>Monty Python and the Holy Grail</em> (1975) was filmed at the Meeting of Three Waters in Glencoe, where waterfalls converge into the River Coe. About a 15-minute walk from the A82. "Answer me these questions three..."
+    </div>
+<div class="easter-egg">
+<strong>Hidden Valley (Coire Gabhail) —</strong> A dramatic high-level glen historically used by the MacDonald clan to hide stolen cattle. The steep entrance conceals the width of the valley — you can't see it until you're inside.
+    </div>
+<div class="easter-egg">
+<strong>James Bond's Skyfall —</strong> The road through Glencoe was used for the driving scenes in <em>Skyfall</em> (2012). The fictional "Skyfall Lodge" was set here (though the actual building was constructed on a set at Hankley Common in England).
+    </div>
+<div class="easter-egg">
+<strong>Glencoe is a 420-million-year-old supervolcano —</strong> The dramatic peaks are the skeletal remains of an ancient supervolcano from the Silurian period. It's one of the world's best examples of a subsidence caldera — the phenomenon was first scientifically described here.
+    </div>
+<div class="easter-egg">
+<strong>The true Glencoe death toll was double —</strong> While 38 MacDonalds were killed by troops, up to 76 more people died from exposure fleeing into the winter mountains. The massacre's real horror was starvation and freezing.
+    </div>
+<div class="easter-egg">
+<strong>A coin hoard from the massacre was found in 2023 —</strong> Archaeologists discovered coins hidden in a house linked to MacIain (the clan chief). They believe someone stashed them while fleeing. We're still finding physical evidence 330+ years later.
+    </div>
+<div class="easter-egg-header">🔍 Loch Ness</div>
+<div class="easter-egg">
+<strong>The First Nessie Sighting —</strong> St. Columba allegedly encountered a "water beast" in the River Ness in 565 AD, making the legend nearly 1,500 years old. The modern craze started in 1933 when a couple reported seeing "an enormous animal" crossing the road.
+    </div>
+<div class="easter-egg">
+<strong>Urquhart Castle —</strong> The most-photographed Nessie-spotting location. The castle was deliberately blown up in 1692 to prevent Jacobites from using it. What you're seeing is the result of intentional destruction, not natural decay.
+    </div>
+<div class="easter-egg">
+<strong>Steve Feltham —</strong> A man who gave up his home and girlfriend in 1991 to hunt for Nessie full-time. He still lives in a converted mobile library on the shore of Loch Ness. He holds the Guinness World Record for the longest continuous vigil for Nessie.
+    </div>
+<div class="easter-egg">
+<strong>Loch Ness sits on the Great Glen Fault —</strong> A 62-mile geological fault line that cuts the Highlands in half. The loch wasn't formed by glaciers like most Scottish lochs — it's the visible scar of a massive continental fracture. The fault creates underwater fissures and cave systems still being explored.
+    </div>
+<div class="easter-egg">
+<strong>Seismic activity may explain "Nessie" sightings —</strong> Italian geologist Luigi Piccardi documented a correlation between Nessie sightings and periods of seismic activity along the fault. Tremors may cause underwater disturbances that generate unusual wave patterns. The "monster" may be the earth itself.
+    </div>
+<div class="easter-egg-header">🔍 Culloden</div>
+<div class="easter-egg">
+<strong>The Battle Lasted Only 40 Minutes —</strong> On April 16, 1746, the final Jacobite Rising ended in under an hour. The aftermath was far longer and far worse — "Butcher" Cumberland's forces killed wounded and prisoners for days afterward.
+    </div>
+<div class="easter-egg">
+<strong>Clan Grave Markers —</strong> Simple stones mark where each clan's dead were buried in mass graves. The Cameron stone, Fraser stone, and others still stand. You're walking on a battlefield graveyard.
+    </div>
+<div class="easter-egg">
+<strong>Archaeology is rewriting the battle —</strong> Since 2001, excavations have found musket balls, bayonets, buttons, and a pewter cross (possibly a good-luck charm). These finds suggest the brutal hand-to-hand combat occurred much further south than historians thought. We're still rewriting Culloden's geography 275+ years later.
+    </div>
+<div class="easter-egg">
+<strong>The battlefield was nearly erased —</strong> After 1746, farmland encroached on the site. By 1835, a road was built through the middle. Spruce plantations were planted, completely obscuring the original moorland. The site became invisible as a battlefield until 21st-century archaeology "rediscovered" it.
+    </div>
+</div><div class="itinerary-day">
+<div class="day-num">6</div>
+<div class="day-info"><span class="day-date">Jul 12 — Glasgow</span><div class="day-details">Loch Lomond, Glasgow city walk</div></div>
+</div><div class="location-block">
+<h3>Loch Lomond &amp; Glasgow</h3>
+<div class="fun-fact">
+<strong>Loch Lomond is the largest expanse of fresh water in Britain</strong> — five miles wide at its broadest point with over 30 islands, three of which are inhabited. It's a favorite recreational spot for Scots.
+    </div>
+<div class="fun-fact">
+<strong>Glasgow is called "The Dear Green Place"</strong> because of its many parks. It's the birthplace of Scottish Opera, Scottish Ballet, and the Royal Scottish National Orchestra. In Glasgow, a child is called a <em>wean</em> (rhymes with "rain") — short for "wee ane" (little one).
+    </div>
+<div class="fun-fact">
+<strong>Glasgow's motto is "Let Glasgow Flourish"</strong> — The city's coat of arms features a bird, a tree, a bell, and a fish with a ring — all from miracles attributed to St Mungo, the city's patron saint. Locals remember them with the rhyme: "The bird that never flew, the tree that never grew, the bell that never rang, the fish that never swam."
+    </div>
+<div class="fun-fact">
+<strong>Glasgow was once the "Second City of the British Empire"</strong> — In the Victorian era, Glasgow produced more ships, trains, and heavy machinery than almost anywhere on Earth. The industrial heritage is still visible in the architecture.
+    </div>
+<div class="fun-fact">
+<strong>George Square was built on a horse slaughterhouse —</strong> Around 1772, the land was Ramshorn Croft, a filthy swamp used for slaughtering horses. After a decade of work, it became one of Britain's grandest Georgian squares.
+    </div>
+<div class="fun-fact">
+<strong>George Square was supposed to have a King George III statue —</strong> After America declared independence in 1776 and Glasgow lost its tobacco trade, the statue was quietly canceled. A political embarrassment erased from the city's memory.
+    </div>
+<div class="fun-fact">
+<strong>Glasgow City Chambers has more marble than the Vatican —</strong> The three-story Carrara marble staircase is the largest in Western Europe. 1.5 million individual mosaic tiles were laid by hand. The lucky marble lion inside has a worn-smooth nose from decades of council workers rubbing it for luck.
+    </div>
+<div class="easter-egg-header">🔍 Glasgow City Walk Sites</div>
+<div class="easter-egg">
+<strong>The Duke of Wellington's Traffic Cone —</strong> An equestrian statue in Royal Exchange Square with a traffic cone permanently on the Duke's head. Started in the 1980s (probably by drunk revelers), locals replace the cone every time the council removes it. Named one of Lonely Planet's "Top 10 Most Bizarre Monuments on Earth." Symbol of Glasgow's irreverent spirit.
+    </div>
+<div class="easter-egg">
+<strong>Lobey Dosser Statue —</strong> The world's only two-legged horse statue, on Woodlands Road in the West End. Depicts Sheriff Lobey Dosser riding his magical two-legged horse "El Fideldo" from a beloved Glasgow comic strip (1949–1956).
+    </div>
+<div class="easter-egg">
+<strong>Homeless Jesus —</strong> A life-sized bronze sculpture of a shrouded figure sleeping on a bench, only the crucifixion wounds on the feet visible. Tucked around the back of St George's Tron Church on Nelson Mandela Place (off Buchanan Street). Easy to miss and very powerful.
+    </div>
+<div class="easter-egg">
+<strong>Finnich Glen / Devil's Pulpit —</strong> Near Loch Lomond (30 min south of Glasgow). A deep sandstone gorge with moss-covered walls and water that appears blood-red from the sandstone bed. Otherworldly. Accessed via the "Devil's Steps" (treacherous after rain — be careful).
+    </div>
+<div class="easter-egg">
+<strong>Strathclyde University —</strong> Founded in 1796 as the "Andersonian Institute" with the radical mission of "Useful Learning" — practical subjects rather than pure theory. Became Britain's first technological university in 1964. The 1967 Architecture Building (designed by its own Professor of Architecture) is a Grade B listed Brutalist masterpiece with one of the UK's largest wall murals hidden inside.
+    </div>
+<div class="easter-egg">
+<strong>Robert Burns' Statue in George Square —</strong> Funded by public subscription from 40,000 working people who each contributed a shilling. An estimated 30,000+ gathered on Burns' birthday in 1877 for the unveiling. A monument funded by ordinary workers, not wealthy patrons.
+    </div>
+<div class="easter-egg">
+<strong>Glasgow's Scott Monument Predates Edinburgh's —</strong> The Sir Walter Scott column in George Square was the first public monument to Scott, built almost a decade before Edinburgh's more famous (and larger) one.
+    </div>
+<div class="easter-egg-header">🔍 Loch Lomond</div>
+<div class="easter-egg">
+<strong>22+ Islands and Britain's Largest Freshwater Island —</strong> Loch Lomond contains over 22 islands and 27 islets. Inchmurrin is the largest freshwater island in the British Isles.
+    </div>
+<div class="easter-egg">
+<strong>Robert the Bruce's War Yew Trees —</strong> In the 14th century, King Robert the Bruce planted ancient yew trees on Inchlonaig Island specifically to supply bows for his archers at the Battle of Bannockburn. The island is literally called "The Island of Yews."
+    </div>
+<div class="easter-egg">
+<strong>Australian Wallabies in Scotland —</strong> Inchconnachan island is home to a colony of red-necked wallabies — Australian marsupials living wild in Loch Lomond. Decades after their mysterious arrival, nobody can agree on how they got there.
+    </div>
+<div class="easter-egg">
+<strong>Vikings Hauled Longboats Over Land —</strong> Viking raiders sailed up Loch Long, hauled their longboats overland at the narrow neck near Tarbet, and sacked islands in Loch Lomond. A Norse raid route deep into the Highlands.
+    </div>
+<div class="easter-egg">
+<strong>"The Bonnie Banks" May Be a Prisoner's Farewell —</strong> The song likely originated as a 1745 Jacobite prisoner's last poem, possibly after the retreat following Culloden. The "low road" refers to the soul's passage through the underworld — the singer knows he's going to die.
+    </div>
+</div>
+</section>
+</div>
+</div>
+
+<footer>
+  <p>Scotland & Ireland Trip Guide — July 7–23, 2026</p>
+  <p style="margin-top: 8px; font-size: 0.85em;">Made with love for the pod</p>
+</footer>
+
+</body>
+</html>

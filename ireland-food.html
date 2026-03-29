@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Souvenirs | Scotland & Ireland Trip Guide</title>
-<style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Irish Food | Scotland & Ireland Trip Guide</title>
+  <style>
+
 
   @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap');
 
@@ -442,85 +443,268 @@
   .hero { padding: 50px 20px 40px; }
   .hero h1 { font-size: 2.4em; }
 
-</style>
+
+
+  /* NAVIGATION STRUCTURE */
+  .trip-nav {
+    background: white;
+    padding: 12px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  .trip-nav-inner {
+    max-width: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .trip-brand {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1.1em;
+    color: var(--scotland-dark);
+    text-decoration: none;
+    margin-right: auto;
+    white-space: nowrap;
+  }
+  .nav-toggle {
+    display: none;
+    background: none;
+    border: 2px solid var(--scotland-blue);
+    border-radius: 6px;
+    padding: 6px 10px;
+    font-size: 1.2em;
+    cursor: pointer;
+    color: var(--scotland-blue);
+  }
+
+  /* HORIZONTAL TABS */
+  .horizontal-tabs {
+    display: flex;
+    gap: 8px;
+    padding: 12px 20px;
+    background: white;
+    border-bottom: 1px solid #e0e0e0;
+    flex-wrap: wrap;
+  }
+  .h-tab {
+    padding: 10px 18px;
+    font-size: 0.95em;
+    font-weight: 500;
+    color: var(--text);
+    text-decoration: none;
+    border-bottom: 3px solid transparent;
+    border-radius: 6px 6px 0 0;
+    transition: all 0.2s;
+    display: inline-block;
+  }
+  .h-tab:hover {
+    background: var(--soft-gray);
+  }
+  .h-tab.active {
+    color: white;
+    border-bottom-color: currentColor;
+  }
+  .h-tab.general.active {
+    background: var(--gold);
+    border-bottom-color: var(--gold);
+  }
+  .h-tab.scotland.active {
+    background: var(--scotland-blue);
+    border-bottom-color: var(--scotland-blue);
+  }
+  .h-tab.ireland.active {
+    background: var(--ireland-green);
+    border-bottom-color: var(--ireland-green);
+  }
+
+  /* PAGE LAYOUT */
+  .page-layout {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .sidebar {
+    width: 220px;
+    background: white;
+    border-right: 2px solid var(--soft-gray);
+    padding: 16px 0;
+    flex-shrink: 0;
+    max-height: calc(100vh - 200px);
+    overflow-y: auto;
+  }
+  .v-tab {
+    display: block;
+    padding: 12px 16px;
+    font-size: 0.95em;
+    color: var(--text);
+    text-decoration: none;
+    border-left: 4px solid transparent;
+    transition: all 0.2s;
+  }
+  .v-tab:hover {
+    background: var(--soft-gray);
+  }
+  .v-tab.active {
+    color: white;
+    font-weight: 600;
+  }
+  .general .v-tab.active {
+    background: var(--gold);
+    border-left-color: var(--gold);
+  }
+  .scotland .v-tab.active {
+    background: var(--scotland-blue);
+    border-left-color: var(--scotland-blue);
+  }
+  .ireland .v-tab.active {
+    background: var(--ireland-green);
+    border-left-color: var(--ireland-green);
+  }
+
+  .main-content {
+    flex: 1;
+    padding: 30px;
+    background: var(--warm-cream);
+    overflow-y: auto;
+  }
+
+  /* MOBILE RESPONSIVE */
+  @media (max-width: 768px) {
+    .nav-toggle {
+      display: block;
+    }
+    .trip-nav-inner {
+      flex-direction: row;
+    }
+    .horizontal-tabs {
+      gap: 4px;
+      padding: 8px 12px;
+      overflow-x: auto;
+    }
+    .h-tab {
+      padding: 8px 12px;
+      font-size: 0.9em;
+    }
+    .page-layout {
+      flex-direction: column;
+    }
+    .sidebar {
+      width: 100%;
+      border-right: none;
+      border-bottom: 2px solid var(--soft-gray);
+      display: flex;
+      overflow-x: auto;
+      overflow-y: visible;
+      padding: 8px 0;
+      max-height: none;
+    }
+    .v-tab {
+      white-space: nowrap;
+      border-left: none;
+      border-bottom: 4px solid transparent;
+      padding: 10px 12px;
+    }
+    .general .v-tab.active {
+      background: transparent;
+      border-left: none;
+      border-bottom-color: var(--gold);
+    }
+    .scotland .v-tab.active {
+      background: transparent;
+      border-left: none;
+      border-bottom-color: var(--scotland-blue);
+    }
+    .ireland .v-tab.active {
+      background: transparent;
+      border-left: none;
+      border-bottom-color: var(--ireland-green);
+    }
+    .main-content {
+      padding: 20px;
+    }
+  }
+
+  </style>
 </head>
 <body>
 
-<nav class="site-nav">
-  <div class="site-nav-inner">
-    <a href="index.html" class="site-nav-brand">Scotland &amp; Ireland 2026</a>
+<nav class="trip-nav">
+  <div class="trip-nav-inner">
+    <a href="index.html" class="trip-brand">Scotland & Ireland 2026</a>
     <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">&#9776;</button>
-    <div class="nav-links">
-      <a href="index.html" class="nav-link">Home</a>
-      <a href="itinerary.html" class="nav-link">Your Journey</a>
-      <a href="packing.html" class="nav-link">Packing List</a>
-      <a href="food.html" class="nav-link">Food & Drink</a>
-      <a href="funfacts.html" class="nav-link">Fun Facts</a>
-      <a href="phrases.html" class="nav-link">Phrases & Slang</a>
-      <a href="souvenirs.html" class="nav-link active">Souvenirs</a>
-      <a href="etiquette.html" class="nav-link">Etiquette</a>
-      <a href="practical.html" class="nav-link">Practical Tips</a>
-      <a href="jokes.html" class="nav-link">Jokes</a>
-      <a href="movies.html" class="nav-link">Movies & TV</a>
-    </div>
   </div>
+  <div class="horizontal-tabs">
+  <a href="index.html" class="h-tab general">General</a>
+  <a href="scotland-locations.html" class="h-tab scotland">Scotland</a>
+  <a href="ireland-locations.html" class="h-tab ireland active">Ireland</a>
+</div>
 </nav>
 
 
-<div class="container" style="padding-top: 20px;">
-<section id="souvenirs">
-  <div class="section-header">
-    <span class="section-icon">&#127873;</span>
-    <h2>Souvenirs Worth Buying</h2>
-  </div>
-
-  <div class="card-grid">
-    <div class="card scotland">
-      <h4>Tartan Scarves &amp; Blankets</h4>
-      <p>Iconic Scottish textile. Pick one in a clan pattern or a general tartan. Look for authentic wool, not polyester tourist-shop knockoffs.</p>
-    </div>
-    <div class="card scotland">
-      <h4>Harris Tweed</h4>
-      <p>Authentic hand-woven fabric from the Outer Hebrides. Available as scarves, bags, and accessories. It's the real deal.</p>
-    </div>
-    <div class="card scotland">
-      <h4>Shortbread Tins</h4>
-      <p>Beautiful decorative tins filled with buttery shortbread. Perfect gifts for family back home.</p>
-    </div>
-    <div class="card scotland">
-      <h4>Heathergems Jewelry</h4>
-      <p>Unique jewelry made from real heather plant stems set in sterling silver. Brooches, earrings, and pendants. Only made in Scotland.</p>
-    </div>
-    <div class="card scotland">
-      <h4>Highland Cow Plushies</h4>
-      <p>Adorable stuffed versions of Scotland's fluffy ginger cattle. Impossible to resist.</p>
-    </div>
-    <div class="card ireland">
-      <h4>Claddagh Ring</h4>
-      <p>Two hands holding a heart topped with a crown: friendship, love, and loyalty. Originated in the Claddagh village in Galway &mdash; the perfect place to buy one.</p>
-    </div>
-    <div class="card ireland">
-      <h4>Aran Sweater</h4>
-      <p>Traditional wool sweaters with intricate cable-knit patterns, each with a specific meaning. Best purchased on the Aran Islands themselves or in Galway.</p>
-    </div>
-    <div class="card ireland">
-      <h4>Connemara Marble</h4>
-      <p>Beautiful green marble unique to western Ireland. Available as jewelry, ornaments, and home goods.</p>
-    </div>
-    <div class="card ireland">
-      <h4>Barry's Tea &amp; Tayto Crisps</h4>
-      <p>The taste of Ireland in a bag. Cheap, lightweight, and everyone back home will love them.</p>
-    </div>
-    <div class="card ireland">
-      <h4>The Sweet Haul</h4>
-      <p>Tunnock's Tea Cakes &amp; Caramel Wafers, Walkers Shortbread, Edinburgh Rock, and Scottish Tablet from Scotland. Kimberley Biscuits and Tayto from Ireland. Your suitcase = a portable candy shop.</p>
-    </div>
+<div class="page-layout ireland">
+<div class="sidebar">
+  <a href="ireland-locations.html" class="v-tab">Locations</a>
+  <a href="ireland-food.html" class="v-tab active">Food & Drink</a>
+  <a href="ireland-phrases.html" class="v-tab">Phrases & Slang</a>
+  <a href="ireland-funfacts.html" class="v-tab">Fun Facts</a>
+  <a href="ireland-souvenirs.html" class="v-tab">Souvenirs</a>
+  <a href="ireland-jokes.html" class="v-tab">Jokes</a>
+  <a href="ireland-movies.html" class="v-tab">Movies & TV</a>
+</div>
+<div class="main-content">
+<section id="ireland-food">
+<div class="food-item">
+<div class="food-name">Irish Stew</div>
+<div class="food-desc">Hearty lamb, root vegetables, and potatoes slow-cooked into a warm hug in a bowl. The definitive comfort food.</div>
+</div><div class="food-item">
+<div class="food-name">Boxty</div>
+<div class="food-desc">Traditional Irish potato pancakes, served with everything from smoked salmon to stew. Try them at Gallagher's Boxty House in Temple Bar, Dublin.</div>
+</div><div class="food-item">
+<div class="food-name">Soda Bread</div>
+<div class="food-desc">Dense, slightly sweet buttermilk bread with golden raisins. No yeast — just baking soda. Served warm with Irish butter, it's heavenly.</div>
+</div><div class="food-item">
+<div class="food-name">Galway Oysters</div>
+<div class="food-desc">World-famous oysters from Clarinbridge, County Galway. Best enjoyed fresh with a squeeze of lemon (or paired with a pint of Guinness for the adventurous).</div>
+</div><div class="food-item">
+<div class="food-name">Seafood Chowder</div>
+<div class="food-desc">Creamy, chunky, and loaded with fresh local seafood. Especially incredible along the west coast in Galway.</div>
+</div><div class="food-item">
+<div class="food-name">Beef &amp; Guinness Pie</div>
+<div class="food-desc">Slow-cooked beef in a rich Guinness sauce under a golden pastry crust. Pub food perfection.</div>
+</div><div class="food-item">
+<div class="food-name">Full Irish Breakfast</div>
+<div class="food-desc">Eggs, bacon, sausage, black &amp; white pudding, beans, toast, grilled tomato. The fuel you need for a full day of adventuring.</div>
+</div><h4>Irish Sweets &amp; Treats</h4><div class="card-grid">
+<div class="card ireland">
+<h4>Murphy's Ice Cream</h4>
+<p>Unique Irish flavors like brown bread, sea salt, and Irish coffee. Shops in Dublin and Killarney.</p>
+</div>
+<div class="card ireland">
+<h4>Tayto Crisps</h4>
+<p>Ireland's beloved potato chips. Cheese &amp; Onion flavor is iconic. Grab a bag (or ten).</p>
+</div>
+<div class="card ireland">
+<h4>Barry's Tea</h4>
+<p>Ireland runs on tea, and Barry's is the gold standard. Pick up a box to bring the taste of Ireland home.</p>
+</div>
+<div class="card ireland">
+<h4>Queen of Tarts</h4>
+<p>A Dublin bakery institution for 25+ years. Everything baked on-site with local ingredients. Don't skip dessert here.</p>
+</div>
+</div><div class="tip-box green">
+<strong>Pub culture tip:</strong> Irish pubs aren't just for drinks — they're communal living rooms. Look for pubs with live traditional music (called "trad sessions"). Musicians often play together spontaneously. The Cobblestone in Dublin has sessions 7 nights a week. In Galway, try Tigh Coili's. Order food, sit back, and soak in the atmosphere.
   </div>
 </section>
 </div>
+</div>
 
 <footer>
-  <p>Scotland &amp; Ireland Trip Guide &mdash; July 7&ndash;23, 2026</p>
+  <p>Scotland & Ireland Trip Guide — July 7–23, 2026</p>
   <p style="margin-top: 8px; font-size: 0.85em;">Made with love for the pod</p>
 </footer>
 
